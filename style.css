@@ -1,0 +1,267 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* .borTes {
+    border: 2px solid red;
+} */
+
+body {
+    display: block;
+    background-color: rgb(255, 255, 255);
+    color: rgb(40, 40, 40);
+}
+
+.inset {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.containerBiru {
+    display: block;
+    background-color: #1A73E8;
+    /* width: 1728px; */
+    height: 28px;
+}
+
+.subKon {
+    display: block;
+    height: 28px;
+}
+
+.kontenKiri {
+    display: inline-block;
+    float: left;
+    line-height: normal;
+}
+
+.kontenKanan {
+    display: inline-block;
+    float: right;
+    line-height: normal;
+}
+
+.iconLokasi {
+    display: inline-block;
+    vertical-align: middle;
+    color: rgb(255, 255, 255);
+    width: 11px;
+    height: 11px;
+    margin-right: 5px;
+}
+
+.itemKanan {
+    display: inline-block;
+}
+
+.itemMenu {
+    display: inline-block;
+    padding: 10px;
+}
+
+.teksHeader {
+    display: inline-block;
+    vertical-align: middle;
+    color: rgb(255, 255, 255);
+    font-size: 11px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 20px;
+}
+
+.subKonNav {
+    display: block;
+    padding-top: 30px;
+}
+
+.B {
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background-color: #1A73E8;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    line-height: 32px;
+    vertical-align: middle;
+}
+
+.logoTeks {
+    display: inline-block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(40, 40, 40);
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.logoArea {
+    display: inline-block;
+    float: left;
+    height: 44px;
+    line-height: 44px;
+}
+
+.areaPencarian {
+    display: inline-block;
+    float: left;
+    margin-left: 30px;
+    padding-top: 5px;
+}
+
+.menuKanan {
+    display: inline-block;
+    line-height: 44px;
+    margin-left: 25px;
+}
+
+.inputCari {
+    width: 576px;
+    height: 38px;
+    padding: 0 15px;
+    border: 2px solid #F3F4F6;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    outline: none;
+    vertical-align: top;
+}
+
+.tombolcari {
+    width: 40px;
+    height: 35px;
+    background-color: #1A73E8;
+    border: 2px solid #1A73E8;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.iconCari {
+    color: rgb(255, 255, 255);
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: auto;
+    padding-top: 5px;
+}
+
+.menuItem {
+    display: inline-block;
+    margin-left: 5px;
+    color: rgb(80, 80, 80);
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.iconMenu {
+    width: 22px !important;
+    height: 22px !important;
+    vertical-align: middle;
+}
+
+.containerList {
+    display: block;
+    margin-top: 10px;
+    height: 60px;
+    margin: 0 auto;
+    width: 100%;
+    background-color: #ffffff;
+    text-align: center;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.Thet {
+    display: block;
+    border-collapse: collapse;
+    font-family: sans-serif;
+}
+
+.tabelMenu {
+    display: inline-table;
+    margin-right: 120px;
+}
+
+.bannerLuar {
+    display: block;
+    width: 100%;
+    height: 420px;
+    background-image: linear-gradient(to right,
+            rgba(30, 136, 229, 0.95) 0%,
+            rgba(106, 27, 154, 0.85) 45%,
+            rgba(106, 27, 154, 0.9) 75%,
+            rgba(106, 27, 154, 0.7) 100%), url('/asset/elektronik.png');
+
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.bennerDalam {
+    display: block;
+    height: auto;
+    background: linear-gradient(to right, rgba(30, 136, 229, 0.7), rgba(106, 27, 154, 0.9));
+    position: relative;
+    min-height: 450px;
+}
+
+.bannerTeksArea {
+    padding-top: 50px;
+    display: inline-block;
+    /* float: left; */
+    width: 50%;
+    /* max-width: 600px; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bannerGambarArea {
+    display: inline-block;
+    float: right;
+    width: 50%;
+    text-align: right;
+    z-index: -3;
+    /* height: 420px; */
+}
+
+.produkImg {
+    position: absolute;
+    right: 0;
+    top: 44%;
+    transform: translateY(-50%);
+    max-height: 420px;
+    width: auto;
+    opacity: 0.8;
+    margin-right: 220px;
+}
+
+.bannerJudul {
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    /* margin-bottom: 15px; */
+}
+
+.bannerSubJudul {
+    color: rgb(230, 230, 230);
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.bannerTombol {
+    display: inline-block;
+    background-color: #ffffff;
+    color: rgb(40, 40, 40);
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+}
