@@ -4,18 +4,20 @@
     box-sizing: border-box;
 }
 
-/* .borTes {
+.borTes {
     border: 2px solid red;
-} */
+}
 
 body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    overflow: hidden;
     display: block;
     background-color: rgb(255, 255, 255);
     color: rgb(40, 40, 40);
 }
 
 .inset {
-    max-width: 1280px;
+    width: 1280px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -23,7 +25,7 @@ body {
 .containerBiru {
     display: block;
     background-color: #1A73E8;
-    /* width: 1728px; */
+    width: 1730px;
     height: 28px;
 }
 
@@ -79,7 +81,8 @@ body {
 
 .subKonNav {
     display: block;
-    padding-top: 30px;
+    padding-top: 5px;
+    padding-left: 10px;
 }
 
 .B {
@@ -118,7 +121,7 @@ body {
     display: inline-block;
     float: left;
     margin-left: 30px;
-    padding-top: 5px;
+    padding-top: 4px;
 }
 
 .menuKanan {
@@ -131,7 +134,7 @@ body {
     width: 576px;
     height: 38px;
     padding: 0 15px;
-    border: 2px solid #F3F4F6;
+    border: 2px solid #dfe1e4;
     border-right: none;
     border-radius: 8px 0 0 8px;
     font-size: 14px;
@@ -142,7 +145,7 @@ body {
 
 .tombolcari {
     width: 40px;
-    height: 35px;
+    height: 38px;
     background-color: #1A73E8;
     border: 2px solid #1A73E8;
     border-radius: 0 8px 8px 0;
@@ -173,20 +176,11 @@ body {
 }
 
 .containerList {
-    display: block;
-    margin-top: 10px;
+    display: inline-block;
     height: 60px;
-    margin: 0 auto;
-    width: 100%;
-    background-color: #ffffff;
-    text-align: center;
-    border-bottom: 1px solid rgb(230, 230, 230);
-}
-
-.Thet {
-    display: block;
-    border-collapse: collapse;
-    font-family: sans-serif;
+    width: 1248px;
+    padding: 10px;
+    padding-left: 10px;
 }
 
 .tabelMenu {
@@ -194,12 +188,16 @@ body {
     margin-right: 132px;
 }
 
+.containBan {
+    width: 1730px;
+}
+
 .bannerLuarS {
     display: inline-block;
     width: 50%;
     float: left;
     height: 420px;
-    background-color: #4F39F6;
+    background-color: rgba(84, 23, 236, 0.75);
 }
 
 .bannerLuarD {
@@ -207,14 +205,14 @@ body {
     width: 50%;
     float: right;
     height: 420px;
-    background-image: linear-gradient(to right, rgba(106, 27, 154, 0.7) 75%), url('/asset/elektronik.png');
+    background-image: linear-gradient(to right, rgba(106, 27, 154, 0.7)), url('/asset/elektronik.png');
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
 }
 
 .bannerDalam {
-    margin-left: 205px;
+    margin-left: 220px;
     position: relative;
     height: 410px;
     width: 660px;
@@ -295,4 +293,95 @@ body {
     border-radius: 10px;
     cursor: pointer;
     margin-bottom: 40px;
+}
+
+/* .carousel-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+} */
+
+.dot {
+    width: 500px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 24px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+.kategoriLuar {
+    text-align: center;
+    Width: 1728px;
+    padding: 20px;
+}
+
+.kategori {
+    display: inline-block;
+    height: 205px;
+    padding-top: 20px;
+}
+
+.menuKatKiri {
+    display: inline-block;
+    float: left;
+    Width: 250px;
+    Height: 25px;
+}
+
+.menuKatKanan {
+    display: inline-block;
+    float: right;
+    width: 140px;
+    height: 25px;
+    color: #1A73E8;
+    cursor: pointer;
+}
+
+.listKat {
+    display: inline-block;
+    width: 1248px;
+    height: 155px;
+    border-radius: 10px;
+    padding-top: 6px;
+}
+
+.isi {
+    display: inline-block;
+    width: 198px;
+    height: 138px;
+    border: 2px solid #b3b1b1;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.gambarList {
+    display: block;
+    height: 56px;
+    width: 56px;
+    border-radius: 15px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.teksIsi1 {
+    display: block;
+    width: 56;
+    height: 16px;
+    margin: auto;
+    color: #111827;
+}
+
+.teksIsi2 {
+    display: block;
+    width: 56;
+    height: 16px;
+    margin: auto;
+    color: #6B7280;
 }
