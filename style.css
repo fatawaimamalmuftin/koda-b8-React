@@ -161,8 +161,8 @@ body {
 }
 
 .iconMenu {
-    width: 22px !important;
-    height: 22px !important;
+    width: 22px;
+    height: 22px;
     vertical-align: middle;
 }
 
@@ -188,74 +188,98 @@ body {
     margin-right: 120px;
 }
 
-.bannerLuar {
-    display: block;
-    width: 100%;
+.bannerLuarS {
+    display: inline-block;
+    width: 50%;
+    float: left;
     height: 420px;
-    background-image: linear-gradient(to right,
-            rgba(30, 136, 229, 0.95) 0%,
-            rgba(106, 27, 154, 0.85) 45%,
-            rgba(106, 27, 154, 0.9) 75%,
-            rgba(106, 27, 154, 0.7) 100%), url('/asset/elektronik.png');
+    background-color: #4F39F6;
+}
 
+.bannerLuarD {
+    display: inline-block;
+    width: 50%;
+    float: right;
+    height: 420px;
+    background-image: linear-gradient(to right, rgba(106, 27, 154, 0.7) 75%), url('/asset/elektronik.png');
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
 }
 
-.bennerDalam {
-    display: block;
-    height: auto;
-    background: linear-gradient(to right, rgba(30, 136, 229, 0.7), rgba(106, 27, 154, 0.9));
+.bannerDalam {
+    margin-left: 205px;
     position: relative;
-    min-height: 450px;
+    height: 410px;
+    width: 660px;
+    margin-top: 0;
 }
 
-.bannerTeksArea {
-    padding-top: 50px;
+.wrapKa {
     display: inline-block;
-    /* float: left; */
-    width: 50%;
-    /* max-width: 600px; */
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.bannerGambarArea {
-    display: inline-block;
+    width: 70px;
+    height: 100%;
+    padding-top: 85px;
     float: right;
-    width: 50%;
-    text-align: right;
-    z-index: -3;
-    /* height: 420px; */
 }
 
-.produkImg {
-    position: absolute;
-    right: 0;
-    top: 44%;
-    transform: translateY(-50%);
-    max-height: 420px;
-    width: auto;
-    opacity: 0.8;
-    margin-right: 220px;
+.wrapKi {
+    display: inline-block;
+    width: 70px;
+    height: 100%;
+    padding-top: 85px;
+    float: left;
+}
+
+.Pkanan {
+    border: 2px solid #FFFFFF33;
+    color: #FFFFFF;
+    display: inline-block;
+    border-radius: 200px;
+    width: 40px;
+    height: 40px;
+    margin-top: 73px;
+    text-align: center;
+    line-height: 50px;
+
+}
+
+.Pkiri {
+    border: 2px solid #FFFFFF33;
+    color: #FFFFFF;
+    display: inline-block;
+    border-radius: 200px;
+    width: 40px;
+    height: 40px;
+    margin-top: 80px;
+    margin-left: 25px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.GarBaw {
+    display: inline-block;
+    color: #FFFFFF;
+    float: right;
 }
 
 .bannerJudul {
+    margin-top: 60px;
     color: #ffffff;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
-    /* margin-bottom: 15px; */
 }
 
 .bannerSubJudul {
     color: rgb(230, 230, 230);
-    font-size: 20px;
+    font-size: 28px;
     line-height: 1.5;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .bannerTombol {
-    display: inline-block;
+    display: block;
     background-color: #ffffff;
     color: rgb(40, 40, 40);
     border: none;
@@ -264,4 +288,5 @@ body {
     font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
+    margin-bottom: 40px;
 }
