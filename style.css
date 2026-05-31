@@ -10,7 +10,7 @@
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
     display: block;
     background-color: rgb(255, 255, 255);
     color: rgb(40, 40, 40);
@@ -229,7 +229,7 @@ body {
 
 .wrapKi {
     display: inline-block;
-    width: 70px;
+    width: 100px;
     height: 100%;
     padding-top: 85px;
     float: left;
@@ -256,7 +256,7 @@ body {
     width: 40px;
     height: 40px;
     margin-top: 80px;
-    margin-left: 25px;
+    margin-left: 55px;
     text-align: center;
     line-height: 50px;
 }
@@ -333,6 +333,7 @@ body {
     float: left;
     Width: 250px;
     Height: 25px;
+    margin-left: 18px;
 }
 
 .menuKatKanan {
@@ -342,11 +343,13 @@ body {
     height: 25px;
     color: #1A73E8;
     cursor: pointer;
+    margin-right: 18px;
+    margin-bottom: 10px;
 }
 
 .listKat {
     display: inline-block;
-    width: 1248px;
+    width: 1265px;
     height: 155px;
     border-radius: 10px;
     padding-top: 6px;
@@ -359,6 +362,7 @@ body {
     border: 2px solid #b3b1b1;
     border-radius: 20px;
     padding: 10px;
+    margin: 3px;
 }
 
 .gambarList {
@@ -384,4 +388,129 @@ body {
     height: 16px;
     margin: auto;
     color: #6B7280;
+}
+
+.flashDeal {
+    padding-top: 20px;
+    display: inline-block;
+    height: 490px;
+}
+
+.menuDealKiri {
+    display: inline-block;
+    float: left;
+    Width: 130px;
+    Height: 30px;
+    border: 2px solid #DC2626;
+    color: #FFFFFF;
+    background-color: #DC2626;
+    border-radius: 10px;
+    padding: 3px;
+    margin-left: 18px;
+    margin-bottom: 10px;
+}
+
+.zap {
+    display: inline-block;
+    float: left;
+    margin-right: 2px;
+}
+
+.flasDealDalem {
+    display: inline-block;
+    width: 1248px;
+    height: 435px;
+    border-radius: 2px;
+    padding-top: 6px;
+    margin-right: 18px;
+}
+
+.flasDealDalemD {
+    display: inline-block;
+    width: 300px;
+    height: 420px;
+    border: 2px solid #b3b1b1;
+    border-radius: 12px;
+}
+
+.fotoDeal {
+    position: relative;
+    width: 298px;
+    height: 298px;
+    border-radius: 12px 12px 0 0;
+}
+
+.AbsFoto {
+    margin-top: 5px;
+    margin-left: 5px;
+    position: absolute;
+    width: 45px;
+    height: 24px;
+    color: #FFFFFF;
+    border: 2px solid #DC2626;
+    background-color: #DC2626;
+    border-radius: 20px;
+    padding: 3px;
+    font-size: 12px;
+    top: 1px;
+}
+
+.deskBarang {
+    display: inline-block;
+    width: 295px;
+    height: 115px;
+    padding: 4px;
+    border-radius: 0 0 12px 12px;
+}
+
+.desk1 {
+    display: inline-block;
+    text-align: left;
+    width: 274px;
+    height: 16px;
+    font-size: 10px;
+    color: #6B7280;
+}
+
+.desk2 {
+    margin-top: 2px;
+    display: inline-block;
+    text-align: left;
+    width: 274px;
+    height: 20px;
+    font-size: 15px;
+}
+
+.desk3 {
+    margin-top: 2px;
+    display: inline-block;
+    text-align: left;
+    width: 274px;
+    height: 25px;
+    font-size: 15px;
+    color: #6B7280;
+}
+
+.b5 {
+    display: inline-block;
+    color: #FFB200;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.desk4 {
+    margin-top: 2px;
+    display: inline-block;
+    text-align: left;
+    text-decoration: line-through;
+    width: 274px;
+    height: 28px;
+    font-size: 15px;
+    color: #6B7280;
+}
+
+.BL {
+    display: inline-block;
+    color: #1A73E8;
+    font-size: 20px;
 }
