@@ -393,7 +393,7 @@ body {
 .flashDeal {
     padding-top: 20px;
     display: inline-block;
-    height: 505px;
+    height: 520px;
 }
 
 .menuDealKiri {
@@ -415,7 +415,6 @@ body {
     width: 500px;
     height: 33px;
     float: left;
-    /* line-height: 33px; */
 }
 
 .TAK {
@@ -456,7 +455,7 @@ body {
 .flasDealDalem {
     display: inline-block;
     width: 1248px;
-    height: 435px;
+    height: 460px;
     border-radius: 2px;
     padding-top: 6px;
     margin-right: 18px;
@@ -486,6 +485,21 @@ body {
     color: #FFFFFF;
     border: 2px solid #DC2626;
     background-color: #DC2626;
+    border-radius: 20px;
+    padding: 3px;
+    font-size: 12px;
+    top: 1px;
+}
+
+.Absbaru {
+    margin-top: 5px;
+    margin-left: 5px;
+    position: absolute;
+    width: 45px;
+    height: 24px;
+    color: #FFFFFF;
+    border: 2px solid #1A73E8;
+    background-color: #1A73E8;
     border-radius: 20px;
     padding: 3px;
     font-size: 12px;
@@ -666,4 +680,29 @@ body {
     padding-bottom: 4px;
     padding-left: 12px;
     cursor: pointer;
+}
+
+.produkTerbaru {
+    height: 990px;
+}
+
+.angk2 {
+    position: relative;
+}
+
+.dgup {
+    position: absolute;
+    left: 25px;
+    color: #1A73E8;
+}
+
+.dgup2 {
+    position: absolute;
+    color: #111827;
+    width: 200px;
+    left: 25px;
+}
+
+.nobor {
+    border: none;
 }
