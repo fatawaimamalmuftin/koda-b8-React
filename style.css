@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 
-.borTes {
+/* .borTes {
     border: 2px solid red;
-}
+} */
 
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -324,7 +324,7 @@ body {
 
 .kategori {
     display: inline-block;
-    height: 205px;
+    height: 225px;
     padding-top: 20px;
 }
 
@@ -393,7 +393,7 @@ body {
 .flashDeal {
     padding-top: 20px;
     display: inline-block;
-    height: 490px;
+    height: 505px;
 }
 
 .menuDealKiri {
@@ -498,6 +498,13 @@ body {
     letter-spacing: 2px;
 }
 
+.nob5 {
+    display: inline-block;
+    color: #D1D5DC;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
 .desk4 {
     margin-top: 2px;
     display: inline-block;
@@ -513,4 +520,113 @@ body {
     display: inline-block;
     color: #1A73E8;
     font-size: 20px;
+}
+
+.angk {
+    position: relative;
+}
+
+.abs {
+    position: absolute;
+    left: 15px;
+}
+
+.bannerDuo {
+    width: 1270px;
+    padding-top: 20px;
+    display: inline-block;
+    height: 190px;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.bgolahraga {
+    display: inline-block;
+    width: 616px;
+    height: 176px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.70) 30%, rgba(30, 30, 30, 0.2)), url(/asset/olahragaBg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    filter: grayscale(100%);
+}
+
+.bgkopi {
+    display: inline-block;
+    width: 616px;
+    height: 176px;
+    background-image: linear-gradient(to right, rgba(0, 0, 255, 0.4) 30%, rgba(0, 0, 255, 0.1)), url(/asset/kopiBg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+.b2kat {
+    display: inline-block;
+    width: 616px;
+    height: 176px;
+    padding-top: 20px;
+    display: inline-block;
+    width: 616px;
+    height: 176px;
+}
+
+.ki {
+    float: left;
+}
+
+.ka {
+    float: right;
+}
+
+.textArea {
+    display: inline-block;
+    width: 190px;
+    height: 100px;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 5px;
+}
+
+.t1 {
+    font-weight: 400px;
+    color: #FFFFFFCC;
+    width: 101px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.t2 {
+    font-weight: 700px;
+    width: 152px;
+    height: 28px;
+    color: #FFFFFF;
+    font-style: bold;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    margin-bottom: 100px;
+}
+
+.btnt3 {
+    margin-top: 10px;
+}
+
+.t3 {
+    color: #FFFFFF;
+    width: 110px;
+    height: 30px;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+    padding-top: 4px;
+    padding-right: 12px;
+    padding-bottom: 4px;
+    padding-left: 12px;
+    cursor: pointer;
 }
