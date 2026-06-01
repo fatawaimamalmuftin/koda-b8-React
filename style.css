@@ -13,9 +13,9 @@ body {
     overflow-x: hidden;
 }
 
-/* .borTes {
+.borTes {
     border: 2px solid red;
-} */
+}
 
 .inset {
     width: 1280px;
@@ -389,7 +389,7 @@ body {
 
 .kategoriLuar {
     text-align: center;
-    Width: 1728px;
+    Width: 1735px;
     padding: 10px;
     margin-top: 15px;
 }
@@ -814,6 +814,86 @@ body {
 
 .Ktinggi {
     height: 430px;
+}
+
+.why {
+    margin-top: 25px;
+    display: inline-block;
+    height: 280px;
+    width: 1280px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.Taxt1 {
+    display: inline-block;
+    width: 1182px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin-top: 15px;
+}
+
+.TD {
+    display: inline-block;
+    height: 30px;
+    width: 350px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500px;
+    font-style: medium;
+    letter-spacing: 0%;
+    font-size: 20px;
+    color: #111827;
+}
+
+.Taxt2 {
+    display: inline-block;
+    margin-top: 35px;
+    width: 1182px;
+    height: 135px;
+    padding: 10px;
+}
+
+.TF {
+    display: inline-block;
+    width: 277px;
+    height: 115px;
+}
+
+.iconWhy {
+    margin-top: 2px;
+    width: 274px;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.iconWhy2 {
+    display: inline-block;
+    width: 274px;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    color: #111827;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400px;
+    font-style: middle;
+    letter-spacing: 0%;
+}
+
+.iconWhy3 {
+    display: inline-block;
+    height: 44px;
+    width: 274px;
+    font-size: 12px;
+    letter-spacing: 0%;
+    vertical-align: middle;
+    font-weight: 400px;
+    color: #6B7280;
+    line-height: 19px;
 }
 
 .footer {
