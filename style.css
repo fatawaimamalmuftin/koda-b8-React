@@ -189,7 +189,7 @@ body {
 }
 
 .containBan {
-    width: 1730px;
+    width: 1735px;
 }
 
 .bannerLuarS {
@@ -319,13 +319,13 @@ body {
 .kategoriLuar {
     text-align: center;
     Width: 1728px;
-    padding: 20px;
+    padding: 10px;
+    margin-top: 430px;
 }
 
 .kategori {
     display: inline-block;
     height: 225px;
-    padding-top: 20px;
 }
 
 .menuKatKiri {
@@ -393,7 +393,7 @@ body {
 .flashDeal {
     padding-top: 20px;
     display: inline-block;
-    height: 520px;
+    height: 490px;
 }
 
 .menuDealKiri {
@@ -464,7 +464,6 @@ body {
 .flasDealDalemD {
     display: inline-block;
     width: 300px;
-    height: 420px;
     border: 2px solid #b3b1b1;
     border-radius: 12px;
 }
@@ -683,7 +682,13 @@ body {
 }
 
 .produkTerbaru {
-    height: 990px;
+    height: 920px;
+    margin-top: 15px;
+}
+
+.produkFlas {
+    height: 490px;
+    margin-top: 15px;
 }
 
 .angk2 {
@@ -705,4 +710,37 @@ body {
 
 .nobor {
     border: none;
+}
+
+.KT {}
+
+.TprodukUnggulan {
+    height: 920px;
+    margin-top: 15px;
+}
+
+.angk3 {
+    position: relative;
+    display: inline-block;
+    padding: 1px;
+    width: 200px;
+    height: 35px;
+}
+
+.AreaText {
+    position: absolute;
+    color: #111827;
+    width: 180px;
+    height: 30px;
+    left: 15px;
+    font-weight: 500px;
+    vertical-align: middle;
+    letter-spacing: 0%;
+    line-height: 30px;
+    font-style: medium;
+    font-size: 20px;
+}
+
+.Ktinggi {
+    height: 430px;
 }
