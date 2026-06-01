@@ -13,9 +13,9 @@ body {
     overflow-x: hidden;
 }
 
-.borTes {
+/* .borTes {
     border: 2px solid red;
-}
+} */
 
 .inset {
     width: 1280px;
@@ -25,7 +25,7 @@ body {
 
 .containerBiru {
     display: block;
-    background-color: #1A73E8;
+    background-color: #4F39F6;
     width: 1735px;
     height: 28px;
     padding-top: 0px;
@@ -168,8 +168,8 @@ body {
 }
 
 .tombolcari {
-    width: 40px;
-    height: 38px;
+    width: 48px;
+    height: 42px;
     background-color: #1A73E8;
     border: 2px solid #1A73E8;
     border-radius: 0 8px 8px 0;
@@ -188,10 +188,11 @@ body {
 .menuKanan {
     display: inline-block;
     height: 45px;
-    width: 260px;
+    width: 270px;
     line-height: 44px;
     float: left;
     vertical-align: center;
+    margin-top: 5px;
 }
 
 .iconMenu {
@@ -205,6 +206,17 @@ body {
     width: 40px;
     height: 40px;
     margin-left: 5px;
+    color: rgb(80, 80, 80);
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.but {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    margin-left: -10px;
     color: rgb(80, 80, 80);
     vertical-align: middle;
     cursor: pointer;
@@ -228,51 +240,90 @@ body {
 }
 
 .containBan {
-    text-align: center;
-    Width: 1728px;
-    padding: 10px;
-    margin-top: 430px;
+    display: inline-block;
+    Width: 1735px;
+    height: 420px;
 }
 
 .bannerLuarS {
     display: inline-block;
     width: 50%;
     float: left;
-    height: 420px;
-    background-color: rgba(84, 23, 236, 0.75);
-}
-
-.wrapKi {
-    display: inline-block;
-    width: 100px;
     height: 100%;
-    padding-top: 85px;
-    float: left;
+    background-color: #4F39F6;
+    position: relative;
 }
 
 .Pkiri {
+    position: absolute;
+    left: 65px;
+    top: 50%;
+    transform: translateY(-50%);
     border: 2px solid #FFFFFF33;
     color: #FFFFFF;
-    display: inline-block;
-    border-radius: 200px;
+    border-radius: 50%;
     width: 40px;
     height: 40px;
-    margin-top: 80px;
-    margin-left: 55px;
     text-align: center;
-    line-height: 50px;
+    line-height: 60px;
+    position: relative;
+}
+
+.ICPkiri {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.bannerLuarD {
+    display: inline-block;
+    width: 50%;
+    float: right;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(130, 0, 219, 0.60)), url('/asset/elektronik.png');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.Pkanan {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 2px solid #FFFFFF33;
+    color: #FFFFFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.ICPkanan {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    position: relative;
+    top: -3px;
+    right: -1px;
+    cursor: pointer;
 }
 
 .bannerDalam {
-    margin-left: 220px;
-    position: relative;
-    height: 410px;
-    width: 660px;
-    margin-top: 0;
+    position: absolute;
+    height: 310px;
+    width: 620px;
+    right: 1px;
+    top: 1px;
 }
 
 .bannerJudul {
-    margin-top: 60px;
     color: #ffffff;
     font-size: 50px;
     font-weight: bold;
@@ -280,7 +331,7 @@ body {
 
 .bannerSubJudul {
     color: rgb(230, 230, 230);
-    font-size: 28px;
+    font-size: 25px;
     line-height: 1.5;
     margin-top: 20px;
     margin-bottom: 10px;
@@ -288,60 +339,59 @@ body {
 
 .bannerTombol {
     display: block;
+    width: 163px;
+    height: 48px;
     background-color: #ffffff;
-    color: rgb(40, 40, 40);
+    color: #1A73E8;
     border: none;
-    padding: 12px 24px;
+    padding-left: 16px;
+    padding-right: 16px;
     font-size: 14px;
-    font-weight: bold;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-bottom: 40px;
+    border-radius: 12px;
 }
 
 .GarBaw {
+    position: absolute;
+    right: -35px;
+    bottom: 2px;
+    z-index: 10;
     display: inline-block;
     color: #FFFFFF;
     float: right;
+    cursor: pointer;
 }
 
-.bannerLuarD {
-    display: inline-block;
-    width: 50%;
-    float: right;
-    height: 420px;
-    background-image: linear-gradient(to right, rgba(106, 27, 154, 0.7)), url('/asset/elektronik.png');
-    background-size: cover;
-    background-position: right;
-    background-repeat: no-repeat;
-}
-
-.wrapKa {
-    display: inline-block;
-    width: 70px;
-    height: 100%;
-    padding-top: 85px;
-    float: right;
-}
-
-.Pkanan {
-    border: 2px solid #FFFFFF33;
-    color: #FFFFFF;
-    display: inline-block;
-    border-radius: 200px;
-    width: 40px;
-    height: 40px;
-    margin-top: 73px;
+.indikator {
     text-align: center;
-    line-height: 50px;
+}
 
+.titik {
+    display: inline-block;
+    vertical-align: middle;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ffffff55;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.tengah {
+    display: inline-block;
+    vertical-align: middle;
+    width: 24px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: #ffffff;
+    margin: 0 4px;
+    cursor: pointer;
 }
 
 .kategoriLuar {
     text-align: center;
     Width: 1728px;
     padding: 10px;
-    margin-top: 430px;
+    margin-top: 15px;
 }
 
 .kategori {
