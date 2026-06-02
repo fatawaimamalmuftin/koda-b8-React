@@ -13,9 +13,9 @@ body {
     overflow-x: hidden;
 }
 
-.borTes {
+/* .borTes {
     border: 2px solid red;
-}
+} */
 
 .inset {
     width: 1280px;
@@ -897,8 +897,107 @@ body {
 }
 
 .footer {
-    margin-top: 20px;
-    display: inline-block;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
     width: 1735px;
-    height: 556px;
+    flex-direction: column;
+    background-color: #111827;
+    border: 1px solid #6B7280;
+    box-sizing: border-box;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #364153;
+    gap: 100px;
+    padding: 2px 0;
+    max-width: 1280px;
+}
+
+.col-top {
+    display: flex;
+    gap: 5px;
+    justify-content: start;
+    align-items: center;
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #1A73E833;
+    background-color: #1A73E833;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1A73E8;
+}
+
+.fitur {
+    display: flex;
+}
+
+.fitur-text {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.footer-main {
+    max-width: 1280px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.icon-main {
+    display: flex;
+    gap: 20px;
+    justify-content: start;
+    align-items: center;
+}
+
+.icon-B {
+    color: #FFFFFF;
+    background-color: #1A73E8;
+    border-radius: 8px;
+    height: 42px;
+    width: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-main-footer {
+    display: flex;
+    align-items: center;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: #99A1AF;
+    font-size: 15px;
+    font-weight: 400px;
+    gap: 15px;
+    padding: 20px;
+}
+
+.footer-bottom {
+    width: 1280px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #364153;
+    color: #6A7282;
+    align-items: center;
+}
+
+.footer-link {
+    display: flex;
+    gap: 10px;
 }
