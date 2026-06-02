@@ -13,9 +13,9 @@ body {
     overflow-x: hidden;
 }
 
-/* .borTes {
+.borTes {
     border: 2px solid red;
-} */
+}
 
 .inset {
     width: 1280px;
@@ -293,7 +293,7 @@ body {
 
 .Pkanan {
     position: absolute;
-    right: 20px;
+    right: 95px;
     top: 50%;
     transform: translateY(-50%);
     border: 2px solid #FFFFFF33;
