@@ -13,10 +13,10 @@ body {
     overflow-x: hidden;
 }
 
-/* .borTes {
+.borTes {
     border: 2px solid red;
     box-sizing: border-box;
-} */
+}
 
 .inset {
     width: 1280px;
