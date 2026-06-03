@@ -13,10 +13,10 @@ body {
     overflow-x: hidden;
 }
 
-.borTes {
+/* .borTes {
     border: 2px solid red;
     box-sizing: border-box;
-}
+} */
 
 .inset {
     width: 1280px;
@@ -1009,4 +1009,44 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.display-main {
+    display: flex;
+    gap: 15px;
+}
+
+.display-rating {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkmark {
+    height: 18px;
+    width: 18px;
+    border: 2px solid #a3aab5;
+    border-radius: 50%;
+    margin-right: 12px;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.brows-produk {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 350px;
+    width: 230px;
+    border: 2px solid #b3b1b1;
+    border-radius: 12px;
+}
+
+.foto-produk {
+    position: relative;
+    height: 228px;
+    width: 228px;
+    border-radius: 12px 12px 0 0;
 }
