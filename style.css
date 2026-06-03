@@ -1106,3 +1106,51 @@ body {
     width: 298px;
     border-radius: 12px 12px 0 0;
 }
+
+.main-cart {
+    display: flex;
+    justify-content: space-between;
+    width: 1248px;
+    height: 309px;
+    gap: 32px;
+}
+
+.main-sisi-kiri {
+    display: flex;
+    flex-direction: column;
+    width: 822px;
+    height: 308px;
+    gap: 16px;
+}
+
+.card-kiri {
+    display: flex;
+    width: 822px;
+    height: 145px;
+    border: 1px solid #47404075;
+    border-radius: 16px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    gap: 28px;
+}
+
+.main-sisi-kanan {
+    display: flex;
+    flex-direction: column;
+    width: 395px;
+    height: 308px;
+    gap: 3px;
+}
+
+.card-kanan {
+    display: flex;
+    flex-direction: column;
+    width: 395px;
+    height: 309px;
+    border: 1px solid #47404075;
+    border-radius: 16px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    gap: 16px;
+
+}
