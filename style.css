@@ -13,6 +13,7 @@ body {
     overflow-x: hidden;
 }
 
+
 /* .borTes {
     border: 2px solid red;
     box-sizing: border-box;
@@ -1048,5 +1049,60 @@ body {
     position: relative;
     height: 228px;
     width: 228px;
+    border-radius: 12px 12px 0 0;
+}
+
+.main-top {
+    display: flex;
+    justify-content: start;
+    height: 20px;
+    width: 1248px;
+    gap: 4px;
+}
+
+.main-mid {
+    display: flex;
+    justify-content: space-between;
+    width: 1248px;
+    height: 684px;
+}
+
+.isi-main-mid {
+    display: flex;
+    flex-direction: column;
+    height: 684px;
+    width: 604px;
+    gap: 12px;
+}
+
+.main-semibot {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    width: 1248px;
+    height: 131px;
+}
+
+.main-bottom {
+    display: flex;
+    flex-direction: column;
+    height: 474px;
+    width: 1248px;
+}
+
+.detail-produk {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 420px;
+    width: 300px;
+    border: 2px solid #b3b1b1;
+    border-radius: 12px;
+}
+
+.foto-detail {
+    position: relative;
+    height: 298px;
+    width: 298px;
     border-radius: 12px 12px 0 0;
 }
