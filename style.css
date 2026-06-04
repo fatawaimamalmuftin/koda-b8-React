@@ -26,48 +26,35 @@ body {
 }
 
 .containerBiru {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #4F39F6;
     width: 1735px;
     height: 28px;
-    padding-top: 5px;
-    padding-right: 224px;
-    padding-bottom: 6px;
-    padding-left: 224px;
-    vertical-align: center;
+    padding: 5px 224px 6px;
 }
 
 .kontenKiri {
-    display: inline-block;
-    width: 187px;
-    height: 21px;
-    font-weight: 400px;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0%;
-    vertical-align: center;
-    float: left;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.headerKanan {
+    display: flex;
+    gap: 24px;
 }
 
 .iconLokasi {
-    display: inline-block;
-    vertical-align: middle;
-    color: rgb(255, 255, 255);
     width: 18px;
     height: 18px;
-    margin-right: 5px;
-    float: left;
+    color: #FFFFFF;
 }
 
 .teksHeader {
-    display: inline-block;
-    width: 160px;
-    height: 20px;
-    color: rgb(255, 255, 255);
+    color: #FFFFFF;
     font-size: 12px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    float: left;
 }
 
 .kontenKanan {
@@ -84,39 +71,34 @@ body {
 }
 
 .itemKanan {
-    display: inline-block;
-    width: 240px;
-    height: 20px;
+    color: #FFFFFF;
     font-size: 12px;
-    color: rgb(255, 255, 255);
 }
 
 .navUtama {
     position: sticky;
-    background-color: rgba(255, 255, 255, 0.8);
     top: 0;
-    display: inline-block;
+    z-index: 9999;
     width: 1735px;
     height: 134px;
-    text-align: center;
-    z-index: 9999;
+    background-color: rgba(255, 255, 255, .8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .subKonNav {
-    display: inline-block;
-    height: 64px;
     width: 1250px;
-    vertical-align: center;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logoArea {
-    display: inline-block;
-    float: left;
-    width: 150px;
-    height: 35px;
-    margin-top: 5px;
-    text-align: center;
-    vertical-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .B {
@@ -149,11 +131,9 @@ body {
 }
 
 .areaPencarian {
-    display: inline-block;
     width: 640px;
-    height: 50px;
-    float: left;
-    padding-top: 4px;
+    display: flex;
+    align-items: center;
 }
 
 .inputCari {
@@ -163,17 +143,14 @@ body {
     border: 2px solid #F3F4F6;
     border-right: none;
     border-radius: 10px 0 0 10px;
-    font-size: 14px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     outline: none;
-    vertical-align: top;
 }
 
 .tombolcari {
     width: 48px;
     height: 42px;
+    border: none;
     background-color: #1A73E8;
-    border: 2px solid #1A73E8;
     border-radius: 0 8px 8px 0;
     cursor: pointer;
 }
@@ -188,13 +165,9 @@ body {
 }
 
 .menuKanan {
-    display: inline-block;
-    height: 45px;
-    width: 270px;
-    line-height: 44px;
-    float: left;
-    vertical-align: center;
-    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .iconMenu {
@@ -204,41 +177,45 @@ body {
 }
 
 .menuItem {
-    display: inline-block;
     width: 40px;
     height: 40px;
-    margin-left: 5px;
-    color: rgb(80, 80, 80);
-    vertical-align: middle;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
 
 .but {
-    display: inline-block;
-    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 40px;
-    text-align: center;
-    margin-left: -10px;
-    color: rgb(80, 80, 80);
-    vertical-align: middle;
+    color: #505050;
     cursor: pointer;
 }
 
 .containerList {
-    display: inline-block;
-    height: 55px;
     width: 1248px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .itemMenu {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     padding: 10px;
+    cursor: pointer;
 }
 
 .listIcon {
-    display: inline-block;
-    height: 14px;
     width: 14px;
+    height: 14px;
+}
+
+.promo {
+    color: red;
 }
 
 .containBan {
