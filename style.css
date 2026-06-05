@@ -1173,3 +1173,332 @@ body {
     align-items: center;
     vertical-align: middle;
 }
+
+.halamanLogin {
+    display: flex;
+    max-width: 100%;
+    min-height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.loginKiri {
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    background-image:
+        linear-gradient(rgba(26, 115, 232, .75),
+            rgba(79, 57, 246, .75)),
+        url('/asset/ceweBgLogin.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #FFFFFF;
+}
+
+.loginKiriRegis {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    background-image:
+        linear-gradient(rgba(26, 115, 232, .75),
+            rgba(79, 57, 246, .85)),
+        url('/asset/tasBgRegis.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    color: #FFFFFF;
+}
+
+.loginKiriLupa {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px;
+    background-image:
+        linear-gradient(rgba(26, 115, 232, .75),
+            rgba(79, 57, 246, .85)),
+        url('/asset/kopiBg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #FFFFFF;
+}
+
+.logoLogin {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logoTeks {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.B {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, .2);
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.heroLogin {
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.judulHero {
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+.judulHeroKecil {
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+.deskHero {
+    line-height: 1.8;
+    opacity: .9;
+}
+
+.statistikHero {
+    display: flex;
+    gap: 30px;
+}
+
+.itemStat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.itemStat h3 {
+    font-size: 24px;
+}
+
+.itemStat span {
+    font-size: 12px;
+}
+
+.listBenefit {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.itemBenefit {
+    font-size: 14px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.iconKeamanan {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .15);
+    font-size: 28px;
+}
+
+.listKeamanan {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.itemKeamanan {
+    font-size: 14px;
+}
+
+.copyrightLogin {
+    font-size: 12px;
+    opacity: .8;
+}
+
+.loginKanan {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #FFFFFF;
+}
+
+.cardLogin {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.kembaliLogin {
+    text-decoration: none;
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.headerLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.headerLogin h2 {
+    font-size: 32px;
+    color: #111827;
+}
+
+.headerLogin p {
+    color: #6B7280;
+    line-height: 1.8;
+}
+
+.headerLogin a {
+    color: #1A73E8;
+    text-decoration: none;
+}
+
+.sosialLogin {
+    display: flex;
+    gap: 12px;
+}
+
+.btnSosial {
+    width: 50%;
+    height: 48px;
+    border: 1px solid #D1D5DB;
+    border-radius: 12px;
+    background: #FFFFFF;
+    cursor: pointer;
+}
+
+.pemisahLogin {
+    text-align: center;
+    color: #6B7280;
+    font-size: 13px;
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.grupInput {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.grupInput label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.grupInput input {
+    height: 50px;
+    border: 1px solid #D1D5DB;
+    border-radius: 12px;
+    padding: 0 16px;
+    outline: none;
+}
+
+.labelPassword {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.labelPassword a {
+    color: #1A73E8;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.opsiLogin {
+    color: #6B7280;
+    font-size: 14px;
+}
+
+.btnMasuk {
+    height: 52px;
+    border: none;
+    border-radius: 12px;
+    background: #1A73E8;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btnDaftar {
+    height: 52px;
+    border: none;
+    border-radius: 12px;
+    background: #F97316;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btnMasuk:hover,
+.btnDaftar:hover {
+    opacity: .9;
+}
+
+.keamananLogin {
+    text-align: center;
+    color: #6B7280;
+    font-size: 13px;
+}
+
+.syaratLogin {
+    text-align: center;
+    color: #6B7280;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.syaratLogin a {
+    color: #1A73E8;
+    text-decoration: none;
+}
+
+.cardTips {
+    padding: 20px;
+    border-radius: 12px;
+    background: #F3F4F6;
+}
+
+.cardTips h4 {
+    margin-bottom: 12px;
+}
+
+.cardTips ul {
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #6B7280;
+    font-size: 13px;
+}
