@@ -121,7 +121,7 @@ body {
     display: inline-block;
     width: 88px;
     height: 24px;
-    color: #111827;
+    color: #FFFFFF;
     font-weight: 400px;
     font-size: 16px;
     letter-spacing: 0%;
@@ -1440,6 +1440,9 @@ body {
 }
 
 .btnMasuk {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 52px;
     border: none;
     border-radius: 12px;
@@ -1448,6 +1451,7 @@ body {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    gap: 8px;
 }
 
 .btnDaftar {
@@ -1501,4 +1505,15 @@ body {
     gap: 8px;
     color: #6B7280;
     font-size: 13px;
+}
+
+.iconcheckbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    background-color: #FFFFFF33;
+    color: #FFFFFF;
+    border-radius: 20px;
 }
