@@ -19,10 +19,10 @@ body {
 }
 
 
-/* .borTes {
+.borTes {
     border: 2px solid red;
     box-sizing: border-box;
-} */
+}
 
 .inset {
     width: 1280px;
@@ -1907,8 +1907,28 @@ body {
     border-radius: 12px;
     color: #6B7280;
     background-color: #DBEAFE;
-    max-height: 42px;
+    max-height: 52px;
     font-size: 12px;
     flex: 1;
     margin-top: 15px;
+}
+
+.btn-submit-CO3 {
+    display: block;
+    width: 80%;
+    background-color: #F97316;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+    transition: background-color 0, 3s ease;
+}
+
+.btn-submit-CO3:hover {
+    background: #22C55E;
 }
