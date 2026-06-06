@@ -19,10 +19,10 @@ body {
 }
 
 
-.borTes {
+/* .borTes {
     border: 2px solid red;
     box-sizing: border-box;
-}
+} */
 
 .inset {
     width: 1280px;
@@ -1931,4 +1931,50 @@ body {
 
 .btn-submit-CO3:hover {
     background: #22C55E;
+}
+
+.main-bottom-Checkout-CO3-kiri {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-height: 1000px;
+    width: 685px;
+    border: 2px solid #0000001A;
+    color: #111827;
+    border-radius: 16px;
+    padding: 25px;
+}
+
+.text-CO3-head {
+    display: flex;
+    justify-content: start;
+    font-size: 14px;
+    font-weight: 500px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #111827;
+}
+
+.text-CO3-isi {
+    display: flex;
+    justify-content: start;
+    font-size: 14px;
+    font-weight: 400px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #6B7280;
+}
+
+.text-CO3-grid {
+    display: grid;
+    grid-template-columns: 10% 75% 15%;
+}
+
+.ukuran-img-kecil {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    max-width: 48px;
+    max-height: 48px;
+    border-radius: 12px;
 }
