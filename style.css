@@ -1978,3 +1978,273 @@ body {
     max-height: 48px;
     border-radius: 12px;
 }
+
+.main-sukses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 16px;
+    width: 1735px;
+    background-color: #F3F4F6;
+}
+
+.card-sukses {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 672px;
+    background-color: #FFFFFF;
+    border: 2px solid #0000001A;
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.icon-sukses-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    background-color: #DCFCE7;
+    border-radius: 50%;
+}
+
+.icon-sukses {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    background-color: #22C55E;
+    border-radius: 50%;
+}
+
+.icon-sukses-check {
+    width: 28px;
+    height: 28px;
+    color: #FFFFFF;
+}
+
+.judul-sukses {
+    font-size: 22px;
+    color: #111827;
+    text-align: center;
+}
+
+.sub-sukses {
+    font-size: 14px;
+    color: #6B7280;
+    text-align: center;
+}
+
+.info-pesanan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: 2px solid #0000001A;
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+.info-kiri {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-kanan {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.label-info {
+    font-size: 12px;
+    color: #6B7280;
+}
+
+.nomor-pesanan {
+    font-size: 14px;
+    color: #1A73E8;
+    font-weight: 600;
+}
+
+.total-info {
+    font-size: 14px;
+    color: #111827;
+    font-weight: 600;
+}
+
+.detail-pengiriman {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    border: 2px solid #0000001A;
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+.item-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.icon-detail {
+    width: 18px;
+    height: 18px;
+    color: #1A73E8;
+    margin-top: 2px;
+}
+
+.teks-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nama-detail {
+    font-size: 14px;
+    color: #111827;
+    font-weight: 600;
+}
+
+.sub-detail {
+    font-size: 12px;
+    color: #6B7280;
+}
+
+.status-pesanan {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    border: 2px solid #0000001A;
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+.judul-status {
+    font-size: 16px;
+    color: #111827;
+    font-weight: 600;
+}
+
+.item-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-status-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    background-color: #F3F4F6;
+    border-radius: 50%;
+}
+
+.icon-status {
+    width: 18px;
+    height: 18px;
+    color: #6B7280;
+}
+
+.item-status.aktif .icon-status-wrap {
+    background-color: #DCFCE7;
+}
+
+.item-status.aktif .icon-status {
+    color: #22C55E;
+}
+
+.teks-status {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.nama-status {
+    font-size: 14px;
+    color: #111827;
+}
+
+.sub-status {
+    font-size: 12px;
+    color: #6B7280;
+}
+
+.ceklis-status {
+    width: 16px;
+    height: 16px;
+    color: #22C55E;
+}
+
+.tombol-sukses {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.btn-lacak {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #1A73E8;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-lacak:hover {
+    background-color: #22C55E;
+}
+
+.icon-btn-lacak {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-riwayat {
+    background-color: #FFFFFF;
+    color: #111827;
+    border: 2px solid #0000001A;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-riwayat:hover {
+    background-color: #F3F4F6;
+}
+
+.btn-lanjut {
+    background-color: #FFFFFF;
+    color: #1A73E8;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.btn-lanjut:hover {
+    color: #22C55E;
+}
+
+input:focus {
+    border: 2px solid #1A73E8;
+    background-color: #FFFFFF;
+    outline: none;
+}
