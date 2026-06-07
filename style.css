@@ -2270,7 +2270,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid #7f828767;
+    border: 1px solid #a9adb7a2;
     font-size: 14px;
     color: #111827;
     border-radius: 16px;
@@ -2374,4 +2374,105 @@ body {
 .profilExit {
     color: #DC2626;
     background-color: #EFF6FF;
+}
+
+.text-profil-kanan-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #0000001A;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.text-dalam-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #111827;
+    gap: 12px;
+}
+
+.icon-text-kanan {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5E7EB;
+    border-radius: 24px;
+    gap: 6px;
+    padding: 4px 12px;
+    color: #00A63E;
+    font-size: 12px;
+}
+
+.img-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+}
+
+.img-text-profil {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-right: auto;
+    color: #6B7280;
+}
+
+h4 {
+    color: #111827;
+}
+
+.text-dalam2 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.btn-KE3-profil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #6B7280;
+    color: #6B7280;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: backgroun-color 0, 3s ease;
+}
+
+.lacak {
+    color: #1A73E8;
+    border-color: #1A73E8;
+}
+
+.bintang {
+    background-color: #F97316;
+    color: #FFFFFF;
+    border: none;
+}
+
+.bintang:hover {
+    background-color: #FFFFFF;
+    border: 2px solid #1A73E8;
+    color: #1A73E8;
+}
+
+.beliLagi:hover {
+    background-color: #22C55E;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+.lacak:hover {
+    background-color: #22C55E;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
 }
