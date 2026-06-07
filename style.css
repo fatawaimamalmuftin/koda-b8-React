@@ -19,10 +19,10 @@ body {
 }
 
 
-.borTes {
+/* .borTes {
     border: 2px solid red;
     box-sizing: border-box;
-}
+} */
 
 .inset {
     width: 1280px;
@@ -1760,7 +1760,8 @@ body {
 
 .pilih-info {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .kurir-name {
@@ -2243,19 +2244,12 @@ body {
     color: #22C55E;
 }
 
-input:focus {
-    border: 2px solid #1A73E8;
-    background-color: #FFFFFF;
-    outline: none;
-}
-
 .container-profil {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    width: 1120px;
-    max-height: 530px;
-    column-gap: 32px;
-    row-gap: 32px;
+    width: 1140px;
+    height: 550px;
+    gap: 8px;
 }
 
 .container-kiri-profil {
@@ -2267,10 +2261,8 @@ input:focus {
 
 .konten-kiri-profil {
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    width: 256px;
-    max-height: 530px;
-    gap: 16px;
+    grid-template-rows: 40% 60%;
+    gap: 10px;
 }
 
 .head-profil {
@@ -2278,9 +2270,6 @@ input:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 256px;
-    height: 211px;
-    padding: 20px;
     border: 2px solid #7f828767;
     font-size: 14px;
     color: #111827;
@@ -2298,8 +2287,8 @@ input:focus {
     font-weight: 700px;
     line-height: 28px;
     letter-spacing: 0%;
-    width: 64px;
-    height: 64px;
+    width: 54px;
+    height: 54px;
     margin-bottom: 15px;
 }
 
@@ -2320,8 +2309,69 @@ input:focus {
 
 .container-kanan-profil {
     display: flex;
-    column-span: 3fr;
-    width: 832px;
-    max-height: 520px;
-    gap: 16px;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: 100%;
+    gap: 5px;
+    grid-column: span 3;
+    grid-template-columns: 5% 45% 50%;
+}
+
+.pilih-profil-bawah {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid #a9adb7a2;
+    border-radius: 16px;
+    padding: 8px;
+    height: 100%;
+}
+
+.menu-item {
+    display: block;
+    cursor: pointer;
+}
+
+.menu-content {
+    display: flex;
+    align-items: center;
+    padding: 3px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #666666;
+    font-weight: 500;
+    font-size: 18px;
+    transition: all 0.2s ease;
+}
+
+.icon-profil {
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    height: 16px;
+    width: 16px;
+}
+
+.icon-exit {
+    margin-right: 10px;
+}
+
+.arrow {
+    margin-left: auto;
+    color: #aaaaaa;
+}
+
+.menu-content:has(.profilinput:checked) {
+    color: #1A73E8;
+    background-color: #EFF6FF;
+}
+
+.menu-content:hover .arrow {
+    color: #1A73E8;
+}
+
+.menu-content:hover .icon-exit,
+.profilExit {
+    color: #DC2626;
+    background-color: #EFF6FF;
 }
