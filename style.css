@@ -18,8 +18,8 @@ body {
     align-items: center;
 }
 
-
-/* .borTes {
+/* 
+.borTes {
     border: 2px solid red;
     box-sizing: border-box;
 } */
@@ -2475,4 +2475,14 @@ h4 {
     background-color: #22C55E;
     color: #FFFFFF;
     border-color: #FFFFFF;
+}
+
+.container-kanan-profil-step2 {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    max-height: 100%;
+    gap: 5px;
+    grid-column: span 3;
+    grid-template-columns: 5% 45% 50%;
 }
