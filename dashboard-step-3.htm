@@ -152,7 +152,7 @@
                             </tr>
                         </thead>
                         <tbody id="productTable">
-                            <tr>
+                            <!-- <tr>
                                 <td class="text-left px-4 py-3 text-[12px] font-medium text-gray-500">#BM98765432</td>
                                 <td class="text-left px-4 py-3 text-[8px] font-medium text-gray-500">
                                     <div>Budi Santoso</div>
@@ -166,7 +166,7 @@
                                 <td class="text-left px-4 py-3 text-[12px] font-medium text-gray-500">
                                     <i data-lucide="eye" class="w-[12px] h-[12px]"></i>
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>
@@ -296,7 +296,6 @@
 
             function renderTable(data) {
                 let $tbody = $("#productTable");
-                $tbody.empty();
                 $.each(data, function (index, p) {
                     $tbody.append(buildRow(p));
                 });
@@ -341,10 +340,6 @@
             `;
                 }
             }
-
-
-
-
             return `
         <tr class="border-b border-gray-100 hover:bg-gray-50">
 
