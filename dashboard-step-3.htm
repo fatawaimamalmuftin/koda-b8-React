@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta nama="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard-step2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans flex min-h-screen text-[13px]">
+
+    <!-- sidebar -->
+    <aside class="w-[240px] min-w-[240px] bg-gray-900 flex flex-col fixed top-0 left-0 h-full z-[999]">
+        <!-- logo -->
+        <div class="flex items-center gap-2.5 px-5 pt-5 pb-4 border-b border-gray-800">
+            <div
+                class="w-8 h-8 bg-[#1a73e8] rounded-lg flex items-center justify-center text-white font-semibold text-sm shrink-0">
+                B</div>
+            <span class="text-white text-sm font-medium">BeliMudah Admin</span>
+        </div>
+        <!-- nav -->
+        <nav class="flex flex-col gap-0.5 p-3 flex-1">
+            <a href="/dashboard-step1.html"
+                class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                <i data-lucide="layout-dashboard" class="w-4 h-4 shrink-0"></i> Dashboard
+            </a>
+            <a href="/dashboard-step2.html"
+                class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#1a73e8] text-white text-[13px] no-underline">
+                <i data-lucide="package" class="w-4 h-4 shrink-0"></i> Produk
+            </a>
+            <a href="/dashboard-step-3.htm"
+                class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                <i data-lucide="shopping-cart" class="w-4 h-4 shrink-0"></i> Pesanan
+            </a>
+            <a href="#"
+                class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                <i data-lucide="users" class="w-4 h-4 shrink-0"></i> Pelanggan
+            </a>
+            <a href="#"
+                class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                <i data-lucide="settings" class="w-4 h-4 shrink-0"></i> Pengaturan
+            </a>
+        </nav>
+        <!-- bottom -->
+        <div class="px-3 py-3.5 border-t border-gray-800">
+            <div
+                class="flex items-center gap-2 text-gray-500 text-[13px] cursor-pointer hover:text-gray-200 transition-colors">
+                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                <span>Kembali ke Toko</span>
+            </div>
+        </div>
+    </aside>
+
+    <div class="ml-[240px] flex-1 flex flex-col min-h-screen">
+        <!-- topbar -->
+        <header
+            class="h-12 bg-white border-b border-gray-200 flex items-center justify-between px-7 sticky top-0 z-[90]">
+            <div class="flex items-center gap-2 text-gray-500">
+                <i data-lucide="x" class="w-3.5 h-3.5 cursor-pointer"></i>
+                <span>Admin</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+                <div
+                    class="relative w-8 h-8 border border-gray-200 rounded-lg flex items-center justify-center cursor-pointer bg-white">
+                    <i data-lucide="bell" class="w-[15px] h-[15px] text-gray-500"></i>
+                    <div
+                        class="absolute top-1.5 right-1.5 w-[7px] h-[7px] bg-red-500 rounded-full border-[1.5px] border-white">
+                    </div>
+                </div>
+                <div
+                    class="flex items-center gap-1.5 border border-gray-200 rounded-lg px-2.5 py-1 cursor-pointer bg-white">
+                    <div
+                        class="w-[22px] h-[22px] bg-[#1a73e8] rounded-full flex items-center justify-center text-white text-[10px] font-semibold">
+                        A</div>
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="p-7 flex flex-col gap-5">
+
+            <!-- header row -->
+            <div class="flex justify-between items-center">
+                <h1 class="text-[22px] font-semibold text-gray-900">Manajemen Produk</h1>
+                <button type="button"
+                    class="flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 transition-colors text-white text-[13px] font-medium rounded-xl px-4 py-2">
+                    <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                    Tambah Produk
+                </button>
+            </div>
+
+            <!-- search + filter -->
+            <div class="flex items-center gap-3">
+                <div class="flex-1 relative">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    <input id="searchInput" type="text" placeholder="Cari produk atau merek..."
+                        class="w-full pl-9 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-[13px] text-gray-700 placeholder-gray-400 outline-none focus:border-blue-400 transition-colors" />
+                </div>
+                <button id="btnKategori"
+                    class="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-[13px] text-gray-600 hover:bg-gray-50 transition-colors whitespace-nowrap">
+                    Semua Kategori
+                    <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400"></i>
+                </button>
+                <button
+                    class="flex items-center gap-2 px-4 py-2.5 bg-white border border-gray-200 rounded-xl text-[13px] text-gray-600 hover:bg-gray-50 transition-colors">
+                    <i data-lucide="sliders-horizontal" class="w-3.5 h-3.5 text-gray-500"></i>
+                    Filter
+                </button>
+            </div>
+
+            <!-- stat cards -->
+            <div class="grid grid-cols-4 gap-4">
+                <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col items-center gap-1.5">
+                    <span class="text-[26px] font-bold text-gray-900">18</span>
+                    <span class="text-[11px] text-gray-500">Total Produk</span>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col items-center gap-1.5">
+                    <span class="text-[26px] font-bold text-gray-900">7</span>
+                    <span class="text-[11px] text-gray-500">Produk Baru</span>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col items-center gap-1.5">
+                    <span class="text-[26px] font-bold text-gray-900">0</span>
+                    <span class="text-[11px] text-gray-500">Stok Rendah</span>
+                </div>
+                <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col items-center gap-1.5">
+                    <span class="text-[26px] font-bold text-gray-900">11</span>
+                    <span class="text-[11px] text-gray-500">Produk Promo</span>
+                </div>
+            </div>
+
+            <!-- table -->
+            <div class="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                <div class="px-5 py-3.5 border-b border-gray-100">
+                    <span id="jumlahProduk" class="text-[13px] text-gray-500">18 produk</span>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-gray-100 bg-gray-50">
+                                <th class="text-left px-5 py-3 text-[12px] font-medium text-gray-500 w-[280px]">Produk
+                                </th>
+                                <th class="text-left px-4 py-3 text-[12px] font-medium text-gray-500">Kategori</th>
+                                <th class="text-left px-4 py-3 text-[12px] font-medium text-gray-500">Harga</th>
+                                <th class="text-left px-4 py-3 text-[12px] font-medium text-gray-500">Stok</th>
+                                <th class="text-left px-4 py-3 text-[12px] font-medium text-gray-500">Rating</th>
+                                <th class="text-left px-4 py-3 text-[12px] font-medium text-gray-500">Status</th>
+                                <th class="text-left px-4 py-3 text-[12px] font-medium text-gray-500">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTable"></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        var produk = [
+            {
+                nama: "Headphone Wireless Premium",
+                brand: "SoundWave",
+                kategori: "Elektronik",
+                harga: 450000, oldPrice: 650000,
+                stock: 45, rating: 4.8,
+                view: 513,
+                label: ["Baru", "Unggulan", "Promo"]
+            },
+            {
+                nama: "Smartphone 5G Ultra",
+                brand: "PhoneX",
+                kategori: "Elektronik",
+                harga: 4200000,
+                oldPrice: 5000000,
+                stock: 30,
+                rating: 4.8,
+                view: 890,
+                label: ["Baru", "Unggulan", "Promo"]
+            },
+            {
+                nama: "Smartwatch Series 5",
+                brand: "WristTech",
+                kategori: "Elektronik",
+                harga: 2800000,
+                oldPrice: 3600000,
+                stock: 22,
+                rating: 4.4,
+                view: 324,
+                label: ["Unggulan", "Promo"]
+            },
+            {
+                nama: "Kaos Polos Premium Cotton",
+                brand: "FashionID",
+                kategori: "Fashion",
+                harga: 125000,
+                oldPrice: null,
+                stock: 200,
+                rating: 4.3,
+                view: 878,
+                label: []
+            },
+            {
+                nama: "Sneakers Sport Runfast",
+                brand: "SportPro",
+                kategori: "Fashion",
+                harga: 550000,
+                oldPrice: 750000,
+                stock: 60,
+                rating: 4.6,
+                view: 445,
+                label: ["Unggulan", "Promo"]
+            },
+            {
+                nama: "Tas Ransel Laptop Waterproof",
+                brand: "UrbanBag",
+                kategori: "Fashion",
+                harga: 350000,
+                oldPrice: null,
+                stock: 80,
+                rating: 4.5,
+                view: 234,
+                label: ["Baru"]
+            },
+            {
+                nama: "Coffee Maker Otomatis",
+                brand: "BrewMaster",
+                kategori: "Rumah & Dapur",
+                harga: 875000,
+                oldPrice: 1200000,
+                stock: 25,
+                rating: 4.4,
+                view: 189,
+                label: ["Unggulan", "Promo"]
+            },
+            {
+                nama: "Blender Portable Mini",
+                brand: "BlendPro",
+                kategori: "Rumah & Dapur",
+                harga: 189000,
+                oldPrice: null,
+                stock: 120,
+                rating: 4.2,
+                view: 567,
+                label: ["Baru"]
+            },
+            {
+                nama: "Set Peralatan Makan Keramik",
+                brand: "HomeDeco",
+                kategori: "Rumah & Dapur",
+                harga: 450000,
+                oldPrice: null,
+                stock: 40,
+                rating: 4.7,
+                view: 131,
+                label: []
+            },
+            {
+                nama: 'Tablet 10.5" WiFi + 4G',
+                brand: "TabTech",
+                kategori: "Elektronik",
+                harga: 3200000,
+                oldPrice: 4000000,
+                stock: 18,
+                rating: 4.5,
+                view: 345,
+                label: ["Baru", "Promo"]
+            },
+            {
+                nama: "Serum Vitamin C Brightening",
+                brand: "GlowLab",
+                kategori: "Kecantikan",
+                harga: 185000,
+                oldPrice: 280000,
+                stock: 150,
+                rating: 4.6,
+                view: 892,
+                label: ["Promo"]
+            },
+            {
+                nama: "Sepatu Lari Trail Ultra",
+                brand: "TrailRunner",
+                kategori: "Olahraga",
+                harga: 780000,
+                oldPrice: null,
+                stock: 35,
+                rating: 4.7,
+                view: 287,
+                label: []
+            },
+            {
+                nama: 'Buku "Atomic Habits"',
+                brand: "GramcaLit",
+                kategori: "Buku & Alat Tulis",
+                harga: 89000,
+                oldPrice: 140000,
+                stock: 500,
+                rating: 4.9,
+                view: 1245,
+                label: ["Promo"]
+            },
+            {
+                nama: "Speaker Bluetooth Portable",
+                brand: "SoundWave",
+                kategori: "Elektronik",
+                harga: 320000,
+                oldPrice: 450000,
+                stock: 75,
+                rating: 4.4,
+                view: 388,
+                label: []
+            },
+            {
+                nama: "Dress Floral Midi",
+                brand: "FashionID",
+                kategori: "Fashion",
+                harga: 295000,
+                oldPrice: 395000,
+                stock: 55,
+                rating: 4.5,
+                view: 312,
+                label: ["Baru", "Unggulan", "Promo"]
+            },
+            {
+                nama: "Minyak Esensial Lavender Set",
+                brand: "AromaWell",
+                kategori: "Kecantikan",
+                harga: 145000,
+                oldPrice: null,
+                stock: 90,
+                rating: 4.8,
+                view: 456,
+                label: ["Baru"]
+            },
+            {
+                nama: "Matras Yoga Premium",
+                brand: "FitLife",
+                kategori: "Olahraga",
+                harga: 280000,
+                oldPrice: null,
+                stock: 65,
+                rating: 4.5,
+                view: 198,
+                label: []
+            },
+            {
+                nama: "Raket Badminton Carbon Pro",
+                brand: "SmashKing",
+                kategori: "Olahraga",
+                harga: 675000,
+                oldPrice: 850000,
+                stock: 30,
+                rating: 4.6,
+                view: 163,
+                label: ["Promo"]
+            },
+        ];
+
+        var labelStyle = {
+            "Baru": "bg-blue-50 text-blue-600",
+            "Unggulan": "bg-yellow-50 text-yellow-600",
+            "Promo": "bg-red-50 text-red-500"
+        };
+
+        var kategoriColor = {
+            "Elektronik": "text-blue-500",
+            "Fashion": "text-pink-500",
+            "Rumah & Dapur": "text-orange-500",
+            "Kecantikan": "text-purple-500",
+            "Olahraga": "text-green-500",
+            "Buku & Alat Tulis": "text-teal-500"
+        };
+
+        function formatRupiah(num) {
+            return "Rp " + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
+        function buildRow(p) {
+            var badgesHtml = "";
+            $.each(p.label, function (i, b) {
+                badgesHtml += '<span class="px-1.5 py-0.5 rounded text-[10px] font-medium ' + labelStyle[b] + '">' + b + '</span>';
+            });
+
+            var oldPriceHtml = p.oldPrice
+                ? '<div class="text-[11px] text-gray-400 line-through">' + formatRupiah(p.oldPrice) + '</div>'
+                : "";
+
+            var catColor = kategoriColor[p.kategori] || "text-gray-500";
+
+            return '<tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">' +
+                '<td class="px-5 py-3">' +
+                '<div class="flex items-center gap-3">' +
+                '<div class="w-9 h-9 rounded-lg overflow-hidden bg-yellow-50 shrink-0">' +
+                '<img src="./asset/heatsetBgKuning.png" alt="' +
+                p.nama +
+                '" class="w-full h-full object-cover" />' +
+                '</div>' +
+                '<div>' +
+                '<div class="font-medium text-gray-800 text-[13px] leading-snug">' +
+                p.nama +
+                '</div>' +
+                '<div class="text-[11px] text-gray-400">' +
+                p.brand +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</td>' +
+                '<td class="px-4 py-3">' +
+                '<span class="text-[12px] font-medium ' +
+                catColor +
+                '">' +
+                p.kategori +
+                '</span>' +
+                '</td>' +
+                '<td class="px-4 py-3">' +
+                '<div class="text-[13px] font-semibold text-blue-600">' +
+                formatRupiah(p.harga) +
+                '</div>' +
+                oldPriceHtml +
+                '</td>' +
+                '<td class="px-4 py-3">' +
+                '<span class="text-[13px] text-gray-700">' +
+                p.stock +
+                '</span>' +
+                '</td>' +
+                '<td class="px-4 py-3">' +
+                '<div class="flex items-center gap-1">' +
+                '<i data-lucide="star" class="w-3 h-3 text-yellow-400 fill-yellow-400"></i>' +
+                '<span class="text-[13px] font-medium text-gray-800">' +
+                p.rating +
+                '</span>' +
+                '<span class="text-[11px] text-gray-400">('
+                + p.view +
+                ')</span>' +
+                '</div>' +
+                '</td>' +
+                '<td class="px-4 py-3">' +
+                '<div class="flex flex-wrap gap-1">' +
+                badgesHtml +
+                '</div>' +
+                '</td>' +
+                '<td class="px-4 py-3">' +
+                '<div class="flex items-center gap-2">' +
+                '<button class="w-7 h-7 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-gray-100 transition-colors text-gray-400"><i data-lucide="eye" class="w-3.5 h-3.5"></i></button>' +
+                '<button class="w-7 h-7 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-gray-100 transition-colors text-gray-400"><i data-lucide="pencil" class="w-3.5 h-3.5"></i></button>' +
+                '<button class="w-7 h-7 flex items-center justify-center rounded-lg border border-gray-200 bg-white hover:bg-red-50 hover:border-red-200 transition-colors text-gray-400 hover:text-red-500"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i></button>' +
+                '</div>' +
+                '</td>' +
+                '</tr>';
+        }
+
+        function renderTable(data) {
+            var $tbody = $("#productTable");
+            $tbody.empty();
+            $.each(data, function (i, p) {
+                $tbody.append(buildRow(p));
+            });
+            $("#jumlahProduk").text(data.length + " produk");
+            lucide.createIcons();
+        }
+
+        // render awal
+        renderTable(produk);
+
+        // search live
+        $("#searchInput").on("keyup", function () {
+            var keyword = $(this).val().toLowerCase();
+            var filtered = $.grep(produk, function (p) {
+                return p.nama.toLowerCase().indexOf(keyword) >= 0 ||
+                    p.brand.toLowerCase().indexOf(keyword) >= 0;
+            });
+            renderTable(filtered);
+        });
+
+        // filter kategori
+        $("#btnKategori").on("click", function () {
+            var kategori = prompt("Masukkan kategori (kosongkan untuk semua):");
+            if (kategori === null) return;
+            if (kategori.trim() === "") {
+                renderTable(produk);
+                $(this).text("Semua Kategori ").append('<i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 inline"></i>');
+                lucide.createIcons();
+                return;
+            }
+            var filtered = $.grep(produk, function (p) {
+                return p.kategori.toLowerCase().indexOf(kategori.toLowerCase()) >= 0;
+            });
+            renderTable(filtered);
+            $(this).text(kategori + " ").append('<i data-lucide="chevron-down" class="w-3.5 h-3.5 text-gray-400 inline"></i>');
+            lucide.createIcons();
+        });
+    </script>
+</body>
+
+</html>
