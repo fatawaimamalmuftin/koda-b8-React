@@ -180,7 +180,7 @@
             icons: lucide.icons
         });
 
-        var produk = [
+        let produk = [
             {
                 noPesanan: "#BM98765432",
                 Pelanggan: "Budi Santoso",
@@ -271,7 +271,7 @@
             }
         ];
 
-        var labelStyle = {
+        let labelStyle = {
             "Terkirim": "bg-green-50 text-green-500",
             "Dikirim": "bg-purple-50 text-purple-600",
             "Dikemas": "bg-blue-50 text-blue-600",
@@ -279,7 +279,7 @@
             "Dibatalkan": "bg-red-50 text-red-500",
         };
 
-        var kategoriColor = {
+        let kategoriColor = {
             "GoPay": "text-green-500",
             "DANA": "text-blue-400",
             "OVO": "text-purple-500",
@@ -295,7 +295,7 @@
             renderTable(produk);
 
             function renderTable(data) {
-                var $tbody = $("#productTable");
+                let $tbody = $("#productTable");
                 $tbody.empty();
                 $.each(data, function (index, p) {
                     $tbody.append(buildRow(p));
@@ -316,8 +316,8 @@
 
             // console.log(p)
 
-            var statusClass = labelStyle[p.status[0]] || "bg-gray-50 text-gray-500";
-            var metodePembayaran = kategoriColor[p.pembayaran] || "bg-gray-50 text-gray-500";
+            let statusClass = labelStyle[p.status[0]] || "bg-gray-50 text-gray-500";
+            let metodePembayaran = kategoriColor[p.pembayaran] || "bg-gray-50 text-gray-500";
 
             function cekStatus(p) {
                 if (p === "Dikirim") {
