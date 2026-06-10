@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeliMudah Admin — Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#1a73e8',
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans flex min-h-screen text-[13px]">
+
+  <!-- sidebar -->
+  <aside class="w-[240px] min-w-[240px] bg-gray-900 flex flex-col fixed top-0 left-0 h-full z-[999]">
+
+    <!-- logo -->
+    <div class="flex items-center gap-2.5 px-5 pt-5 pb-4 border-b border-gray-800">
+      <div
+        class="w-8 h-8 bg-[#1a73e8] rounded-lg flex items-center justify-center text-white font-semibold text-sm shrink-0">
+        B</div>
+      <span class="text-white text-sm font-medium">BeliMudah Admin</span>
+    </div>
+
+    <!-- nav -->
+    <nav class="flex flex-col gap-0.5 p-3 flex-1">
+      <a href="#"
+        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#1a73e8] text-white text-[13px] no-underline">
+        <i data-lucide="layout-dashboard" class="w-4 h-4 shrink-0"></i> Dashboard
+      </a>
+      <a href="#"
+        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+        <i data-lucide="package" class="w-4 h-4 shrink-0"></i> Produk
+      </a>
+      <a href="#"
+        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+        <i data-lucide="shopping-cart" class="w-4 h-4 shrink-0"></i> Pesanan
+      </a>
+      <a href="#"
+        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+        <i data-lucide="users" class="w-4 h-4 shrink-0"></i> Pelanggan
+      </a>
+      <a href="#"
+        class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+        <i data-lucide="settings" class="w-4 h-4 shrink-0"></i> Pengaturan
+      </a>
+    </nav>
+
+    <!-- bottom -->
+    <div class="px-3 py-3.5 border-t border-gray-800">
+      <div
+        class="flex items-center gap-2 text-gray-500 text-[13px] cursor-pointer hover:text-gray-200 transition-colors">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+        <span>Kembali ke Toko</span>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+
+</html>
