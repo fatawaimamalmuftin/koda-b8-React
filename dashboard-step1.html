@@ -103,11 +103,72 @@
         </div>
         <span class="text-xs text-gray-500 pt-1">28 Mei 2026</span>
       </div>
-    </main>
 
-    <script>
-      lucide.createIcons();
-    </script>
+      <!-- cards 4 diagram -->
+      <div class="grid grid-cols-4 gap-4">
+
+        <!-- Pendapatan -->
+        <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2.5">
+          <div class="flex justify-between items-start">
+            <span class="text-xs text-gray-500 leading-snug max-w-[140px]">Total Pendapatan (Bulan Ini)</span>
+            <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-blue-50 text-[#1a73e8]">
+              <i data-lucide="trending-up" class="w-[18px] h-[18px]"></i>
+            </div>
+          </div>
+          <div class="text-xl font-semibold text-gray-900">Rp 125.000.000</div>
+          <div class="text-[11px] flex items-center gap-1 text-green-500">
+            <i data-lucide="arrow-up" class="w-[11px] h-[11px]"></i> 18,2% dari bulan lalu
+          </div>
+        </div>
+
+        <!-- pesanan Baru -->
+        <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2.5">
+          <div class="flex justify-between items-start">
+            <span class="text-xs text-gray-500 leading-snug max-w-[140px]">Pesanan Baru</span>
+            <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-orange-50 text-orange-500">
+              <i data-lucide="shopping-bag" class="w-[18px] h-[18px]"></i>
+            </div>
+          </div>
+          <div class="text-xl font-semibold text-gray-900">890</div>
+          <div class="text-[11px] flex items-center gap-1 text-green-500">
+            <i data-lucide="arrow-up" class="w-[11px] h-[11px]"></i> 12,5% dari bulan lalu
+          </div>
+        </div>
+
+        <!-- Pelanggan aktif -->
+        <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2.5">
+          <div class="flex justify-between items-start">
+            <span class="text-xs text-gray-500 leading-snug max-w-[140px]">Pelanggan Aktif</span>
+            <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-green-50 text-green-500">
+              <i data-lucide="users" class="w-[18px] h-[18px]"></i>
+            </div>
+          </div>
+          <div class="text-xl font-semibold text-gray-900">3.284</div>
+          <div class="text-[11px] flex items-center gap-1 text-green-500">
+            <i data-lucide="arrow-up" class="w-[11px] h-[11px]"></i> 0,1% dari bulan lalu
+          </div>
+        </div>
+
+        <!-- Produk Aktif -->
+        <div class="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2.5">
+          <div class="flex justify-between items-start">
+            <span class="text-xs text-gray-500 leading-snug max-w-[140px]">Produk Aktif</span>
+            <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-purple-50 text-purple-500">
+              <i data-lucide="box" class="w-[18px] h-[18px]"></i>
+            </div>
+          </div>
+          <div class="text-xl font-semibold text-gray-900">247</div>
+          <div class="text-[11px] flex items-center gap-1 text-red-500">
+            <i data-lucide="arrow-down" class="w-[11px] h-[11px]"></i> 2,3% dari bulan lalu
+          </div>
+        </div>
+
+      </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 
 </html>
