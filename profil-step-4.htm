@@ -12,117 +12,97 @@
 
 <body>
 
-    <header class="containerBiru borTes">
+    <!-- HEADER BIRU -->
+    <header class="flex justify-between items-center bg-[#4F39F6] w-full h-7 px-56 py-1">
 
-        <div class="kontenKiri borTes">
-            <i data-lucide="map-pin" class="iconLokasi"></i>
-            <span class="teksHeader">
+        <div class="flex items-center gap-1.5">
+            <i data-lucide="map-pin" class="w-4.5 h-4.5 text-white"></i>
+            <span class="text-white text-xs">
                 Kirim ke: Jakarta Selatan
             </span>
         </div>
 
-        <div class="headerKanan borTes">
-
-            <div class="itemKanan borTes">
+        <div class="flex gap-6">
+            <div class="text-white text-xs">
                 🚀 Gratis ongkir di atas Rp 100.000
             </div>
-
-            <div class="itemKanan borTes">
+            <div class="text-white text-xs">
                 📞 0800-1234-5678 (Gratis)
             </div>
-
         </div>
 
     </header>
 
-    <nav class="navUtama borTes">
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-[9999] w-full h-[134px] bg-white/80 flex flex-col items-center">
 
-        <div class="subKonNav borTes">
+        <!-- Baris atas: logo + search + menu icon -->
+        <div class="w-[1250px] h-16 flex justify-between items-center">
 
-            <div class="logoArea borTes">
-                <div class="Bnav">B</div>
-
-                <span class="logoTeks">
+            <!-- Logo -->
+            <div class="flex items-center gap-1.5">
+                <div
+                    class="flex justify-center items-center w-8 h-8 bg-[#1A73E8] text-white border-none rounded-lg text-sm font-normal">
+                    B
+                </div>
+                <span class="inline-block w-22 text-[#111827] text-base mt-1 mr-1">
                     BeliMudah
                 </span>
             </div>
 
-            <div class="areaPencarian borTes">
-
-                <input type="text" class="inputCari" placeholder="Cari produk, merek, kategori...">
-
-                <button class="tombolcari">
-                    <i data-lucide="search" class="iconCari"></i>
+            <!-- Search -->
+            <div class="w-[640px] flex items-center">
+                <input type="text"
+                    class="w-[576px] h-[42px] px-4 border-2 border-[#F3F4F6] border-r-0 rounded-l-[10px] outline-none"
+                    placeholder="Cari produk, merek, kategori...">
+                <button
+                    class="w-12 h-[42px] border-none bg-[#1A73E8] rounded-r-lg cursor-pointer flex justify-center items-center">
+                    <i data-lucide="search" class="text-white w-5 h-5"></i>
                 </button>
-
             </div>
 
-            <div class="menuKanan borTes">
+            <!-- Icon kanan -->
+            <div class="flex items-center gap-1.5">
 
-                <div class="menuItem borTes">
-                    <i data-lucide="bell" class="iconMenu"></i>
+                <div class="w-10 h-10 flex justify-center items-center cursor-pointer">
+                    <i data-lucide="bell" class="w-[22px] h-[22px]"></i>
                 </div>
 
-                <div class="menuItem borTes">
-                    <i data-lucide="user" class="iconMenu"></i>
+                <div class="w-10 h-10 flex justify-center items-center cursor-pointer">
+                    <i data-lucide="user" class="w-[22px] h-[22px]"></i>
                 </div>
 
-                <div class="but borTes">
+                <div class="flex items-center justify-center h-10 text-[#505050] cursor-pointer px-1">
                     <span>Budi</span>
                 </div>
 
-                <div class="menuItem borTes">
-                    <i data-lucide="heart" class="iconMenu"></i>
+                <div class="w-10 h-10 flex justify-center items-center cursor-pointer">
+                    <i data-lucide="heart" class="w-[22px] h-[22px]"></i>
                 </div>
 
-                <div class="menuItem borTes">
-                    <i data-lucide="shopping-cart" class="iconMenu"></i>
+                <div class="w-10 h-10 flex justify-center items-center cursor-pointer">
+                    <i data-lucide="shopping-cart" class="w-[22px] h-[22px]"></i>
                 </div>
 
             </div>
-
         </div>
 
+        <!-- Baris bawah: kategori list -->
+        <div class="flex justify-center gap-3">
 
-        <div class="containerList borTes">
-
-            <div class="itemMenu borTes">
-                <i data-lucide="menu" class="listIcon"></i>
-
-                <span class="teksMenu">
-                    Semua Kategori
-                </span>
-
-                <i data-lucide="chevron-down" class="listIcon"></i>
+            <div class="flex items-center gap-1.5 px-2.5 py-2.5 cursor-pointer">
+                <i data-lucide="menu" class="w-3.5 h-3.5"></i>
+                <span>Semua Kategori</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
             </div>
 
-            <div class="itemMenu borTes">
-                💻 Elektronik
-            </div>
-
-            <div class="itemMenu borTes">
-                👗 Fashion
-            </div>
-
-            <div class="itemMenu borTes">
-                🏠 Rumah & Dapur
-            </div>
-
-            <div class="itemMenu borTes">
-                💄 Kecantikan
-            </div>
-
-            <div class="itemMenu borTes">
-                ⚽ Olahraga
-            </div>
-
-            <div class="itemMenu borTes">
-                📚 Buku & Alat Tulis
-            </div>
-
-            <div class="itemMenu promo borTes">
-                🔥 Promo
-            </div>
+            <div class="flex items-center gap-1.5 px-2.5 py-2.5 cursor-pointer">💻 Elektronik</div>
+            <div class="flex items-center gap-1.5 px-2.5 py-2.5 cursor-pointer">👗 Fashion</div>
+            <div class="flex items-center gap-1.5 px-2.5 py-2.5 cursor-pointer">🏠 Rumah & Dapur</div>
+            <div class="flex items-center gap-1.5 px-2.5 py-2.5 cursor-pointer">💄 Kecantikan</div>
+            <div class="flex items-center gap-1.5 px-2.5 py-2.5 cursor-pointer">⚽ Olahraga</div>
+            <div class="flex items-center gap-1.5 px-2.5 py-2.5 cursor-pointer">📚 Buku & Alat Tulis</div>
+            <div class="flex items-center gap-1.5 px-2.5 py-2.5 cursor-pointer text-red-500">🔥 Promo</div>
 
         </div>
 
