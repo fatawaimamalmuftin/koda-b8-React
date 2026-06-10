@@ -5,140 +5,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrasi</title>
-    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
-<body>
+<body class="font-sans">
 
-    <main class="halamanLogin">
+    <main class="flex min-h-screen">
 
-        <section class="loginKiriRegis">
+        <!-- KIRI -->
+        <section
+            class="w-1/2 flex flex-col justify-between p-10 text-white bg-[linear-gradient(rgba(26,115,232,.75),rgba(79,57,246,.85)),url('/asset/tasBgRegis.jpg')] bg-cover bg-top">
 
-            <div class="logoLogin">
-                <div class="B">B</div>
-                <span class="logoTeks" style="color: #FFFFFF;">BeliMudah</span>
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+
+                <div class="w-8 h-8 rounded-[10px] bg-white/20 flex items-center justify-center font-bold">
+                    B
+                </div>
+
+                <span class="text-sm font-semibold">
+                    BeliMudah
+                </span>
+
             </div>
 
-            <article class="heroLogin">
-                <h1 class="judulHero"> Bergabung dengan <br> 500.000+ pelanggan <br> puas </h1>
-                <div class="listBenefit">
-                    <div class="itemBenefit" style="display: flex;gap: 5px;">
-                        <i data-lucide="circle-check-big" class="iconcheckbox"></i>
-                        Akses ribuan produk dengan harga terbaik
+            <!-- Hero -->
+            <article class="max-w-[420px] flex flex-col gap-8">
+
+                <h1 class="text-5xl leading-tight font-bold">
+                    Bergabung dengan <br>
+                    500.000+ pelanggan <br>
+                    puas
+                </h1>
+
+                <div class="flex flex-col gap-4">
+
+                    <div class="flex items-center gap-3 text-sm">
+
+                        <div class="w-5 h-5 rounded-full bg-white/20 flex justify-center items-center">
+                            <i data-lucide="circle-check-big" class="w-3 h-3"></i>
+                        </div>
+
+                        <span>
+                            Akses ribuan produk dengan harga terbaik
+                        </span>
+
                     </div>
-                    <div class="itemBenefit" style="display: flex;gap: 5px;">
-                        <i data-lucide="circle-check-big" class="iconcheckbox"></i>
-                        Lacak pesanan secara real-time
+
+                    <div class="flex items-center gap-3 text-sm">
+
+                        <div class="w-5 h-5 rounded-full bg-white/20 flex justify-center items-center">
+                            <i data-lucide="circle-check-big" class="w-3 h-3"></i>
+                        </div>
+
+                        <span>
+                            Lacak pesanan secara real-time
+                        </span>
+
                     </div>
-                    <div class="itemBenefit" style="display: flex;gap: 5px;">
-                        <i data-lucide="circle-check-big" class="iconcheckbox"></i>
-                        Simpan wishlist & alamat favorit
+
+                    <div class="flex items-center gap-3 text-sm">
+
+                        <div class="w-5 h-5 rounded-full bg-white/20 flex justify-center items-center">
+                            <i data-lucide="circle-check-big" class="w-3 h-3"></i>
+                        </div>
+
+                        <span>
+                            Simpan wishlist & alamat favorit
+                        </span>
+
                     </div>
-                    <div class="itemBenefit" style="display: flex;gap: 5px;">
-                        <i data-lucide="circle-check-big" class="iconcheckbox"></i>
-                        Dapatkan notifikasi promo eksklusif
+
+                    <div class="flex items-center gap-3 text-sm">
+
+                        <div class="w-5 h-5 rounded-full bg-white/20 flex justify-center items-center">
+                            <i data-lucide="circle-check-big" class="w-3 h-3"></i>
+                        </div>
+
+                        <span>
+                            Dapatkan notifikasi promo eksklusif
+                        </span>
+
                     </div>
+
                 </div>
+
             </article>
 
-            <div class="copyrightLogin">
+            <!-- Footer -->
+            <div class="text-xs opacity-80">
                 © 2026 BeliMudah. Seluruh hak cipta dilindungi.
             </div>
 
         </section>
 
-        <section class="loginKanan">
+        <!-- KANAN -->
+        <section class="w-1/2 flex justify-center items-center bg-white">
 
-            <article class="cardLogin">
+            <article class="w-full max-w-[450px] flex flex-col gap-6">
 
-                <div class="headerLogin">
+                <!-- Header -->
+                <div class="flex flex-col gap-2">
 
-                    <h2>Buat Akun Baru</h2>
+                    <h2 class="text-3xl font-bold text-slate-900">
+                        Buat Akun Baru
+                    </h2>
 
-                    <p>
+                    <p class="text-slate-500 leading-7">
+
                         Sudah punya akun?
-                        <a href="#">
+
+                        <a href="/login.htm" class="text-blue-600">
                             Masuk di sini
                         </a>
+
                     </p>
 
                 </div>
 
-                <div class="sosialLogin">
+                <!-- Social -->
+                <div class="flex gap-3">
 
-                    <button class="btnSosial">
+                    <button class="w-1/2 h-12 border border-slate-300 rounded-xl bg-white hover:bg-slate-50 transition">
                         Daftar via Google
                     </button>
 
-                    <button class="btnSosial">
+                    <button class="w-1/2 h-12 border border-slate-300 rounded-xl bg-white hover:bg-slate-50 transition">
                         Daftar via Facebook
                     </button>
 
                 </div>
 
-                <div class="pemisahLogin">
+                <!-- Separator -->
+                <div class="text-center text-sm text-slate-500">
                     atau daftar dengan email
                 </div>
 
-                <form class="formLogin">
+                <!-- Form -->
+                <form class="flex flex-col gap-5">
 
-                    <div class="grupInput">
+                    <div class="flex flex-col gap-2">
 
-                        <label>Nama Lengkap</label>
+                        <label class="text-sm font-semibold text-slate-900">
+                            Nama Lengkap
+                        </label>
 
-                        <input type="text" placeholder="Nama lengkap kamu">
-
-                    </div>
-
-                    <div class="grupInput">
-
-                        <label>Email</label>
-
-                        <input type="email" placeholder="email@contoh.com">
+                        <input type="text" placeholder="Nama lengkap kamu"
+                            class="h-12 border border-slate-300 rounded-xl px-4 outline-none focus:border-blue-500">
 
                     </div>
 
-                    <div class="grupInput">
+                    <div class="flex flex-col gap-2">
 
-                        <label>Kata Sandi</label>
+                        <label class="text-sm font-semibold text-slate-900">
+                            Email
+                        </label>
 
-                        <input type="password"
-                            placeholder="Minimal 8 karakter                                                                              👁️‍🗨️">
-
-                    </div>
-
-                    <div class="grupInput">
-
-                        <label>Konfirmasi Kata Sandi</label>
-
-                        <input type="password"
-                            placeholder="Ulang kata sandi                                                                                 👁️‍🗨️">
+                        <input type="email" placeholder="email@contoh.com"
+                            class="h-12 border border-slate-300 rounded-xl px-4 outline-none focus:border-blue-500">
 
                     </div>
 
-                    <div class="opsiLogin">
+                    <div class="flex flex-col gap-2">
 
-                        <label>
+                        <label class="text-sm font-semibold text-slate-900">
+                            Kata Sandi
+                        </label>
 
-                            <input type="checkbox">
+                        <input type="password" placeholder="Minimal 8 karakter"
+                            class="h-12 border border-slate-300 rounded-xl px-4 outline-none focus:border-blue-500">
+
+                    </div>
+
+                    <div class="flex flex-col gap-2">
+
+                        <label class="text-sm font-semibold text-slate-900">
+                            Konfirmasi Kata Sandi
+                        </label>
+
+                        <input type="password" placeholder="Ulang kata sandi"
+                            class="h-12 border border-slate-300 rounded-xl px-4 outline-none focus:border-blue-500">
+
+                    </div>
+
+                    <label class="flex items-start gap-2 text-sm text-slate-500">
+
+                        <input type="checkbox" class="mt-1">
+
+                        <span>
 
                             Saya menyetujui
-                            <a href="#">
+
+                            <a href="#" class="text-blue-600">
                                 Syarat & Ketentuan
                             </a>
+
                             dan
-                            <a href="#">
+
+                            <a href="#" class="text-blue-600">
                                 Kebijakan Privasi
                             </a>
 
                             BeliMudah
 
-                        </label>
+                        </span>
 
-                    </div>
+                    </label>
 
-                    <button type="submit" class="btnDaftar">
+                    <button type="submit"
+                        class="h-13 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition">
 
                         Daftar Sekarang
 
@@ -146,11 +226,12 @@
 
                 </form>
 
-                <div class="keamananLogin">
+                <!-- Footer -->
+                <div class="text-center text-sm text-slate-500">
                     🔒 Data kamu aman dan terenkripsi
                 </div>
 
-                <div class="syaratLogin">
+                <div class="text-center text-sm text-slate-500 leading-6">
                     Dengan membuat akun, kamu menyetujui
                     Syarat & Ketentuan serta Kebijakan Privasi kami.
                 </div>
@@ -161,7 +242,6 @@
 
     </main>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
     </script>
