@@ -49,7 +49,7 @@ export default function LandingPackage() {
                 </div>
             </section>
 
-            <main className="w-full px-4 bg-[#F9FAFB]">
+            <main className="w-full px-28 bg-[#F9FAFB]">
 
                 <div className="fixed bottom-[300px] right-[20px] z-[9999] flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#4F39F6] bg-[#4F39F6] text-white cursor-pointer hover:bg-opacity-90 transition">
                     <MessageCircle className="w-6 h-6" />
