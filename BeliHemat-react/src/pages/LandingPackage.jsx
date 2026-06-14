@@ -16,14 +16,14 @@ export default function LandingPackage() {
                 </button>
 
                 <div className="w-1/2 bg-[#4F39F6] p-12 flex flex-col justify-center">
-                    <div className="w-full max-w-[400px] ml-auto">
+                    <div className="w-full max-w-100 ml-auto">
                         <h1 className="text-white text-4xl font-bold leading-tight">
                             Elektronik Pilihan, Harga Spesial
                         </h1>
                         <p className="text-white/80 text-sm mt-3 mb-6 leading-relaxed">
                             Laptop, smartphone, headphone, dan masih banyak lagi dengan diskon hingga 40%.
                         </p>
-                        <button className="w-[140px] h-[44px] bg-white text-[#4F39F6] font-semibold text-xs rounded-xl hover:bg-opacity-90 transition shadow-sm flex items-center justify-center gap-1">
+                        <button className="w-35 h-11 bg-white text-[#4F39F6] font-semibold text-xs rounded-xl hover:bg-opacity-90 transition shadow-sm flex items-center justify-center gap-1">
                             Lihat Promo <span className="text-sm">→</span>
                         </button>
                     </div>
