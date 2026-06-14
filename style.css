@@ -204,14 +204,12 @@ body {
 .containerList {
     display: flex;
     justify-content: center;
-    /* width: 1248px; */
     display: flex;
     gap: 12px;
 }
 
 .itemMenu {
     display: flex;
-    /* align-items: center; */
     gap: 5px;
     padding: 10px;
     cursor: pointer;
