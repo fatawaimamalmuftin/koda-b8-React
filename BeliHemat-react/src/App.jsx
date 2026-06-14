@@ -1,13 +1,96 @@
-import './main'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LandingPackage from './pages/LandingPackage'
+import About from './pages/About'
+import Navbar from "./componen/Navbar.jsx"
+import Footer from "./componen/Footer.jsx"
 
-function App() {
+const router = createBrowserRouter([
+  // 1
+  {
+    path: "/landingPackage",
+    element: <>
+      <Navbar />,
+      <LandingPackage />
+      <Footer />
+    </>
+  },
+  // 2
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <About />
+      <Footer />
+    </>
+  },
+  // 3
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <Footer />
+    </>
+  },
+  // 4
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <Footer />
+    </>
+  },
+  // 5
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <Footer />
+    </>
+  },
+  // 6
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <Footer />
+    </>
+  },
+  // 7
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <Footer />
+    </>
+  },
+  // 8
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <Footer />
+    </>
+  },
+  // 9
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <Footer />
+    </>
+  },
+  // 10
+  {
+    path: "/about",
+    element: <>
+      <Navbar />,
+      <Footer />
+    </>
+  }
+])
+
+export default function App() {
   return (
-    <div className="flex h-screen items-center justify-center bg-slate-900">
-      <h1 className="text-4xl font-bold text-cyan-400 drop-shadow-md">
-        Tailwind v4 + Vite Sukses JOSS! 🚀
-      </h1>
-    </div>
+    <RouterProvider router={router} />
   )
 }
-
-export default App
