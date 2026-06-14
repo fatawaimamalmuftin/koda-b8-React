@@ -129,12 +129,12 @@ export default function LandingPackage() {
 
                 <section className="w-full grid grid-cols-2 gap-4 mt-8">
                     <div
-                        className="w-full h-[140px] bg-cover bg-center rounded-xl flex items-center p-6 object-contain"
+                        className="w-full h-35 bg-cover bg-center rounded-xl flex items-center p-6 object-contain"
                         style={{
                             backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0.2)), url(${orangOlahraga})`
                         }}
                     >
-                        <div className="w-full max-w-[280px] text-white flex flex-col justify-between h-full">
+                        <div className="w-full max-w-70 text-white flex flex-col justify-between h-full">
                             <div>
                                 <span className="text-white/70 text-[10px] font-bold tracking-wider block uppercase">Koleksi Pilihan</span>
                                 <h3 className="font-bold text-base mt-0.5 leading-snug">Diskon s/d 50% untuk Perlengkapan Olahraga</h3>
@@ -146,11 +146,11 @@ export default function LandingPackage() {
                     </div>
 
                     <div
-                        className="w-full h-[140px] bg-cover bg-center rounded-xl flex items-center p-6 object-contain"
+                        className="w-full h-35 bg-cover bg-center rounded-xl flex items-center p-6 object-contain"
                         style={{
                             backgroundImage: `linear-gradient(to right, rgba(26,115,232,0.4) 40%, rgba(26,115,232,0.2)),url(${kopiBuku})`
                         }}>
-                        <div className="w-full max-w-[280px] text-white flex flex-col justify-between h-full">
+                        <div className="w-full max-w-70 text-white flex flex-col justify-between h-full">
                             <div>
                                 <span className="text-white/70 text-[10px] font-bold tracking-wider block uppercase">Elektronik Pilihan</span>
                                 <h3 className="font-bold text-base mt-0.5 leading-snug">Harga Terbaik untuk Peralatan Rumah</h3>
@@ -174,13 +174,13 @@ export default function LandingPackage() {
 
                     <div className="w-full grid grid-cols-4 gap-4">
                         <div className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-sm transition">
-                            <div className="relative w-full h-[220px] bg-gray-50 flex items-center justify-center">
+                            <div className="relative w-full h-55 bg-gray-50 flex items-center justify-center">
                                 <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                     -31%
                                 </div>
                                 <img src={elektronikImg} className="w-full h-full object-cover" />
                             </div>
-                            <div className="w-full p-3 flex flex-col justify-between h-[120px]">
+                            <div className="w-full p-3 flex flex-col justify-between h-30">
                                 <div>
                                     <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider">SoundWave</span>
                                     <h3 className="text-xs font-semibold text-[#111827] truncate mt-0.5">Headphone Wireless Premium</h3>
@@ -197,13 +197,13 @@ export default function LandingPackage() {
                         </div>
 
                         <div className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-sm transition">
-                            <div className="relative w-full h-[220px] bg-gray-50 flex items-center justify-center">
+                            <div className="relative w-full h-55 bg-gray-50 flex items-center justify-center">
                                 <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                     -31%
                                 </div>
                                 <img src={elektronikImg} className="w-full h-full object-cover" />
                             </div>
-                            <div className="w-full p-3 flex flex-col justify-between h-[120px]">
+                            <div className="w-full p-3 flex flex-col justify-between h-30">
                                 <div>
                                     <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider">SoundWave</span>
                                     <h3 className="text-xs font-semibold text-[#111827] truncate mt-0.5">Headphone Wireless Premium</h3>
@@ -220,13 +220,13 @@ export default function LandingPackage() {
                         </div>
 
                         <div className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-sm transition">
-                            <div className="relative w-full h-[220px] bg-gray-50 flex items-center justify-center">
+                            <div className="relative w-full h-55 bg-gray-50 flex items-center justify-center">
                                 <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                     -31%
                                 </div>
                                 <img src={elektronikImg} className="w-full h-full object-cover" />
                             </div>
-                            <div className="w-full p-3 flex flex-col justify-between h-[120px]">
+                            <div className="w-full p-3 flex flex-col justify-between h-30">
                                 <div>
                                     <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider">SoundWave</span>
                                     <h3 className="text-xs font-semibold text-[#111827] truncate mt-0.5">Headphone Wireless Premium</h3>
@@ -243,13 +243,13 @@ export default function LandingPackage() {
                         </div>
 
                         <div className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-sm transition">
-                            <div className="relative w-full h-[220px] bg-gray-50 flex items-center justify-center">
+                            <div className="relative w-full h-55 bg-gray-50 flex items-center justify-center">
                                 <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                     -31%
                                 </div>
                                 <img src={elektronikImg} className="w-full h-full object-cover" />
                             </div>
-                            <div className="w-full p-3 flex flex-col justify-between h-[120px]">
+                            <div className="w-full p-3 flex flex-col justify-between h-30">
                                 <div>
                                     <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider">SoundWave</span>
                                     <h3 className="text-xs font-semibold text-[#111827] truncate mt-0.5">Headphone Wireless Premium</h3>
@@ -266,13 +266,13 @@ export default function LandingPackage() {
                         </div>
 
                         <div className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-sm transition">
-                            <div className="relative w-full h-[220px] bg-gray-50 flex items-center justify-center">
+                            <div className="relative w-full h-55 bg-gray-50 flex items-center justify-center">
                                 <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                     -31%
                                 </div>
                                 <img src={elektronikImg} className="w-full h-full object-cover" />
                             </div>
-                            <div className="w-full p-3 flex flex-col justify-between h-[120px]">
+                            <div className="w-full p-3 flex flex-col justify-between h-30">
                                 <div>
                                     <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider">SoundWave</span>
                                     <h3 className="text-xs font-semibold text-[#111827] truncate mt-0.5">Headphone Wireless Premium</h3>
@@ -289,13 +289,13 @@ export default function LandingPackage() {
                         </div>
 
                         <div className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-sm transition">
-                            <div className="relative w-full h-[220px] bg-gray-50 flex items-center justify-center">
+                            <div className="relative w-full h-55 bg-gray-50 flex items-center justify-center">
                                 <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                     -31%
                                 </div>
                                 <img src={elektronikImg} className="w-full h-full object-cover" />
                             </div>
-                            <div className="w-full p-3 flex flex-col justify-between h-[120px]">
+                            <div className="w-full p-3 flex flex-col justify-between h-30">
                                 <div>
                                     <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider">SoundWave</span>
                                     <h3 className="text-xs font-semibold text-[#111827] truncate mt-0.5">Headphone Wireless Premium</h3>
@@ -312,13 +312,13 @@ export default function LandingPackage() {
                         </div>
 
                         <div className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-sm transition">
-                            <div className="relative w-full h-[220px] bg-gray-50 flex items-center justify-center">
+                            <div className="relative w-full h-55 bg-gray-50 flex items-center justify-center">
                                 <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                     -31%
                                 </div>
                                 <img src={elektronikImg} className="w-full h-full object-cover" />
                             </div>
-                            <div className="w-full p-3 flex flex-col justify-between h-[120px]">
+                            <div className="w-full p-3 flex flex-col justify-between h-30">
                                 <div>
                                     <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider">SoundWave</span>
                                     <h3 className="text-xs font-semibold text-[#111827] truncate mt-0.5">Headphone Wireless Premium</h3>
