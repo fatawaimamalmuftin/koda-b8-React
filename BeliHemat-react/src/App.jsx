@@ -55,7 +55,7 @@ const router = createBrowserRouter([
   },
   // 5
   {
-    path: "/chekout1",
+    path: "/checkout1",
     element: <>
       <Navbar />,
       <CheckOut1 />,
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
   },
   // 6
   {
-    path: "/chekout2",
+    path: "/checkout2",
     element: <>
       <Navbar />,
       <CheckOut2 />,
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
   },
   // 7
   {
-    path: "/chekout3",
+    path: "/checkout3",
     element: <>
       <Navbar />,
       <CheckOut3 />,
