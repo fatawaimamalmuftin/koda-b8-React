@@ -1,8 +1,20 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LandingPackage from './pages/LandingPackage'
-import About from './pages/About'
+//Komponen child
 import Navbar from "./componen/Navbar.jsx"
 import Footer from "./componen/Footer.jsx"
+
+//Komponen parent
+import LandingPackage from './pages/LandingPackage'
+import MainBrowse from './pages/MainBrowse'
+import MainDetail from './pages/MainDetail';
+import MainCart from './pages/MainCart';
+import CheckOut1 from "./pages/CheckOut1.jsx";
+import CheckOut2 from "./pages/CheckOut2.jsx";
+import CheckOut3 from "./pages/CheckOut3.jsx";
+import CheckOutSucces from "./pages/CheckOutSucces.jsx";
+import ProfileMyOrder from "./pages/ProfileMyOrder.jsx";
+import ProfileWishlist from "./pages/ProfileWishlist.jsx";
+
 
 const router = createBrowserRouter([
   // 1
@@ -16,74 +28,82 @@ const router = createBrowserRouter([
   },
   // 2
   {
-    path: "/about",
+    path: "/mainbrows",
     element: <>
       <Navbar />,
-      <About />
+      <MainBrowse />
       <Footer />
     </>
   },
   // 3
   {
-    path: "/about",
+    path: "/maindetail",
     element: <>
       <Navbar />,
+      <MainDetail />,
       <Footer />
     </>
   },
   // 4
   {
-    path: "/about",
+    path: "/maincart",
     element: <>
       <Navbar />,
+      <MainCart />,
       <Footer />
     </>
   },
   // 5
   {
-    path: "/about",
+    path: "/chekout1",
     element: <>
       <Navbar />,
+      <CheckOut1 />,
       <Footer />
     </>
   },
   // 6
   {
-    path: "/about",
+    path: "/chekout2",
     element: <>
       <Navbar />,
+      <CheckOut2 />,
       <Footer />
     </>
   },
   // 7
   {
-    path: "/about",
+    path: "/chekout3",
     element: <>
       <Navbar />,
+      <CheckOut3 />,
       <Footer />
     </>
   },
   // 8
   {
-    path: "/about",
+    path: "/checkoutsucces",
     element: <>
       <Navbar />,
+      <CheckOutSucces />,
       <Footer />
     </>
   },
   // 9
   {
-    path: "/about",
+    path: "/profilemyorder",
     element: <>
       <Navbar />,
+      <ProfileMyOrder />,
       <Footer />
     </>
   },
   // 10
   {
-    path: "/about",
+    path: "/profilewishlist",
     element: <>
       <Navbar />,
+      <ProfileWishlist />,
       <Footer />
     </>
   }
