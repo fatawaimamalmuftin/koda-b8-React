@@ -7,7 +7,7 @@ import Card from './../componen/Card';
 export default function LandingPackage() {
     return (
         <>
-            <section className="w-full flex flex-row overflow-hidden mt-4 relative h-[380px]">
+            <section className="w-full flex flex-row overflow-hidden mt-4 relative h-95">
 
                 <button className="absolute left-4 top-1/2 -translate-y-1/2 z-10 border border-white/20 text-white rounded-full w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-white/10 transition">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor">
@@ -51,7 +51,7 @@ export default function LandingPackage() {
 
             <main className="w-full px-28 bg-[#F9FAFB]">
 
-                <div className="fixed bottom-[300px] right-[20px] z-[9999] flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#4F39F6] bg-[#4F39F6] text-white cursor-pointer hover:bg-opacity-90 transition">
+                <div className="fixed bottom-75 right-5 z-[9999] flex h-14 w-14 items-center justify-center rounded-full border-2 border-[#4F39F6] bg-[#4F39F6] text-white cursor-pointer hover:bg-opacity-90 transition">
                     <MessageCircle className="w-6 h-6" />
                 </div>
 
@@ -360,7 +360,7 @@ export default function LandingPackage() {
                 <section className="w-full mt-12 mb-8 py-8 px-6 bg-white border border-gray-100 rounded-2xl shadow-sm text-center">
                     <h2 className="font-bold text-base text-[#111827] mb-8">Kenapa Belanja di BeliMudah?</h2>
 
-                    <div className="w-full grid grid-cols-4 gap-4 max-w-[1200px] mx-auto">
+                    <div className="w-full grid grid-cols-4 gap-4 max-w-300 mx-auto">
                         <div className="flex flex-col items-center p-2">
                             <span className="text-3xl mb-2 block">🚚</span>
                             <h3 className="text-xs font-bold text-[#111827] mb-1">Gratis Ongkir</h3>
