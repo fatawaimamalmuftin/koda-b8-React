@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
     MapPin,
     Search,
@@ -7,10 +7,17 @@ import {
     Heart,
     ShoppingCart,
     Menu,
-    ChevronDown
 } from 'lucide-react';
 
 export default function Navbar() {
+    const nafigasi = useNavigate();
+
+    const handleNavigasi = (event) => {
+        const pathTujuan = event.target.value
+        if (pathTujuan) {
+            nafigasi(pathTujuan);
+        }
+    }
     return (
         <>
             <header className="top-0 flex justify-between items-center bg-[#4F39F6] w-full px-[120px] py-[5px]">
@@ -59,7 +66,7 @@ export default function Navbar() {
                             <Bell className="text-[#374151]" size={22} />
                         </div>
 
-                        <Link to="/about" className="w-[40px] h-[40px] flex justify-center items-center cursor-pointer">
+                        <Link to="/profilemyorder" className="w-[40px] h-[40px] flex justify-center items-center cursor-pointer">
                             <User className="text-[#374151]" size={22} />
                         </Link>
 
@@ -78,11 +85,23 @@ export default function Navbar() {
 
                 </div>
 
-                <div className="flex justify-center gap-[12px]">
+                <div className="flex justify-center gap-[10px]">
                     <div className="flex items-center gap-[5px] p-[10px] cursor-pointer text-[14px]">
                         <Menu className="text-[#374151]" size={14} />
-                        <span className="text-sm">Semua Kategori</span>
-                        <ChevronDown className="text-[#374151]" size={14} />
+                        <label htmlFor='halaman'></label>
+                        <select name="halaman" id="halaman" onChange={handleNavigasi} defaultValue="">
+                            <option value="" disabled>Semua Kategori</option>
+
+                            <option value="/mainbrows">Main Brows</option>
+                            <option value="/maindetail">Main Detail</option>
+                            <option value="/maincart">Main Chart</option>
+                            <option value="/checkout1">CheckOut step-1</option>
+                            <option value="/checkout2">CheckOut step-2</option>
+                            <option value="/checkout3">CheckOut step-3</option>
+                            <option value="/checkoutsucces">CheckOut Finish</option>
+                            <option value="/profilemyorder">Profile My Order</option>
+                            <option value="/profilewishlist">Profile Wishlist</option>
+                        </select>
                     </div>
 
                     <Link to="/home" className="flex items-center gap-[5px] p-[10px] cursor-pointer text-[14px] no-underline color-inherit">
