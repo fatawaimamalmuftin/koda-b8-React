@@ -2,6 +2,7 @@ import { ChevronRight, ShoppingCart, Heart } from "lucide-react";
 import Card from "./../componen/Card";
 import elektronikImg from '../assets/elektronik.png';
 
+
 export default function MainDetail() {
     return (
         <>
