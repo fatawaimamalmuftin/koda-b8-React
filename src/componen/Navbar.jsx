@@ -41,8 +41,8 @@ export default function Navbar() {
             <nav className="flex sticky top-0 z-[9999] px-[120px] py-[5px] bg-white/80 flex flex-col items-center">
                 <div className="flex items-center gap-6 mt-2 justify-between w-full">
 
-                    <Link to="/landingPackage" className="flex items-center 1.25">
-                        <div className="flex justify-center items-center w-[32px] h-[32px] bg-[#1A73E8] text-white rounded-2 font-normal text-center text-[14px] leading-[32px]">
+                    <Link to="/landingPackage" className="flex items-center gap-1">
+                        <div className="flex justify-center items-center w-[30px] h-[30px] bg-[#1A73E8] text-white rounded-xl font-normal text-center text-[14px] leading-[32px]">
                             B
                         </div>
                         <span className="flex text-[#111827] font-normal text-[16px]">
@@ -53,10 +53,10 @@ export default function Navbar() {
                     <div className="w-full flex items-center">
                         <input
                             type="text"
-                            className="flex-1 w-full h-10 px-[12px] border border-[#D1D5DB] rounded-l-2 outline-none"
+                            className="flex-1 w-full h-10 px-[12px] border border-[#D1D5DB] rounded-l-2xl outline-none"
                             placeholder="Cari produk, merek, kategori..."
                         />
-                        <button className="w-[38px] h-10 border-none bg-[#1A73E8] rounded-r-2 cursor-pointer flex justify-center items-center">
+                        <button className="w-[38px] h-10 border-none bg-[#1A73E8] rounded-r-2xl cursor-pointer flex justify-center items-center">
                             <Search className="text-white" size={20} />
                         </button>
                     </div>
@@ -69,7 +69,7 @@ export default function Navbar() {
                         <Link to="/profilemyorder" className="w-10 h-10 flex justify-center items-center cursor-pointer">
                             <User className="text-[#374151]" size={22} />
                         </Link>
-                    
+
                         <div className="px-2 font-medium text-[#374151]">
                             <span>Budi</span>
                         </div>
