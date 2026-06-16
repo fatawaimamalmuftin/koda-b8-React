@@ -1,51 +1,92 @@
 import elektronikImg from '../assets/elektronik.png';
 import orangOlahraga from '../assets/olahraga.png';
 import kopiBuku from '../assets/kopiBg.png';
-import { MessageCircle } from 'lucide-react'
+import { MessageCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 import Card from './../componen/Card';
+import { useState } from 'react';
 
 export default function LandingPackage() {
+    const [geser, setGeser] = useState(0);
+
+    function kiri() {
+        setGeser((event) => (event === 0 ? banner.length - 1 : event - 1))
+    }
+
+    function kanan() {
+        setGeser((event) => (event === banner.length - 1 ? 0 : event + 1))
+    }
+    const banner = [
+        {
+            title: "Elektronik Pilihan, Harga Spesial",
+            description: "Laptop, smartphone, headphone, dan masih banyak lagi dengan diskon hingga 40%",
+            image: elektronikImg,
+            bgColor: "bg-[#4F39F6]",
+            warnaImages: "linear-gradient(to right, rgba(130,0,219,0.6), rgba(130,0,219,0.2))"
+        },
+        {
+            title: "Gaya Hidup Sehat, Harga Spesial",
+            description: "Laptop, smartphone, headphone, dan masih banyak lagi dengan diskon hingga 50%",
+            image: orangOlahraga,
+            bgColor: "bg-[#111820]",
+            warnaImages: "linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.2))"
+        },
+        {
+            title: "Enjoy The Live, Harga Spesial",
+            description: "Laptop, smartphone, headphone, dan masih banyak lagi dengan diskon hingga 60%",
+            image: kopiBuku,
+            bgColor: "bg-[#1A73A0]",
+            warnaImages: "linear-gradient(to right, rgba(266,115,232,0.6), rgba(266,115,232,0.2))"
+        },
+    ]
+
     return (
         <>
-            <section className="w-full flex flex-row overflow-hidden mt-4 relative h-95">
-
-                <button className="absolute left-4 top-1/2 -translate-y-1/2 z-10 border border-white/20 text-white rounded-full w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-white/10 transition">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-
-                <div className="w-1/2 bg-[#4F39F6] p-12 flex flex-col justify-center">
-                    <div className="w-full max-w-100 ml-auto">
-                        <h1 className="text-white text-4xl font-bold leading-tight">
-                            Elektronik Pilihan, Harga Spesial
-                        </h1>
-                        <p className="text-white/80 text-sm mt-3 mb-6 leading-relaxed">
-                            Laptop, smartphone, headphone, dan masih banyak lagi dengan diskon hingga 40%.
-                        </p>
-                        <button className="w-35 h-11 bg-white text-[#4F39F6] font-semibold text-xs rounded-xl hover:bg-opacity-90 transition shadow-sm flex items-center justify-center gap-1">
-                            Lihat Promo <span className="text-sm">→</span>
-                        </button>
-                    </div>
+            <section className=' w-full relative h-95 mt-2 overflow-hidden bg-gray-200'>
+                <div className=' w-full h-full flex transition-transform duration-500 ease-out'
+                    style={{ transform: `translatex(-${geser * 100}%)` }}>
+                    {banner.map((banner, index) => (
+                        <div key={index} className=' w-full h-full flex flex-row shrink-0'>
+                            <div className={` w-1/2 ${banner.bgColor} p-12 flex flex-col justify-center`}>
+                                <div className=' w-full max-w-100 ml-auto'>
+                                    <h1 className=' text-white text-3xl font-bold leading-tight'>
+                                        {banner.title}
+                                    </h1>
+                                    <p className=' text-white/80 text-sm mt-3 mb-6 leading-relaxed'>
+                                        {banner.description}
+                                    </p>
+                                    <button className=' w-35 h-11 bg-white text-gray-900 font-sans text-xs rounded-xl hover:bg-opacity-90 shadow-sm flex items-center justify-center gap-1 cursor-pointer'>
+                                        Lihat Promo <span className=' text-sm'>→</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                className=" w-1/2 bg-cover bg-center"
+                                style={{ backgroundImage: `${banner.warnaImages},url(${banner.image})` }} />
+                        </div>
+                    ))}
                 </div>
 
-                <div
-                    className="w-1/2 bg-cover bg-center"
-                    style={{
-                        backgroundImage: `linear-gradient(to right, rgba(130,0,219,0.5), rgba(130,0,219,0.5)), url(${elektronikImg})`
-                    }}
-                />
+                <button
+                    onClick={kiri}
+                    className=' absolute left-4 top-1/2 -translate-y-1/2 z-10 border border-white/20 text-white rounded-full w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-white/10 transition'>
+                    <ChevronLeft className="w-6 h-6" />
+                </button>
 
-                <button className="absolute right-4 top-1/2 -translate-y-1/2 z-10 border border-white/20 text-white rounded-full w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-white/10 transition">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                    </svg>
+                <button
+                    onClick={kanan}
+                    className=' absolute right-4 top-1/2 -translate-y-1/2 z-10 border border-white/20 text-white rounded-full w-10 h-10 flex justify-center items-center cursor-pointer hover:bg-white/10 transition'>
+                    <ChevronRight className="w-6 h-6" />
                 </button>
 
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
-                    <span className="w-2 h-2 rounded-full bg-white/30 cursor-pointer"></span>
-                    <span className="w-6 h-2 rounded-full bg-white cursor-pointer"></span>
-                    <span className="w-2 h-2 rounded-full bg-white/30 cursor-pointer"></span>
+                    {banner.map((_, event) => (
+                        <button
+                            key={event}
+                            onClick={() => setGeser(event)}
+                            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${geser === event ? " w-6 bg-white" : " w-2 bg-white/30"
+                                }`}
+                        />
+                    ))}
                 </div>
             </section>
 
