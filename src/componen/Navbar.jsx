@@ -101,6 +101,13 @@ export default function Navbar() {
                             <option value="/checkoutsucces">CheckOut Finish</option>
                             <option value="/profilemyorder">Profile My Order</option>
                             <option value="/profilewishlist">Profile Wishlist</option>
+                            <option value="/profilealamat">Profile Alamat</option>
+                            <option value="/profileedit">Profile Edit</option>
+                            <option value="/login">Login</option>
+                            <option value="/registrasi">Registrasi</option>
+                            <option value="/forgotpass">Forgot Password</option>
+                            <option value="/dashboard">Dashboard</option>
+
                         </select>
                     </div>
 
