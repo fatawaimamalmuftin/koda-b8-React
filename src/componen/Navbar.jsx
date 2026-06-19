@@ -20,29 +20,29 @@ export default function Navbar() {
     }
     return (
         <>
-            <header className="top-0 flex justify-between items-center bg-[#4F39F6] w-full px-[120px] py-[5px]">
-                <div className="flex items-center gap-[6px]">
+            <header className="top-0 flex justify-between items-center bg-[#4F39F6] w-full px-30 py-1.25">
+                <div className="flex items-center gap-1">
                     <MapPin className="text-white" size={16} />
-                    <span className="text-white text-[12px]">
+                    <span className="text-white text-3">
                         Kirim ke: Jakarta Selatan
                     </span>
                 </div>
 
-                <div className="flex gap-[24px]">
-                    <div className="text-white text-[12px]">
+                <div className="flex gap-6">
+                    <div className="text-white text-3">
                         🚀 Gratis ongkir di atas Rp 100.000
                     </div>
-                    <div className="text-white text-[12px]">
+                    <div className="text-white text-3">
                         📞 0800-1234-5678 (Gratis)
                     </div>
                 </div>
             </header>
 
-            <nav className="flex sticky top-0 z-[9999] px-[120px] py-[5px] bg-white/80 flex flex-col items-center">
+            <nav className="flex sticky top-0 z-50 px-30 py-1.25 bg-white/80 flex-col items-center">
                 <div className="flex items-center gap-6 mt-2 justify-between w-full">
 
                     <Link to="/landingPackage" className="flex items-center gap-1">
-                        <div className="flex justify-center items-center w-[30px] h-[30px] bg-[#1A73E8] text-white rounded-xl font-normal text-center text-[14px] leading-[32px]">
+                        <div className="flex justify-center items-center w-7.5 h-7.5 bg-[#1A73E8] text-white rounded-xl font-normal text-center text-[14px] leading-8">
                             B
                         </div>
                         <span className="flex text-[#111827] font-normal text-[16px]">
@@ -53,15 +53,15 @@ export default function Navbar() {
                     <div className="w-full flex items-center">
                         <input
                             type="text"
-                            className="flex-1 w-full h-10 px-[12px] border border-[#D1D5DB] rounded-l-2xl outline-none"
+                            className="flex-1 w-full h-10 px-3 border border-[#D1D5DB] rounded-l-2xl outline-none"
                             placeholder="Cari produk, merek, kategori..."
                         />
-                        <button className="w-[38px] h-10 border-none bg-[#1A73E8] rounded-r-2xl cursor-pointer flex justify-center items-center">
+                        <button className="w-9.5 h-10 border-none bg-[#1A73E8] rounded-r-2xl cursor-pointer flex justify-center items-center">
                             <Search className="text-white" size={20} />
                         </button>
                     </div>
 
-                    <div className="flex items-center gap-[6px]">
+                    <div className="flex items-center gap-1">
                         <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
                             <Bell className="text-[#374151]" size={22} />
                         </div>
