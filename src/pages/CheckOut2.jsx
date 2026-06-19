@@ -4,7 +4,7 @@ import headphoneImg from '../assets/elektronik.png';
 export default function CheckOut2() {
     return (
         <main className="w-full bg-gray-50 px-26">
-            <div className="max-w-[1280px] mx-auto px-4 flex flex-col gap-10">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col gap-10">
 
                 <section className="flex justify-center items-center py-4">
                     <div className="flex items-center gap-4 text-xs font-medium text-gray-400">

@@ -23,7 +23,7 @@ export default function AdminDashboard() {
 
             <aside className="w-60 bg-gray-900 flex flex-col fixed top-0 left-0 h-full z-50">
                 <div className="flex items-center gap-2.5 px-5 pt-5 pb-4 border-b border-gray-800">
-                    <div className="w-8 h-8 bg-[#1a73e8] rounded-lg flex items-center justify-center text-white font-semibold text-sm shrink-0">
+                    <div className="w-8 h-8 bg-[#1a73e8] rounded-lg flex items-center justify-center text-white font-semibold text-sm">
                         B
                     </div>
                     <span className="text-white text-sm font-medium">BeliMudah Admin</span>
@@ -31,19 +31,19 @@ export default function AdminDashboard() {
 
                 <nav className="flex flex-col gap-0.5 p-3 flex-1">
                     <a href="/dashboard-step1.html" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#1a73e8] text-white text-[13px] no-underline">
-                        <LayoutDashboard className="w-4 h-4 shrink-0" /> Dashboard
+                        <LayoutDashboard className="w-4 h-4" /> Dashboard
                     </a>
                     <a href="/dashboard-step2.htm" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
-                        <Package className="w-4 h-4 shrink-0" /> Produk
+                        <Package className="w-4 h-4" /> Produk
                     </a>
                     <a href="/dashboard-step-3.htm" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
-                        <ShoppingCart className="w-4 h-4 shrink-0" /> Pesanan
+                        <ShoppingCart className="w-4 h-4" /> Pesanan
                     </a>
                     <a href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
-                        <Users className="w-4 h-4 shrink-0" /> Pelanggan
+                        <Users className="w-4 h-4" /> Pelanggan
                     </a>
                     <a href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
-                        <Settings className="w-4 h-4 shrink-0" /> Pengaturan
+                        <Settings className="w-4 h-4" /> Pengaturan
                     </a>
                 </nav>
 
@@ -88,7 +88,7 @@ export default function AdminDashboard() {
                         <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2.5">
                             <div className="flex justify-between items-start">
                                 <span className="text-xs text-gray-500 leading-snug max-w-35">Total Pendapatan (Bulan Ini)</span>
-                                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-blue-50 text-[#1a73e8]">
+                                <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-blue-50 text-[#1a73e8]">
                                     <TrendingUp className="w-4.5 h-4.5" />
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ export default function AdminDashboard() {
                         <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2.5">
                             <div className="flex justify-between items-start">
                                 <span className="text-xs text-gray-500 leading-snug max-w-35">Pesanan Baru</span>
-                                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-orange-50 text-orange-500">
+                                <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-orange-50 text-orange-500">
                                     <ShoppingBag className="w-4.5 h-4.5" />
                                 </div>
                             </div>
@@ -114,7 +114,7 @@ export default function AdminDashboard() {
                         <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2.5">
                             <div className="flex justify-between items-start">
                                 <span className="text-xs text-gray-500 leading-snug max-w-35">Pelanggan Aktif</span>
-                                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-green-50 text-green-500">
+                                <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-green-50 text-green-500">
                                     <Users className="w-4.5 h-4.5" />
                                 </div>
                             </div>
@@ -127,7 +127,7 @@ export default function AdminDashboard() {
                         <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-2.5">
                             <div className="flex justify-between items-start">
                                 <span className="text-xs text-gray-500 leading-snug max-w-35">Produk Aktif</span>
-                                <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-purple-50 text-purple-500">
+                                <div className="w-9 h-9 rounded-lg flex items-center justify-center bg-purple-50 text-purple-500">
                                     <Box className="w-4.5 h-4.5" />
                                 </div>
                             </div>
@@ -154,27 +154,27 @@ export default function AdminDashboard() {
                             <img src={GambarLingkaran} alt="Diagram Lingkaran" className="ml-12" />
                             <div className="flex flex-col gap-1.5 mt-3">
                                 <div className="flex items-center text-xs">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-blue-500 shrink-0"></div>
+                                    <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
                                     <span className="flex-1 ml-2 text-gray-700">Elektronik</span>
                                     <span className="text-gray-500 font-medium">45%</span>
                                 </div>
                                 <div className="flex items-center text-xs">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-orange-500 shrink-0"></div>
+                                    <div className="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
                                     <span className="flex-1 ml-2 text-gray-700">Fashion</span>
                                     <span className="text-gray-500 font-medium">28%</span>
                                 </div>
                                 <div className="flex items-center text-xs">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-green-500 shrink-0"></div>
+                                    <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
                                     <span className="flex-1 ml-2 text-gray-700">Rumah & Dapur</span>
                                     <span className="text-gray-500 font-medium">15%</span>
                                 </div>
                                 <div className="flex items-center text-xs">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-purple-500 shrink-0"></div>
+                                    <div className="w-2.5 h-2.5 rounded-full bg-purple-500"></div>
                                     <span className="flex-1 ml-2 text-gray-700">Kecantikan</span>
                                     <span className="text-gray-500 font-medium">8%</span>
                                 </div>
                                 <div className="flex items-center text-xs">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-gray-300 shrink-0"></div>
+                                    <div className="w-2.5 h-2.5 rounded-full bg-gray-300"></div>
                                     <span className="flex-1 ml-2 text-gray-700">Lainnya</span>
                                     <span className="text-gray-500 font-medium">4%</span>
                                 </div>
@@ -271,7 +271,7 @@ export default function AdminDashboard() {
                             </div>
 
                             <div className="flex items-center gap-2.5 py-2.5 border-b border-gray-100">
-                                <span className="w-4 text-xs text-gray-400 text-center shrink-0">1</span>
+                                <span className="w-4 text-xs text-gray-400 text-center">1</span>
                                 <div className="flex-1 min-w-0">
                                     <div className="text-xs font-medium text-gray-900 truncate">Headphone Wireless Premium</div>
                                     <div className="text-2.75 text-gray-500 mt-0.5">136 terjual · Stok: 45</div>
@@ -280,7 +280,7 @@ export default function AdminDashboard() {
                             </div>
 
                             <div className="flex items-center gap-2.5 py-2.5 border-b border-gray-100">
-                                <span className="w-4 text-xs text-gray-400 text-center shrink-0">2</span>
+                                <span className="w-4 text-xs text-gray-400 text-center">2</span>
                                 <div className="flex-1 min-w-0">
                                     <div className="text-xs font-medium text-gray-900 truncate">Laptop Ultrabook Pro 15"</div>
                                     <div className="text-2.75 text-gray-500 mt-0.5">87 terjual · Stok: 15</div>
@@ -289,7 +289,7 @@ export default function AdminDashboard() {
                             </div>
 
                             <div className="flex items-center gap-2.5 py-2.5 border-b border-gray-100">
-                                <span className="w-4 text-xs text-gray-400 text-center shrink-0">3</span>
+                                <span className="w-4 text-xs text-gray-400 text-center">3</span>
                                 <div className="flex-1 min-w-0">
                                     <div className="text-xs font-medium text-gray-900 truncate">Kaos Polos Premium Cotton</div>
                                     <div className="text-2.75 text-gray-500 mt-0.5">312 terjual · Stok: 200</div>
@@ -298,7 +298,7 @@ export default function AdminDashboard() {
                             </div>
 
                             <div className="flex items-center gap-2.5 py-2.5 border-b border-gray-100">
-                                <span className="w-4 text-xs text-gray-400 text-center shrink-0">4</span>
+                                <span className="w-4 text-xs text-gray-400 text-center">4</span>
                                 <div className="flex-1 min-w-0">
                                     <div className="text-xs font-medium text-gray-900 truncate">Sneakers Sport Runfast</div>
                                     <div className="text-2.75 text-gray-500 mt-0.5">203 terjual · Stok: 80</div>
@@ -307,7 +307,7 @@ export default function AdminDashboard() {
                             </div>
 
                             <div className="flex items-center gap-2.5 py-2.5">
-                                <span className="w-4 text-xs text-gray-400 text-center shrink-0">5</span>
+                                <span className="w-4 text-xs text-gray-400 text-center">5</span>
                                 <div className="flex-1 min-w-0">
                                     <div className="text-xs font-medium text-gray-900 truncate">Smartphone 5G Ultra</div>
                                     <div className="text-2.75 text-gray-500 mt-0.5">124 terjual · Stok: 30</div>

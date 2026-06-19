@@ -4,7 +4,7 @@ import headphoneImg from '../assets/elektronik.png';
 export default function CheckOut1() {
     return (
         <main className="w-full bg-gray-50 px-26">
-            <div className="max-w-[1280px] mx-auto px-4 flex flex-col gap-10">
+            <div className="max-w-7xl mx-auto px-4 flex flex-col gap-10">
 
                 <section className="flex justify-center items-center py-4">
                     <div className="flex items-center gap-4 text-xs font-medium text-gray-400">
@@ -14,14 +14,14 @@ export default function CheckOut1() {
                             </div>
                             <span>Pengiriman</span>
                         </div>
-                        <div className="w-16 h-[2px] bg-gray-200 mt-[-20px]"></div>
+                        <div className="w-16 h-0.5 bg-gray-200 mt-5"></div>
                         <div className="flex flex-col items-center gap-1">
                             <div className="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">
                                 2
                             </div>
                             <span>Pembayaran</span>
                         </div>
-                        <div className="w-16 h-[2px] bg-gray-200 mt-[-20px]"></div>
+                        <div className="w-16 h-0.5 bg-gray-200 mt-5"></div>
                         <div className="flex flex-col items-center gap-1">
                             <div className="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">
                                 3
@@ -160,15 +160,15 @@ export default function CheckOut1() {
                         </button>
                     </div>
 
-                    <div className="w-full lg:w-[380px] bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col gap-5 lg:sticky lg:top-10">
+                    <div className="w-full lg:w-95 bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col gap-5 lg:sticky lg:top-10">
                         <h3 className="text-base font-bold text-gray-950">Ringkasan Pesanan</h3>
 
                         <div className="flex items-center gap-3 bg-gray-50 p-3 rounded-xl border border-gray-100">
-                            <div className="w-12 h-12 rounded-lg bg-white overflow-hidden border border-gray-200 p-1 flex-shrink-0">
+                            <div className="w-12 h-12 rounded-lg bg-white overflow-hidden border border-gray-200 p-1">
                                 <img src={headphoneImg} alt="Headphone" className="w-full h-full object-contain" />
                             </div>
                             <div className="flex-1 flex justify-between items-center text-xs">
-                                <span className="font-semibold text-gray-800 truncate max-w-[180px]">
+                                <span className="font-semibold text-gray-800 truncate max-w-45">
                                     Headphone Wireless Premium
                                 </span>
                                 <span className="text-gray-500 font-medium">x1</span>
