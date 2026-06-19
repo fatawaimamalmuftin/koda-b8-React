@@ -13,13 +13,19 @@ import CheckOut2 from "./pages/CheckOut2.jsx";
 import CheckOut3 from "./pages/CheckOut3.jsx";
 import CheckOutSucces from "./pages/CheckOutSucces.jsx";
 import ProfileMyOrder from "./pages/ProfileMyOrder.jsx";
-import ProfileWishlist from "./pages/ProfileWishlist.jsx";
+import ProfileWishList from "./pages/ProfileWishList.jsx";
+import ProfileAlamat from "./pages/ProfileAlamat.jsx";
+import ProfileEdit from "./pages/ProfileEdit.jsx";
+import Login from "./pages/Login.jsx";
+import Regis from "./pages/Regis.jsx";
+import ForgotPass from "./pages/ForgotPass.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
 
 
 const router = createBrowserRouter([
   // 1
   {
-    path: "/landingPackage",
+    path: "/",
     element: <>
       <Navbar />,
       <LandingPackage />
@@ -103,10 +109,57 @@ const router = createBrowserRouter([
     path: "/profilewishlist",
     element: <>
       <Navbar />,
-      <ProfileWishlist />,
+      <ProfileWishList />,
       <Footer />
     </>
+  },
+  // 11
+  {
+    path: "/profilealamat",
+    element: <>
+      <Navbar />,
+      <ProfileAlamat />,
+      <Footer />
+    </>
+  },
+  // 12
+  {
+    path: "/profileedit",
+    element: <>
+      <Navbar />,
+      <ProfileEdit />,
+      <Footer />
+    </>
+  },
+  // 13
+  {
+    path: "/login",
+    element: <>
+      <Login />
+    </>
+  },
+  // 14
+  {
+    path: "/registrasi",
+    element: <>
+      <Regis />
+    </>
+  },
+  // 15
+  {
+    path: "/forgotpass",
+    element: <>
+      <ForgotPass />
+    </>
+  },
+  // 16
+  {
+    path: "/dashboard",
+    element: <>
+      <AdminDashboard />
+    </>
   }
+
 ])
 
 export default function App() {
