@@ -1,0 +1,184 @@
+import { CircleCheckBig, User, Mail, Lock, EyeOff } from 'lucide-react';
+import TasBgRegis from '../assets/tasBgRegis.jpg';
+
+export default function Regis() {
+    return (
+        <main className="flex min-h-screen w-full overflow-hidden bg-white select-none">
+
+            <section
+                className="w-1/2 flex flex-col justify-between p-10 text-white bg-cover bg-top h-screen"
+                style={{
+                    backgroundImage: `linear-gradient(rgba(26,115,232,0.75), rgba(79,57,246,0.85)), url(${TasBgRegis})`
+                }}
+            >
+                <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-[10px] bg-white/20 flex items-center justify-center font-bold">
+                        B
+                    </div>
+                    <span className="text-sm font-semibold">
+                        BeliMudah
+                    </span>
+                </div>
+
+                <article className="max-w-[420px] flex flex-col gap-8">
+                    <h1 className="text-5xl leading-tight font-bold">
+                        Bergabung dengan <br />
+                        500.000+ pelanggan <br />
+                        puas
+                    </h1>
+
+                    <div className="flex flex-col gap-4">
+                        <div className="flex items-center gap-3 text-sm">
+                            <div className="w-5 h-5 rounded-full bg-white/20 flex justify-center items-center">
+                                <CircleCheckBig className="w-3 h-3 text-white" />
+                            </div>
+                            <span>Akses ribuan produk dengan harga terbaik</span>
+                        </div>
+
+                        <div className="flex items-center gap-3 text-sm">
+                            <div className="w-5 h-5 rounded-full bg-white/20 flex justify-center items-center">
+                                <CircleCheckBig className="w-3 h-3 text-white" />
+                            </div>
+                            <span>Lacak pesanan secara real-time</span>
+                        </div>
+
+                        <div className="flex items-center gap-3 text-sm">
+                            <div className="w-5 h-5 rounded-full bg-white/20 flex justify-center items-center">
+                                <CircleCheckBig className="w-3 h-3 text-white" />
+                            </div>
+                            <span>Simpan wishlist & alamat favorit</span>
+                        </div>
+
+                        <div className="flex items-center gap-3 text-sm">
+                            <div className="w-5 h-5 rounded-full bg-white/20 flex justify-center items-center">
+                                <CircleCheckBig className="w-3 h-3 text-white" />
+                            </div>
+                            <span>Dapatkan notifikasi promo eksklusif</span>
+                        </div>
+                    </div>
+                </article>
+
+                <div className="text-xs opacity-80">
+                    © 2026 BeliMudah. Seluruh hak cipta dilindungi.
+                </div>
+            </section>
+
+            <section className="w-1/2 flex justify-center items-center bg-white h-screen overflow-y-auto py-8">
+                <article className="w-full max-w-[450px] flex flex-col gap-6 px-4">
+
+                    <div className="flex flex-col gap-2">
+                        <h2 className="text-3xl font-bold text-slate-900">
+                            Buat Akun Baru
+                        </h2>
+                        <p className="text-slate-500 leading-7">
+                            Sudah punya akun?{' '}
+                            <a href="/login.htm" className="text-blue-600 hover:underline">
+                                Masuk di sini
+                            </a>
+                        </p>
+                    </div>
+
+                    <div className="flex gap-3">
+                        <button className="w-1/2 h-12 border border-slate-300 rounded-xl bg-white hover:bg-slate-50 transition font-medium text-slate-700 text-sm">
+                            Daftar via Google
+                        </button>
+                        <button className="w-1/2 h-12 border border-slate-300 rounded-xl bg-white hover:bg-slate-50 transition font-medium text-slate-700 text-sm">
+                            Daftar via Facebook
+                        </button>
+                    </div>
+
+                    <div className="text-center text-sm text-slate-500">
+                        atau daftar dengan email
+                    </div>
+
+                    <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+
+                        <div className="flex flex-col gap-1.5">
+                            <label className="text-sm font-semibold text-slate-900">
+                                Nama Lengkap
+                            </label>
+                            <div className="relative flex items-center">
+                                <User className="absolute left-4 w-5 h-5 text-slate-400" />
+                                <input
+                                    type="text"
+                                    placeholder="Nama lengkap kamu"
+                                    className="w-full h-12 border border-slate-300 rounded-xl pl-12 pr-4 outline-none focus:border-blue-500 text-sm text-slate-800 bg-slate-50/50"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-1.5">
+                            <label className="text-sm font-semibold text-slate-900">
+                                Email
+                            </label>
+                            <div className="relative flex items-center">
+                                <Mail className="absolute left-4 w-5 h-5 text-slate-400" />
+                                <input
+                                    type="email"
+                                    placeholder="email@contoh.com"
+                                    className="w-full h-12 border border-slate-300 rounded-xl pl-12 pr-4 outline-none focus:border-blue-500 text-sm text-slate-800 bg-slate-50/50"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-1.5">
+                            <label className="text-sm font-semibold text-slate-900">
+                                Kata Sandi
+                            </label>
+                            <div className="relative flex items-center">
+                                <Lock className="absolute left-4 w-5 h-5 text-slate-400" />
+                                <input
+                                    type="password"
+                                    placeholder="Minimal 6 karakter"
+                                    className="w-full h-12 border border-slate-300 rounded-xl pl-12 pr-12 outline-none focus:border-blue-500 text-sm text-slate-800 bg-slate-50/50"
+                                />
+                                <EyeOff className="absolute right-4 w-5 h-5 text-slate-400 cursor-pointer hover:text-slate-600" />
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col gap-1.5">
+                            <label className="text-sm font-semibold text-slate-900">
+                                Konfirmasi Kata Sandi
+                            </label>
+                            <div className="relative flex items-center">
+                                <Lock className="absolute left-4 w-5 h-5 text-slate-400" />
+                                <input
+                                    type="password"
+                                    placeholder="Ulang kata sandi"
+                                    className="w-full h-12 border border-slate-300 rounded-xl pl-12 pr-12 outline-none focus:border-blue-500 text-sm text-slate-800 bg-slate-50/50"
+                                />
+                                <EyeOff className="absolute right-4 w-5 h-5 text-slate-400 cursor-pointer hover:text-slate-600" />
+                            </div>
+                        </div>
+
+                        <label className="flex items-start gap-2.5 text-xs text-slate-500 cursor-pointer leading-relaxed mt-1">
+                            <input type="checkbox" className="mt-0.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
+                            <span>
+                                Saya menyetujui{' '}
+                                <a href="/terms" className="text-blue-600 font-medium hover:underline">Syarat & Ketentuan</a> dan{' '}
+                                <a href="/privacy" className="text-blue-600 font-medium hover:underline">Kebijakan Privasi</a> BeliMudah
+                            </span>
+                        </label>
+
+                        <button
+                            type="submit"
+                            className="h-12 bg-orange-500 text-white rounded-xl font-semibold hover:bg-orange-600 transition shadow-sm flex items-center justify-center gap-2 mt-2"
+                        >
+                            Daftar Sekarang →
+                        </button>
+                    </form>
+
+                    <div className="text-center text-xs text-slate-400 flex items-center justify-center gap-1">
+                        🔒 Data kamu aman dan terenkripsi
+                    </div>
+
+                    <div className="text-center text-xs text-slate-400 leading-relaxed">
+                        Dengan membuat akun, kamu menyetujui Syarat & Ketentuan serta Kebijakan Privasi kami.
+                    </div>
+
+                </article>
+            </section>
+
+        </main>
+    );
+}
