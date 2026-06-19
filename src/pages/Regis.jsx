@@ -20,7 +20,7 @@ export default function Regis() {
                     </span>
                 </div>
 
-                <article className="max-w-[420px] flex flex-col gap-8">
+                <article className="max-w-105 flex flex-col gap-8">
                     <h1 className="text-5xl leading-tight font-bold">
                         Bergabung dengan <br />
                         500.000+ pelanggan <br />
@@ -64,7 +64,7 @@ export default function Regis() {
             </section>
 
             <section className="w-1/2 flex justify-center items-center bg-white h-screen overflow-y-auto py-8">
-                <article className="w-full max-w-[450px] flex flex-col gap-6 px-4">
+                <article className="w-full max-w-112.5 flex flex-col gap-6 px-4">
 
                     <div className="flex flex-col gap-2">
                         <h2 className="text-3xl font-bold text-slate-900">

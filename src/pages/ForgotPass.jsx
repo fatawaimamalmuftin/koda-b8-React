@@ -20,7 +20,7 @@ export default function ForgotPass() {
                     </span>
                 </div>
 
-                <article className="max-w-[420px] flex flex-col gap-5">
+                <article className="max-w-105 flex flex-col gap-5">
                     <div className="w-16 h-16 rounded-2xl bg-white/15 flex justify-center items-center text-3xl">
                         🔐
                     </div>
@@ -54,7 +54,7 @@ export default function ForgotPass() {
             </section>
 
             <section className="w-full md:w-1/2 flex justify-center items-center bg-white h-screen p-6">
-                <article className="w-full max-w-[450px] flex flex-col gap-6">
+                <article className="w-full max-w-112.5 flex flex-col gap-6">
 
                     <a href="/login.htm" className="text-sm text-slate-500 hover:text-blue-600 transition font-medium inline-flex items-center gap-1">
                         ← Kembali ke Login
