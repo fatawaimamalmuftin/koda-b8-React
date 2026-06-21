@@ -91,7 +91,7 @@ export default function LandingPackage() {
                 </div>
             </section>
 
-            <main className="w-full px-4 sm:px-8 md:px-16 lg:px-24 bg-[#F9FAFB] relative">
+            <main className="w-full px-4 sm:px-8 md:px-16 lg:px-24 bg-white relative">
 
                 <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border-2 border-[#4F39F6] bg-[#4F39F6] text-white cursor-pointer hover:scale-105 active:scale-95 transition-all shadow-lg">
                     <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -183,10 +183,10 @@ export default function LandingPackage() {
                                     </div>
                                     <img src={elektronikImg} className="absolute inset-0 w-full h-full object-cover" alt="produk" />
                                 </div>
-                                <div className="w-full p-3 flex flex-col justify-between flex-grow gap-2">
+                                <div className="w-full p-3 flex flex-col justify-between grow gap-2">
                                     <div>
                                         <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider block">SoundWave</span>
-                                        <h3 className="text-xs font-semibold text-[#111827] line-clamp-2 mt-0.5 min-h-[32px]">Headphone Wireless Premium Long Name</h3>
+                                        <h3 className="text-xs font-semibold text-[#111827] line-clamp-2 mt-0.5 min-h-8">Headphone Wireless Premium Long Name</h3>
                                         <div className="flex flex-wrap items-center gap-1 text-[#FFB200] text-[10px] mt-1">
                                             <div className="flex"><span>★</span><span>★</span><span>★</span><span>★</span><span className="text-gray-200">★</span></div>
                                             <span className="text-[#9CA3AF]">4.8 (512)</span>
@@ -228,7 +228,7 @@ export default function LandingPackage() {
                             <div key={idx} className="flex flex-col items-center p-2">
                                 <span className="text-2xl sm:text-3xl mb-1.5 block">{feat.icon}</span>
                                 <h3 className="text-xs font-bold text-[#111827] mb-1">{feat.title}</h3>
-                                <p className="text-[10px] text-[#6B7280] leading-relaxed text-center max-w-[180px]">{feat.desc}</p>
+                                <p className="text-[10px] text-[#6B7280] leading-relaxed text-center max-w-45">{feat.desc}</p>
                             </div>
                         ))}
                     </div>

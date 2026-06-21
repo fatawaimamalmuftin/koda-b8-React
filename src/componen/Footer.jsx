@@ -13,7 +13,7 @@ export default function Footer() {
     return (
         <footer className="mt-12 flex flex-col items-center w-full bg-[#111827] border border-[#6B7280] box-border py-10 px-4 font-sans">
 
-            <div className="flex flex-wrap justify-between border-b border-[#1F2937] gap-8 pb-8 mb-10 w-full max-w-[1280px]">
+            <div className="flex flex-wrap justify-between border-b border-[#1F2937] gap-8 pb-8 mb-10 w-full max-w-7xl">
 
                 <div className="flex gap-4 justify-start items-center">
                     <div className="w-14 h-14 border border-[rgba(26,115,232,0.2)] bg-[rgba(26,115,232,0.1)] rounded-full flex justify-center items-center text-[#1A73E8] shrink-0">
@@ -57,7 +57,7 @@ export default function Footer() {
 
             </div>
 
-            <div className="w-full max-w-[1280px] grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-[#1F2937]">
+            <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-[#1F2937]">
 
                 <div className="flex flex-col gap-4 text-[#9CA3AF] text-sm">
                     <div className="flex items-center gap-2.5">
@@ -139,7 +139,7 @@ export default function Footer() {
 
             </div>
 
-            <div className="w-full max-w-[1280px] flex flex-col sm:flex-row justify-between items-center pt-5 gap-4 text-[#6B7280] text-xs">
+            <div className="w-full max-w-7xl flex flex-col sm:flex-row justify-between items-center pt-5 gap-4 text-[#6B7280] text-xs">
                 <div>
                     © 2026 BeliMudah. Seluruh hak cipta dilindungi.
                 </div>
