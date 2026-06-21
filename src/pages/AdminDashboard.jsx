@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import GambarChart from '../assets/gambar-chart.svg'
 import GambarLingkaran from '../assets/gambar-Dlingkaran.svg'
+import { Link } from 'react-router-dom';
 
 export default function AdminDashboard() {
     return (
@@ -30,15 +31,15 @@ export default function AdminDashboard() {
                 </div>
 
                 <nav className="flex flex-col gap-0.5 p-3 flex-1">
-                    <div href="/dashboard-step1.html" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#1a73e8] text-white text-[13px] no-underline">
+                    <Link to="/dashboard" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#1a73e8] text-white text-[13px] no-underline">
                         <LayoutDashboard className="w-4 h-4" /> Dashboard
-                    </div>
-                    <div href="./dashboard" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                    </Link>
+                    <Link to="/manajement" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
                         <Package className="w-4 h-4" /> Produk
-                    </div>
-                    <div href="./manajement" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                    </Link>
+                    <Link href="/manajement" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
                         <ShoppingCart className="w-4 h-4" /> Pesanan
-                    </div>
+                    </Link>
                     <div href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
                         <Users className="w-4 h-4" /> Pelanggan
                     </div>

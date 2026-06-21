@@ -3,6 +3,7 @@ import {
     Star, Eye, Trash2, X, Image as ImageIcon
 } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const INITIAL_PRODUCTS = [
     { id: 1, nama: "Headphone Wireless Premium", brand: "SoundWave", kategori: "Elektronik", harga: 450000, oldPrice: 650000, stock: 45, rating: 4.8, view: 513, label: ["Baru", "Unggulan", "Promo"] },
@@ -119,14 +120,14 @@ export default function AdminManajemenProduk() {
                 </div>
             )}
 
-            <aside className="w-[240px] min-w-[240px] bg-gray-900 flex flex-col fixed top-0 left-0 h-full z-50">
+            <aside className="w-60 min-w-60 bg-gray-900 flex flex-col fixed top-0 left-0 h-full z-50">
                 <div className="flex items-center gap-2.5 px-5 pt-5 pb-4 border-b border-gray-800">
                     <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-semibold text-sm">B</div>
                     <span className="text-white text-sm font-medium">BeliMudah Admin</span>
                 </div>
                 <nav className="flex flex-col gap-0.5 p-3 flex-1">
-                    <div href="./dashboard" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-gray-200"><LayoutDashboard className="w-4 h-4" /> Dashboard</div>
-                    <div href="./manajement" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-blue-600 text-white"><Package className="w-4 h-4" /> Produk</div>
+                    <Link to="/dashboard" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-gray-200"><LayoutDashboard className="w-4 h-4" /> Dashboard</Link>
+                    <Link to="/manajement" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-blue-600 text-white"><Package className="w-4 h-4" /> Produk</Link>
                     <div href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-gray-200"><ShoppingCart className="w-4 h-4" /> Pesanan</div>
                     <div href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-gray-200"><Users className="w-4 h-4" /> Pelanggan</div>
                     <div href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-gray-200"><Settings className="w-4 h-4" /> Pengaturan</div>
@@ -182,12 +183,12 @@ export default function AdminManajemenProduk() {
                             <table className="w-full text-left border-collapse">
                                 <thead>
                                     <tr className="border-b border-gray-200 bg-gray-50 text-gray-500 font-medium">
-                                        <th className="px-5 py-3 w-[280px]">Produk</th>
+                                        <th className="px-5 py-3 w-70">Produk</th>
                                         <th className="px-4 py-3">Kategori</th>
                                         <th className="px-4 py-3">Harga</th>
                                         <th className="px-4 py-3">Stok</th>
                                         <th className="px-4 py-3">Rating</th>
-                                        <th className="px-4 py-3 text-right px-5">Aksi</th>
+                                        <th className="px-4 py-3 text-right">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -217,7 +218,7 @@ export default function AdminManajemenProduk() {
                                                     <span className="font-medium text-gray-700">{p.rating || "0"}</span>
                                                 </div>
                                             </td>
-                                            <td className="px-4 py-3 text-right px-5">
+                                            <td className="px-4 py-3 text-right">
                                                 <div className="flex items-center justify-end gap-1.5">
                                                     <button className="w-7 h-7 flex items-center justify-center rounded-lg border border-gray-200 text-gray-400 hover:bg-gray-50"><Eye className="w-3.5 h-3.5" /></button>
                                                     <button onClick={() => handleDelete(p.id)} className="w-7 h-7 flex items-center justify-center rounded-lg border border-gray-200 text-gray-400 hover:text-red-500 hover:bg-red-50 hover:border-red-100"><Trash2 className="w-3.5 h-3.5" /></button>
