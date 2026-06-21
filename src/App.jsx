@@ -20,6 +20,7 @@ import Login from "./pages/Login.jsx";
 import Regis from "./pages/Regis.jsx";
 import ForgotPass from "./pages/ForgotPass.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
+import AdminManajemenProduk from "./pages/AdminManajement.jsx";
 
 
 const router = createBrowserRouter([
@@ -157,6 +158,12 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <>
       <AdminDashboard />
+    </>
+  },// 17
+  {
+    path: "/manajement",
+    element: <>
+      <AdminManajemenProduk />
     </>
   }
 
