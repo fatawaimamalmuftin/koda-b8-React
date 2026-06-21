@@ -1,4 +1,4 @@
-import { CircleCheckBig, User, Mail, Lock, EyeOff, ArrowLeft } from 'lucide-react'; // Tambah ArrowLeft
+import { CircleCheckBig, User, Mail, Lock, EyeOff, ArrowLeft } from 'lucide-react';
 import TasBgRegis from '../assets/tasBgRegis.jpg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
