@@ -107,6 +107,7 @@ export default function Navbar() {
                             <option value="/registrasi">Registrasi</option>
                             <option value="/forgotpass">Forgot Password</option>
                             <option value="/dashboard">Dashboard</option>
+                            <option value="/manajement">Manajement</option>
 
                         </select>
                     </div>

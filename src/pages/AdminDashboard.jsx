@@ -30,21 +30,21 @@ export default function AdminDashboard() {
                 </div>
 
                 <nav className="flex flex-col gap-0.5 p-3 flex-1">
-                    <a href="/dashboard-step1.html" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#1a73e8] text-white text-[13px] no-underline">
+                    <div href="/dashboard-step1.html" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#1a73e8] text-white text-[13px] no-underline">
                         <LayoutDashboard className="w-4 h-4" /> Dashboard
-                    </a>
-                    <a href="/dashboard-step2.htm" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                    </div>
+                    <div href="./dashboard" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
                         <Package className="w-4 h-4" /> Produk
-                    </a>
-                    <a href="/dashboard-step-3.htm" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                    </div>
+                    <div href="./manajement" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
                         <ShoppingCart className="w-4 h-4" /> Pesanan
-                    </a>
-                    <a href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                    </div>
+                    <div href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
                         <Users className="w-4 h-4" /> Pelanggan
-                    </a>
-                    <a href="#" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
+                    </div>
+                    <div href="" className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-gray-400 text-[13px] no-underline hover:bg-gray-800 hover:text-gray-200 transition-colors">
                         <Settings className="w-4 h-4" /> Pengaturan
-                    </a>
+                    </div>
                 </nav>
 
                 <div className="px-3 py-3.5 border-t border-gray-800">
