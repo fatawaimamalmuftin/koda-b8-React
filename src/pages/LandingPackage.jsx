@@ -93,9 +93,14 @@ export default function LandingPackage() {
 
             <main className="w-full px-4 sm:px-8 md:px-16 lg:px-24 bg-white relative">
 
-                <div className="fixed bottom-6 right-4 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border-2 border-[#4F39F6] bg-[#4F39F6] text-white cursor-pointer hover:scale-105 active:scale-95 transition-all shadow-lg">
+                <a
+                    href="https://wa.me/6281364431365?text=Halo BeliMudah, saya butuh bantuan terkait pesanan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="fixed bottom-6 right-4 sm:right-6 z-50 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border-2 border-[#4F39F6] bg-[#4F39F6] text-white cursor-pointer hover:scale-105 active:scale-95 transition-all shadow-lg"
+                >
                     <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-                </div>
+                </a>
 
                 <section className="w-full mt-6 sm:mt-8 p-4 sm:p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
                     <div className="w-full flex justify-between items-center mb-4 sm:mb-6">
