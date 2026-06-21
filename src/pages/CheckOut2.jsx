@@ -15,14 +15,14 @@ export default function CheckOut2() {
                             </div>
                             <span>Pengiriman</span>
                         </div>
-                        <div className="w-16 h-[2px] bg-[#00C950] mt-[-20px]"></div>
+                        <div className="w-16 h-0.5 bg-[#00C950] mt-5"></div>
                         <div className="flex flex-col items-center gap-1 text-[#1A73E8]">
                             <div className="w-8 h-8 rounded-full bg-[#1A73E8] text-white flex items-center justify-center font-bold">
                                 2
                             </div>
                             <span>Pembayaran</span>
                         </div>
-                        <div className="w-16 h-[2px] bg-gray-200 mt-[-20px]"></div>
+                        <div className="w-16 h-0.5 bg-gray-200 mt-5"></div>
                         <div className="flex flex-col items-center gap-1">
                             <div className="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">
                                 3
