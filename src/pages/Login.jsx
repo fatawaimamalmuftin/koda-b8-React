@@ -19,7 +19,7 @@ export default function Login() {
                     </span>
                 </div>
 
-                <article className="max-w-[420px] flex flex-col gap-5">
+                <article className="max-w-105 flex flex-col gap-5">
                     <h1 className="text-5xl leading-tight font-bold">
                         Belanja lebih <br />
                         mudah, hidup lebih <br />
@@ -67,7 +67,7 @@ export default function Login() {
             </section>
 
             <section className="w-1/2 flex justify-center items-center bg-white h-screen">
-                <article className="w-full max-w-[450px] flex flex-col gap-2">
+                <article className="w-full max-w-md flex flex-col gap-2">
 
                     <div className="flex flex-col gap-2">
                         <h2 className="text-3xl font-bold text-slate-900">
