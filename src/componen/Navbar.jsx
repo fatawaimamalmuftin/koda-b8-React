@@ -41,7 +41,7 @@ export default function Navbar() {
             <nav className="flex sticky top-0 z-50 px-30 py-1.25 bg-white/80 flex-col items-center">
                 <div className="flex items-center gap-6 mt-2 justify-between w-full">
 
-                    <Link to="/landingPackage" className="flex items-center gap-1">
+                    <Link to="/" className="flex items-center gap-1">
                         <div className="flex justify-center items-center w-7.5 h-7.5 bg-[#1A73E8] text-white rounded-xl font-normal text-center text-[14px] leading-8">
                             B
                         </div>
