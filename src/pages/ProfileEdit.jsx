@@ -38,7 +38,7 @@ export default function ProfileEdit() {
     return (
         <main className="max-w-300 mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-start bg-gray-50 min-h-screen">
 
-            <section className="w-full md:w-300 flex flex-col gap-4">
+            <section className="w-full md:w-65 flex flex-col gap-4">
                 <article className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center shadow-sm">
                     <div className="w-16 h-16 rounded-full bg-blue-100 text-[#1A73E8] flex items-center justify-center text-xl font-bold">
                         B
@@ -62,31 +62,31 @@ export default function ProfileEdit() {
                 </article>
 
                 <article className="bg-white border border-gray-200 rounded-2xl p-3 shadow-sm flex flex-col gap-1">
-                    <Link to="/profile/orders" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
+                    <Link to="/profilemyorder" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
                         <FiShoppingBag className="w-4 h-4 text-gray-400" />
                         <span className="text-xs flex-1">Pesanan Saya</span>
                         <span className="text-xs text-gray-300">&rsaquo;</span>
                     </Link>
 
-                    <Link to="/profile/wishlist" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
+                    <Link to="/profilewishlist" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
                         <FiHeart className="w-4 h-4 text-gray-400" />
                         <span className="text-xs flex-1">Wishlist</span>
                         <span className="text-xs text-gray-300">&rsaquo;</span>
                     </Link>
 
-                    <Link to="/profile/address" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
+                    <Link to="/profilealamat" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
                         <FiMapPin className="w-4 h-4 text-gray-400" />
                         <span className="text-xs flex-1">Alamat Saya</span>
                         <span className="text-xs text-gray-300">&rsaquo;</span>
                     </Link>
 
-                    <Link to="/profile/payment" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
+                    <Link to="/checkout2" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
                         <FiCreditCard className="w-4 h-4 text-gray-400" />
                         <span className="text-xs flex-1">Metode Pembayaran</span>
                         <span className="text-xs text-gray-300">&rsaquo;</span>
                     </Link>
 
-                    <Link to="/profile/settings" className="flex items-center gap-3 p-3 rounded-xl bg-blue-50 text-[#1A73E8] font-semibold transition" style={{ textDecoration: 'none' }}>
+                    <Link to="/profileedit" className="flex items-center gap-3 p-3 rounded-xl bg-blue-50 text-[#1A73E8] font-semibold transition" style={{ textDecoration: 'none' }}>
                         <FiSettings className="w-4 h-4" />
                         <span className="text-xs flex-1">Pengaturan Profil</span>
                         <span className="text-xs font-bold">&rsaquo;</span>
