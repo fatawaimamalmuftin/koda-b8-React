@@ -1,5 +1,6 @@
 import { CreditCard, Check } from 'lucide-react';
 import headphoneImg from '../assets/elektronik.png';
+import { Link } from 'react-router-dom';
 
 export default function CheckOut2() {
     return (
@@ -77,12 +78,12 @@ export default function CheckOut2() {
                             </div>
 
                             <div className="flex gap-4 h-12">
-                                <button className="px-6 border border-gray-200 hover:bg-gray-50 text-gray-700 rounded-xl font-bold transition text-sm flex items-center justify-center">
+                                <Link to="/checkout1" className="px-6 border border-gray-200 hover:bg-gray-50 text-gray-700 rounded-xl font-bold transition text-sm flex items-center justify-center">
                                     Kembali
-                                </button>
-                                <button className="flex-1 bg-[#1A73E8] hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center transition text-sm">
+                                </Link>
+                                <Link to="/checkout3" className="flex-1 bg-[#1A73E8] hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center transition text-sm">
                                     Lanjut ke Konfirmasi &rsaquo;
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 import { ChevronRight, ShoppingCart, Heart } from "lucide-react";
 import Card from "./../componen/Card";
 import elektronikImg from '../assets/elektronik.png';
+import { Link } from "react-router-dom";
 
 
 export default function MainDetail() {
@@ -106,9 +107,9 @@ export default function MainDetail() {
                                 <ShoppingCart size={14} />
                                 Tambah ke Keranjang
                             </button>
-                            <button className="flex-[1.4] h-11 bg-[#F97316] text-white text-xs font-bold rounded-xl hover:bg-[#EA6A0A] transition">
+                            <Link to="/maincart" className="flex justify-center items-center px-25 h-11 bg-[#F97316] text-white text-xs font-bold rounded-xl hover:bg-[#EA6A0A] transition">
                                 Beli Sekarang
-                            </button>
+                            </Link>
                             <button className="w-11 h-11 border-[1.5px] border-gray-200 bg-white rounded-xl flex items-center justify-center hover:border-gray-300 transition">
                                 <Heart size={16} className="text-[#6B7280]" />
                             </button>

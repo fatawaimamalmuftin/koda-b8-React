@@ -1,5 +1,6 @@
 import { Check, Shield } from 'lucide-react';
 import headphoneImg from '../assets/elektronik.png';
+import { Link } from 'react-router-dom';
 
 export default function CheckOut3() {
     return (
@@ -78,12 +79,12 @@ export default function CheckOut3() {
                             </div>
 
                             <div className="flex gap-4 h-12">
-                                <button className="px-6 border border-gray-200 hover:bg-gray-50 text-gray-700 rounded-xl font-bold transition text-sm flex items-center justify-center">
+                                <Link to="/checkout2" className="px-6 border border-gray-200 hover:bg-gray-50 text-gray-700 rounded-xl font-bold transition text-sm flex items-center justify-center">
                                     Kembali
-                                </button>
-                                <button className="flex-1 bg-[#F97316] hover:bg-orange-600 text-white rounded-xl font-bold flex items-center justify-center transition text-sm gap-2">
+                                </Link>
+                                <Link to="/checkoutsucces" className="flex-1 bg-[#F97316] hover:bg-orange-600 text-white rounded-xl font-bold flex items-center justify-center transition text-sm gap-2">
                                     <span>🔒</span> Bayar Rp 450.000 Sekarang
-                                </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

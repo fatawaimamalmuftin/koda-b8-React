@@ -1,5 +1,6 @@
 import { Truck } from 'lucide-react';
 import headphoneImg from '../assets/elektronik.png';
+import { Link } from 'react-router-dom';
 
 export default function CheckOut1() {
     return (
@@ -155,9 +156,9 @@ export default function CheckOut1() {
                             </div>
                         </div>
 
-                        <button className="w-full h-12 bg-[#1A73E8] hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center transition mt-4 text-sm">
+                        <Link to="/checkout2" className="w-full h-12 bg-[#1A73E8] hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center transition mt-4 text-sm">
                             Lanjut ke Pembayaran &rsaquo;
-                        </button>
+                        </Link>
                     </div>
 
                     <div className="w-full lg:w-95 bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col gap-5 lg:sticky lg:top-10">

@@ -1,6 +1,7 @@
 import { Trash2, Minus, Plus, Heart, Tag, Shield } from 'lucide-react';
 import Card from '../componen/Card';
 import headphoneImg from '../assets/elektronik.png';
+import { Link } from 'react-router-dom';
 
 export default function MainCart() {
     return (
@@ -106,10 +107,10 @@ export default function MainCart() {
                             </span>
                         </div>
 
-                        <button className="w-full h-14 bg-[#F97316] hover:bg-orange-600 text-white rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-orange-100">
+                        <Link to="/checkout1" className="w-full h-14 bg-[#F97316] hover:bg-orange-600 text-white rounded-xl font-bold flex items-center justify-center gap-3 transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-orange-100">
                             <Shield size={22} />
                             <span>Lanjut ke Checkout Aman</span>
-                        </button>
+                        </Link>
 
                         <div className="text-center text-xs text-gray-400 mt-2">
                             <p className="font-medium text-gray-500 mb-1">🔒 Pembayaran 100% Aman & Terenkripsi</p>
