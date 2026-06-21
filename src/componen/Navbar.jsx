@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import {
     MapPin,
     Search,
@@ -7,10 +8,12 @@ import {
     Heart,
     ShoppingCart,
     Menu,
+    X
 } from 'lucide-react';
 
 export default function Navbar() {
     const nafigasi = useNavigate();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const handleNavigasi = (event) => {
         const pathTujuan = event.target.value
@@ -18,80 +21,89 @@ export default function Navbar() {
             nafigasi(pathTujuan);
         }
     }
+
     return (
         <>
-            <header className="top-0 flex justify-between items-center bg-[#4F39F6] w-full px-30 py-1.25">
+            <header className="hidden md:flex justify-between items-center bg-[#4F39F6] w-full px-4 sm:px-8 md:px-16 lg:px-24 py-2">
                 <div className="flex items-center gap-1">
-                    <MapPin className="text-white" size={16} />
-                    <span className="text-white text-3">
+                    <MapPin className="text-white" size={14} />
+                    <span className="text-white text-xs">
                         Kirim ke: Jakarta Selatan
                     </span>
                 </div>
 
                 <div className="flex gap-6">
-                    <div className="text-white text-3">
+                    <div className="text-white text-xs">
                         🚀 Gratis ongkir di atas Rp 100.000
                     </div>
-                    <div className="text-white text-3">
+                    <div className="text-white text-xs">
                         📞 0800-1234-5678 (Gratis)
                     </div>
                 </div>
             </header>
 
-            <nav className="flex sticky top-0 z-50 px-30 py-1.25 bg-white/80 flex-col items-center">
-                <div className="flex items-center gap-6 mt-2 justify-between w-full">
+            <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 w-full px-4 sm:px-8 md:px-16 lg:px-24 py-3">
+                <div className="flex items-center justify-between gap-4 w-full">
 
-                    <Link to="/" className="flex items-center gap-1">
-                        <div className="flex justify-center items-center w-7.5 h-7.5 bg-[#1A73E8] text-white rounded-xl font-normal text-center text-[14px] leading-8">
-                            B
-                        </div>
-                        <span className="flex text-[#111827] font-normal text-[16px]">
-                            BeliMudah
-                        </span>
-                    </Link>
-
-                    <div className="w-full flex items-center">
-                        <input
-                            type="text"
-                            className="flex-1 w-full h-10 px-3 border border-[#D1D5DB] rounded-l-2xl outline-none"
-                            placeholder="Cari produk, merek, kategori..."
-                        />
-                        <button className="w-9.5 h-10 border-none bg-[#1A73E8] rounded-r-2xl cursor-pointer flex justify-center items-center">
-                            <Search className="text-white" size={20} />
+                    <div className="flex items-center gap-3">
+                        <button
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            className="block lg:hidden text-[#374151] focus:outline-none"
+                        >
+                            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
+
+                        <Link to="/" className="flex items-center gap-2">
+                            <div className="flex justify-center items-center w-8 h-8 bg-[#1A73E8] text-white rounded-xl font-bold text-sm">
+                                B
+                            </div>
+                            <span className="hidden sm:block text-[#111827] font-bold text-base tracking-tight">
+                                BeliMudah
+                            </span>
+                        </Link>
                     </div>
 
-                    <div className="flex items-center gap-1">
-                        <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
-                            <Bell className="text-[#374151]" size={22} />
+                    <div className="flex-1 max-w-xl mx-2 sm:mx-4">
+                        <div className="w-full flex items-center relative">
+                            <input
+                                type="text"
+                                className="w-full h-9 sm:h-10 pl-4 pr-10 border border-gray-300 rounded-full text-sm bg-gray-50 focus:bg-white focus:border-[#1A73E8] outline-none transition"
+                                placeholder="Cari produk..."
+                            />
+                            <button className="absolute right-1 w-7 h-7 sm:w-8 sm:h-8 bg-[#1A73E8] rounded-full cursor-pointer flex justify-center items-center hover:bg-[#1557b5] transition">
+                                <Search className="text-white" size={16} />
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-1 sm:gap-2">
+                        <div className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
+                            <Bell size={20} />
                         </div>
 
-                        <Link to="/profilemyorder" className="w-10 h-10 flex justify-center items-center cursor-pointer">
-                            <User className="text-[#374151]" size={22} />
+                        <Link to="/profilemyorder" className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
+                            <User size={20} />
                         </Link>
 
-                        <div className="px-2 font-medium text-[#374151]">
+                        <div className="hidden md:block px-1 font-medium text-sm text-[#374151]">
                             <span>Budi</span>
                         </div>
 
-                        <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
-                            <Heart className="text-[#374151]" size={22} />
+                        <div className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
+                            <Heart size={20} />
                         </div>
 
-                        <div className="w-10 h-10 flex justify-center items-center cursor-pointer">
-                            <ShoppingCart className="text-[#374151]" size={22} />
+                        <div className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
+                            <ShoppingCart size={20} />
                         </div>
                     </div>
-
                 </div>
 
-                <div className="flex justify-center gap-2.5">
-                    <div className="flex items-center 1.25 p-2.5 cursor-pointer text-[14px]">
-                        <Menu className="text-[#374151]" size={14} />
-                        <label htmlFor='halaman'></label>
-                        <select name="halaman" id="halaman" onChange={handleNavigasi} defaultValue="">
+                <div className="hidden lg:flex justify-start items-center gap-2 mt-4 pt-2 border-t border-gray-50 overflow-x-auto whitespace-nowrap scrollbar-none">
+                    <div className="flex items-center gap-1 px-3 py-1.5 bg-gray-50 rounded-lg text-xs font-medium text-[#374151]">
+                        <Menu size={14} />
+                        <select name="halaman" id="halaman" onChange={handleNavigasi} defaultValue="" className="bg-transparent outline-none cursor-pointer font-sans">
                             <option value="" disabled>Semua Kategori</option>
-
                             <option value="/mainbrows">Main Brows</option>
                             <option value="/maindetail">Main Detail</option>
                             <option value="/maincart">Main Chart</option>
@@ -108,22 +120,71 @@ export default function Navbar() {
                             <option value="/forgotpass">Forgot Password</option>
                             <option value="/dashboard">Dashboard</option>
                             <option value="/manajement">Manajement</option>
-
                         </select>
                     </div>
 
-                    <Link to="/home" className="flex items-center 1.25 p-2.5 cursor-pointer text-[14px] no-underline color-inherit">
+                    <Link to="/home" className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] transition font-medium">
                         💻 Elektronik
                     </Link>
-                    <Link to="/about" className="flex items-center 1.25 p-2.5 cursor-pointer text-[14px] no-underline color-inherit">
+                    <Link to="/about" className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] transition font-medium">
                         👗 Fashion
                     </Link>
-                    <div className="flex items-center 1.25 p-2.5 cursor-pointer text-[14px]">🏠 Rumah & Dapur</div>
-                    <div className="flex items-center 1.25 p-2.5 cursor-pointer text-[14px]">💄 Kecantikan</div>
-                    <div className="flex items-center 1.25 p-2.5 cursor-pointer text-[14px]">⚽ Olahraga</div>
-                    <div className="flex items-center 1.25 p-2.5 cursor-pointer text-[14px]">📚 Buku & Alat Tulis</div>
-                    <div className="flex items-center 1.25 p-2.5 cursor-pointer text-[14px] text-red-500 font-semibold">🔥 Promo</div>
+                    <div className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] cursor-pointer transition font-medium">🏠 Rumah & Dapur</div>
+                    <div className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] cursor-pointer transition font-medium">💄 Kecantikan</div>
+                    <div className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] cursor-pointer transition font-medium">⚽ Olahraga</div>
+                    <div className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] cursor-pointer transition font-medium">📚 Buku & Alat Tulis</div>
+                    <div className="px-3 py-1.5 text-xs text-red-500 font-semibold cursor-pointer transition">🔥 Promo</div>
                 </div>
+
+                {isMenuOpen && (
+                    <div className="lg:hidden absolute left-0 right-0 top-full bg-white border-b border-gray-200 shadow-xl px-4 py-4 flex flex-col gap-3 z-50 animate-in fade-in slide-in-from-top-5 duration-200">
+                        <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-xl">
+                            <MapPin className="text-[#4F39F6]" size={16} />
+                            <span className="text-xs text-gray-600">Kirim ke: Jakarta Selatan</span>
+                        </div>
+
+                        <div className="flex flex-col gap-1 border-b border-gray-100 pb-2">
+                            <label htmlFor="halaman-mobile" className="text-[11px] font-bold text-gray-400 uppercase px-2 mb-1">Navigasi Halaman</label>
+                            <select
+                                id="halaman-mobile"
+                                onChange={(e) => { handleNavigasi(e); setIsMenuOpen(false); }}
+                                defaultValue=""
+                                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-700 outline-none"
+                            >
+                                <option value="" disabled>Pilih Halaman Cepat</option>
+                                <option value="/mainbrows">Main Brows</option>
+                                <option value="/maindetail">Main Detail</option>
+                                <option value="/maincart">Main Chart</option>
+                                <option value="/checkout1">CheckOut step-1</option>
+                                <option value="/checkout2">CheckOut step-2</option>
+                                <option value="/checkout3">CheckOut step-3</option>
+                                <option value="/checkoutsucces">CheckOut Finish</option>
+                                <option value="/profilemyorder">Profile My Order</option>
+                                <option value="/profilewishlist">Profile Wishlist</option>
+                                <option value="/profilealamat">Profile Alamat</option>
+                                <option value="/profileedit">Profile Edit</option>
+                                <option value="/login">Login</option>
+                                <option value="/registrasi">Registrasi</option>
+                                <option value="/forgotpass">Forgot Password</option>
+                                <option value="/dashboard">Dashboard</option>
+                                <option value="/manajement">Manajement</option>
+                            </select>
+                        </div>
+
+                        <span className="text-[11px] font-bold text-gray-400 uppercase px-2 mt-1">Kategori Produk</span>
+                        <Link to="/home" onClick={() => setIsMenuOpen(false)} className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition font-medium">
+                            💻 Elektronik
+                        </Link>
+                        <Link to="/about" onClick={() => setIsMenuOpen(false)} className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition font-medium">
+                            👗 Fashion
+                        </Link>
+                        <div className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg cursor-pointer transition font-medium">🏠 Rumah & Dapur</div>
+                        <div className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg cursor-pointer transition font-medium">💄 Kecantikan</div>
+                        <div className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg cursor-pointer transition font-medium">⚽ Olahraga</div>
+                        <div className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg cursor-pointer transition font-medium">📚 Buku & Alat Tulis</div>
+                        <div className="p-2 text-sm text-red-500 font-bold hover:bg-red-50 rounded-lg cursor-pointer transition">🔥 Promo</div>
+                    </div>
+                )}
             </nav>
         </>
     );
