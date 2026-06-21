@@ -1,6 +1,40 @@
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // Import Link dan useNavigate
 import BgLogin from '../assets/ceweBgLogin.jpg';
 
 export default function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        if (!email || !password) {
+            alert('Email dan Kata Sandi wajib diisi!');
+            return;
+        }
+
+        const savedUserData = localStorage.getItem(email);
+
+        if (!savedUserData) {
+            alert('Email tidak terdaftar! Silakan registrasi terlebih dahulu.');
+            return;
+        }
+
+        const user = JSON.parse(savedUserData);
+
+        if (user.pass === password) {
+            alert('Login Berhasil! Selamat datang.');
+            localStorage.setItem('isLoggedIn', 'true');
+
+            navigate('/');
+        } else {
+            alert('Kata sandi salah! Silakan coba lagi.');
+        }
+    };
+
     return (
         <main className="flex min-h-screen w-full overflow-hidden bg-white select-none">
 
@@ -33,30 +67,18 @@ export default function Login() {
 
                     <div className="flex gap-8">
                         <div className="flex flex-col gap-1">
-                            <h3 className="text-2xl font-bold">
-                                10rb+
-                            </h3>
-                            <span className="text-xs">
-                                Produk
-                            </span>
+                            <h3 className="text-2xl font-bold">10rb+</h3>
+                            <span className="text-xs">Produk</span>
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <h3 className="text-2xl font-bold">
-                                500rb+
-                            </h3>
-                            <span className="text-xs">
-                                Pelanggan
-                            </span>
+                            <h3 className="text-2xl font-bold">500rb+</h3>
+                            <span className="text-xs">Pelanggan</span>
                         </div>
 
                         <div className="flex flex-col gap-1">
-                            <h3 className="text-2xl font-bold">
-                                4.8★
-                            </h3>
-                            <span className="text-xs">
-                                Rating
-                            </span>
+                            <h3 className="text-2xl font-bold">4.8★</h3>
+                            <span className="text-xs">Rating</span>
                         </div>
                     </div>
                 </article>
@@ -67,7 +89,7 @@ export default function Login() {
             </section>
 
             <section className="w-1/2 flex justify-center items-center bg-white h-screen">
-                <article className="w-full max-w-md flex flex-col gap-2">
+                <article className="w-full max-w-md flex flex-col gap-4 px-4">
 
                     <div className="flex flex-col gap-2">
                         <h2 className="text-3xl font-bold text-slate-900">
@@ -75,9 +97,9 @@ export default function Login() {
                         </h2>
                         <p className="text-slate-500 leading-7">
                             Belum punya akun?{' '}
-                            <a href="/regis.htm" className="text-blue-600 hover:underline">
+                            <Link to="/registrasi" className="text-blue-600 hover:underline">
                                 Daftar gratis
-                            </a>
+                            </Link>
                         </p>
                     </div>
 
@@ -94,7 +116,8 @@ export default function Login() {
                         atau masuk dengan email
                     </div>
 
-                    <form className="flex flex-col gap-5" onSubmit={(e) => e.preventDefault()}>
+                    <form className="flex flex-col gap-5" onSubmit={handleLogin}>
+
                         <div className="flex flex-col gap-2">
                             <label className="text-sm font-semibold text-slate-900">
                                 Email
@@ -102,7 +125,9 @@ export default function Login() {
                             <input
                                 type="email"
                                 placeholder="✉︎ email@contoh.com"
-                                className="h-12 border border-slate-300 rounded-xl px-4 outline-none focus:border-blue-500"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="h-12 border border-slate-300 rounded-xl px-4 outline-none focus:border-blue-500 text-sm bg-slate-50/50"
                             />
                         </div>
 
@@ -111,14 +136,16 @@ export default function Login() {
                                 <label className="text-sm font-semibold text-slate-900">
                                     Kata Sandi
                                 </label>
-                                <a href="/forgotPassword.htm" className="text-xs text-blue-600 hover:underline">
+                                <Link to="/forgotpass" className="text-xs text-blue-600 hover:underline">
                                     Lupa kata sandi?
-                                </a>
+                                </Link>
                             </div>
                             <input
                                 type="password"
                                 placeholder="🔒︎ Masukkan kata sandi"
-                                className="h-12 border border-slate-300 rounded-xl px-4 outline-none focus:border-blue-500"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="h-12 border border-slate-300 rounded-xl px-4 outline-none focus:border-blue-500 text-sm bg-slate-50/50"
                             />
                         </div>
 
@@ -141,8 +168,8 @@ export default function Login() {
 
                     <div className="text-center text-sm text-slate-500 leading-6">
                         Dengan masuk, kamu menyetujui{' '}
-                        <a href="/terms" className="text-blue-600 hover:underline">Syarat & Ketentuan</a> dan{' '}
-                        <a href="/privacy" className="text-blue-600 hover:underline">Kebijakan Privasi</a> kami.
+                        <Link to="/" className="text-blue-600 hover:underline">Syarat & Ketentuan</Link> dan{' '}
+                        <Link to="/" className="text-blue-600 hover:underline">Kebijakan Privasi</Link> kami.
                     </div>
 
                 </article>

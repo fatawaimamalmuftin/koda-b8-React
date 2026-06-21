@@ -1,4 +1,4 @@
-import { CircleCheckBig, User, Mail, Lock, EyeOff } from 'lucide-react';
+import { CircleCheckBig, User, Mail, Lock, EyeOff, ArrowLeft } from 'lucide-react'; // Tambah ArrowLeft
 import TasBgRegis from '../assets/tasBgRegis.jpg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -97,8 +97,9 @@ export default function Regis() {
                 </div>
             </section>
 
-            <section className="w-1/2 flex justify-center items-center bg-white h-screen overflow-y-auto py-8">
+            <section className="w-1/2 flex justify-center items-center bg-white h-screen overflow-y-auto pt-20 px-2">
                 <article className="w-full max-w-112.5 flex flex-col gap-6 px-4">
+
 
                     <div className="flex flex-col gap-2">
                         <h2 className="text-3xl font-bold text-slate-900">
@@ -123,6 +124,16 @@ export default function Regis() {
 
                     <div className="text-center text-sm text-slate-500">
                         atau daftar dengan email
+                    </div>
+
+                    <div>
+                        <Link
+                            to="/login"
+                            className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-slate-800 transition group"
+                        >
+                            <ArrowLeft className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" />
+                            Kembali ke Beranda
+                        </Link>
                     </div>
 
                     <form className="flex flex-col gap-4" onSubmit={handleRegis}>
