@@ -1,7 +1,41 @@
 import { CircleCheckBig, User, Mail, Lock, EyeOff } from 'lucide-react';
 import TasBgRegis from '../assets/tasBgRegis.jpg';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Regis() {
+    const [nama, setNama] = useState('');
+    const [email, setEmail] = useState('');
+    const [pass, setPass] = useState('');
+    const [confirmPass, setComfirmpass] = useState('');
+
+    const navigate = useNavigate();
+
+    function handleRegis(e) {
+        e.preventDefault();
+        if (!nama || !email || !pass || !confirmPass) {
+            alert('Semua data wajib diisi');
+            return;
+        }
+
+        if (pass !== confirmPass) {
+            alert('Kata sandi dan Konfirmasi Kata sandi tidak cocok!!');
+            return;
+        }
+
+        if (pass.length < 6) {
+            alert('Kata Sandi Minimal 6 karakter');
+            return;
+        }
+
+        const userData = { nama, email, pass };
+        localStorage.setItem(email, JSON.stringify(userData));
+
+        alert('Registrasi Berhasil!! Silahkan Login.');
+
+        navigate('/login');
+    }
+
     return (
         <main className="flex min-h-screen w-full overflow-hidden bg-white select-none">
 
@@ -72,9 +106,9 @@ export default function Regis() {
                         </h2>
                         <p className="text-slate-500 leading-7">
                             Sudah punya akun?{' '}
-                            <a href="/login.htm" className="text-blue-600 hover:underline">
+                            <Link to="/login" className="text-blue-600 hover:underline">
                                 Masuk di sini
-                            </a>
+                            </Link>
                         </p>
                     </div>
 
@@ -91,7 +125,7 @@ export default function Regis() {
                         atau daftar dengan email
                     </div>
 
-                    <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+                    <form className="flex flex-col gap-4" onSubmit={handleRegis}>
 
                         <div className="flex flex-col gap-1.5">
                             <label className="text-sm font-semibold text-slate-900">
@@ -102,6 +136,8 @@ export default function Regis() {
                                 <input
                                     type="text"
                                     placeholder="Nama lengkap kamu"
+                                    value={nama}
+                                    onChange={(e) => setNama(e.target.value)}
                                     className="w-full h-12 border border-slate-300 rounded-xl pl-12 pr-4 outline-none focus:border-blue-500 text-sm text-slate-800 bg-slate-50/50"
                                 />
                             </div>
@@ -116,6 +152,8 @@ export default function Regis() {
                                 <input
                                     type="email"
                                     placeholder="email@contoh.com"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     className="w-full h-12 border border-slate-300 rounded-xl pl-12 pr-4 outline-none focus:border-blue-500 text-sm text-slate-800 bg-slate-50/50"
                                 />
                             </div>
@@ -130,6 +168,8 @@ export default function Regis() {
                                 <input
                                     type="password"
                                     placeholder="Minimal 6 karakter"
+                                    value={pass}
+                                    onChange={(e) => setPass(e.target.value)}
                                     className="w-full h-12 border border-slate-300 rounded-xl pl-12 pr-12 outline-none focus:border-blue-500 text-sm text-slate-800 bg-slate-50/50"
                                 />
                                 <EyeOff className="absolute right-4 w-5 h-5 text-slate-400 cursor-pointer hover:text-slate-600" />
@@ -145,6 +185,8 @@ export default function Regis() {
                                 <input
                                     type="password"
                                     placeholder="Ulang kata sandi"
+                                    value={confirmPass}
+                                    onChange={(e) => setComfirmpass(e.target.value)}
                                     className="w-full h-12 border border-slate-300 rounded-xl pl-12 pr-12 outline-none focus:border-blue-500 text-sm text-slate-800 bg-slate-50/50"
                                 />
                                 <EyeOff className="absolute right-4 w-5 h-5 text-slate-400 cursor-pointer hover:text-slate-600" />
@@ -155,8 +197,8 @@ export default function Regis() {
                             <input type="checkbox" className="mt-0.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500" />
                             <span>
                                 Saya menyetujui{' '}
-                                <a href="/terms" className="text-blue-600 font-medium hover:underline">Syarat & Ketentuan</a> dan{' '}
-                                <a href="/privacy" className="text-blue-600 font-medium hover:underline">Kebijakan Privasi</a> BeliMudah
+                                <Link to="/" className="text-blue-600 font-medium hover:underline">Syarat & Ketentuan</Link> and{' '}
+                                <Link to="/" className="text-blue-600 font-medium hover:underline">Kebijakan Privasi</Link> BeliMudah
                             </span>
                         </label>
 
