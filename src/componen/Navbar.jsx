@@ -89,13 +89,13 @@ export default function Navbar() {
                             <span>Budi</span>
                         </div>
 
-                        <div className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
+                        <Link to="/profilewishlist" className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
                             <Heart size={20} />
-                        </div>
+                        </Link>
 
-                        <div className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
+                        <Link to="/maincart" className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
                             <ShoppingCart size={20} />
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
