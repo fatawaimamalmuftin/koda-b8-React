@@ -22,18 +22,20 @@ export default function MainDetail() {
     const stock = 45;
 
     useEffect(() => {
-        const initialProduct = JSON.parse(localStorage.getItem('selected_product'));
-        if (initialProduct) {
-            setProductInfo(prev => ({
-                ...prev,
-                id: initialProduct.id || prev.id,
-                name: initialProduct.name || prev.name,
-                price: initialProduct.price || prev.price,
-                brand: initialProduct.brand || prev.brand,
-                image: initialProduct.image || prev.image,
-                rating: initialProduct.rating || prev.rating,
-                reviews: initialProduct.reviews || prev.reviews
-            }));
+        async () => {
+            const initialProduct = JSON.parse(localStorage.getItem('selected_product'));
+            if (initialProduct) {
+                setProductInfo(prev => ({
+                    ...prev,
+                    id: initialProduct.id || prev.id,
+                    name: initialProduct.name || prev.name,
+                    price: initialProduct.price || prev.price,
+                    brand: initialProduct.brand || prev.brand,
+                    image: initialProduct.image || prev.image,
+                    rating: initialProduct.rating || prev.rating,
+                    reviews: initialProduct.reviews || prev.reviews
+                }));
+            }
         }
     }, []);
 
@@ -115,7 +117,7 @@ export default function MainDetail() {
                     <div className="flex flex-col gap-4">
                         <div>
                             <span className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-wider">
-                                {productInfo.brand} · Audio
+                                {productInfo.brand}
                             </span>
                             <h1 className="text-2xl font-bold text-[#111827] leading-tight mt-1">
                                 {productInfo.name}

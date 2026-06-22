@@ -11,44 +11,47 @@ export default function CheckOutSuccess() {
     const [orderNumber, setOrderNumber] = useState('');
 
     useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
-        const savedShipping = localStorage.getItem('shippingMethod') || 'JNE Reguler';
+        async function setdata() {
+            const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
+            const savedShipping = localStorage.getItem('shippingMethod') || 'JNE Reguler';
 
-        setCartItems(savedCart);
-        setShippingAddress(savedAddress);
-        setShippingMethod(savedShipping);
+            setCartItems(savedCart);
+            setShippingAddress(savedAddress);
+            setShippingMethod(savedShipping);
 
-        let savedOrderNum = sessionStorage.getItem('currentOrderNumber');
-        if (!savedOrderNum) {
-            savedOrderNum = `BM${Math.floor(10000000 + Math.random() * 90000000)}`;
-            sessionStorage.setItem('currentOrderNumber', savedOrderNum);
+            let savedOrderNum = sessionStorage.getItem('currentOrderNumber');
+            if (!savedOrderNum) {
+                savedOrderNum = `BM${Math.floor(10000000 + Math.random() * 90000000)}`;
+                sessionStorage.setItem('currentOrderNumber', savedOrderNum);
 
-            if (savedCart.length > 0) {
-                const totalPayment = savedCart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+                if (savedCart.length > 0) {
+                    const totalPayment = savedCart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
-                const newOrder = {
-                    date: new Date().toLocaleDateString('id-ID', {
-                        day: 'numeric',
-                        month: 'long',
-                        year: 'numeric'
-                    }),
-                    status: 'Pesanan Diterima',
-                    total: totalPayment,
-                    items: savedCart.map(item => ({
-                        name: item.name ? item.name.split(' (')[0] : 'Produk',
-                        quantity: item.quantity,
-                        price: item.price,
-                    }))
-                };
+                    const newOrder = {
+                        date: new Date().toLocaleDateString('id-ID', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        }),
+                        status: 'Pesanan Diterima',
+                        total: totalPayment,
+                        items: savedCart.map(item => ({
+                            name: item.name ? item.name.split(' (')[0] : 'Produk',
+                            quantity: item.quantity,
+                            price: item.price,
+                        }))
+                    };
 
-                const existingOrders = JSON.parse(localStorage.getItem('my_orders')) || [];
-                const updatedOrders = [newOrder, ...existingOrders];
+                    const existingOrders = JSON.parse(localStorage.getItem('my_orders')) || [];
+                    const updatedOrders = [newOrder, ...existingOrders];
 
-                localStorage.setItem('my_orders', JSON.stringify(updatedOrders));
+                    localStorage.setItem('my_orders', JSON.stringify(updatedOrders));
+                }
             }
+            setOrderNumber(`#${savedOrderNum}`);
         }
-        setOrderNumber(`#${savedOrderNum}`);
+        setdata()
     }, []);
 
     const totalPayment = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
@@ -58,13 +61,14 @@ export default function CheckOutSuccess() {
         localStorage.removeItem('shippingAddress');
         localStorage.removeItem('shippingMethod');
         localStorage.removeItem('paymentMethod');
+        localStorage.removeItem('selected_product');
         sessionStorage.removeItem('currentOrderNumber');
         navigate('/');
     };
 
     return (
         <main className="w-full bg-[#FAFAFA] min-h-screen flex justify-center items-start py-10">
-            <div className="w-full max-w-[640px] px-4 flex flex-col items-center">
+            <div className="w-full max-w-160 px-4 flex flex-col items-center">
 
                 <div className="w-20 h-20 rounded-full bg-[#E6F9ED] flex items-center justify-center mb-6">
                     <div className="w-14 h-14 rounded-full bg-[#00C950] flex items-center justify-center text-white">
@@ -75,7 +79,7 @@ export default function CheckOutSuccess() {
                 <h2 className="text-2xl font-extrabold text-gray-950 text-center mb-2">
                     Pesanan Berhasil! 🎉
                 </h2>
-                <p className="text-sm text-gray-500 text-center max-w-[480px] mb-8 leading-relaxed">
+                <p className="text-sm text-gray-500 text-center max-w-120 mb-8 leading-relaxed">
                     Terima kasih telah berbelanja di BeliMudah. Pesananmu sedang diproses.
                 </p>
 
@@ -95,7 +99,7 @@ export default function CheckOutSuccess() {
 
                     <div className="flex flex-col gap-4 text-xs">
                         <div className="flex items-start gap-3">
-                            <div className="p-2 bg-blue-50 text-[#1A73E8] rounded-lg flex-shrink-0">
+                            <div className="p-2 bg-blue-50 text-[#1A73E8] rounded-lg ">
                                 <Truck size={16} />
                             </div>
                             <div className="flex flex-col gap-0.5 mt-0.5">
@@ -105,7 +109,7 @@ export default function CheckOutSuccess() {
                         </div>
 
                         <div className="flex items-start gap-3">
-                            <div className="p-2 bg-blue-50 text-[#1A73E8] rounded-lg flex-shrink-0">
+                            <div className="p-2 bg-blue-50 text-[#1A73E8] rounded-lg ">
                                 <MapPin size={16} />
                             </div>
                             <div className="flex flex-col gap-0.5 mt-0.5">
@@ -128,7 +132,7 @@ export default function CheckOutSuccess() {
                     <div className="flex flex-col gap-5 relative">
                         <div className="flex items-center justify-between w-full">
                             <div className="flex items-center gap-4">
-                                <div className="w-9 h-9 rounded-full bg-[#E6F9ED] text-[#00C950] flex items-center justify-center font-bold flex-shrink-0 z-10">
+                                <div className="w-9 h-9 rounded-full bg-[#E6F9ED] text-[#00C950] flex items-center justify-center font-bold  z-10">
                                     <Check size={18} strokeWidth={2.5} />
                                 </div>
                                 <div className="flex flex-col">
@@ -142,7 +146,7 @@ export default function CheckOutSuccess() {
                         </div>
 
                         <div className="flex items-center gap-4 w-full">
-                            <div className="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center flex-shrink-0 z-10">
+                            <div className="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center  z-10">
                                 <Package size={18} />
                             </div>
                             <div className="flex flex-col">
@@ -152,7 +156,7 @@ export default function CheckOutSuccess() {
                         </div>
 
                         <div className="flex items-center gap-4 w-full">
-                            <div className="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center flex-shrink-0 z-10">
+                            <div className="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center  z-10">
                                 <Truck size={18} />
                             </div>
                             <div className="flex flex-col">
@@ -162,7 +166,7 @@ export default function CheckOutSuccess() {
                         </div>
 
                         <div className="flex items-center gap-4 w-full">
-                            <div className="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center flex-shrink-0 z-10">
+                            <div className="w-9 h-9 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center  z-10">
                                 <MapPin size={18} />
                             </div>
                             <div className="flex flex-col">

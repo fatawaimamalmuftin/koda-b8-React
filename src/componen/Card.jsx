@@ -4,8 +4,8 @@ export default function Card({ id, name, price, image, brand, discount, original
     const navigate = useNavigate();
 
     const handleDetailNavigation = () => {
-        // const productData = { id, name, price, image, brand, discount, originalPrice, rating, reviews };
-        // localStorage.setItem('selected_product', JSON.stringify(productData));
+        const productData = { id, name, price, image, brand, discount, originalPrice, rating, reviews };
+        localStorage.setItem('selected_product', JSON.stringify(productData));
         navigate('/maindetail');
     };
 

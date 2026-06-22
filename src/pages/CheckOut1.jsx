@@ -22,13 +22,17 @@ export default function CheckOut1() {
 
     useEffect(() => {
         const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCartItems(savedCart);
+        async function setCart() {
+            setCartItems(savedCart);
 
-        const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
-        if (savedAddress) setShippingAddress(savedAddress);
+            const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
+            if (savedAddress) setShippingAddress(savedAddress);
 
-        const savedMethod = localStorage.getItem('shippingMethod');
-        if (savedMethod) setShippingMethod(savedMethod);
+            const savedMethod = localStorage.getItem('shippingMethod');
+            if (savedMethod) setShippingMethod(savedMethod);
+        }
+        setCart()
+
     }, []);
 
     const handleInputChange = (e) => {
@@ -68,14 +72,14 @@ export default function CheckOut1() {
                             </div>
                             <span>Pengiriman</span>
                         </div>
-                        <div className="w-16 h-0.5 bg-gray-200 mt-[-20px]"></div>
+                        <div className="w-16 h-0.5 bg-gray-200 mt-5"></div>
                         <div className="flex flex-col items-center gap-1">
                             <div className="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">
                                 2
                             </div>
                             <span>Pembayaran</span>
                         </div>
-                        <div className="w-16 h-0.5 bg-gray-200 mt-[-20px]"></div>
+                        <div className="w-16 h-0.5 bg-gray-200 mt-5"></div>
                         <div className="flex flex-col items-center gap-1">
                             <div className="w-8 h-8 rounded-full bg-gray-200 text-gray-500 flex items-center justify-center font-bold">
                                 3
