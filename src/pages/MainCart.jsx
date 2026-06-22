@@ -35,7 +35,7 @@ export default function MainCart() {
 
     return (
         <main className="w-full bg-gray-50 px-26 py-10">
-            <div className="max-w-[1280px] mx-auto px-4 grid grid-cols-1 gap-10">
+            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 gap-10">
 
                 <h1 className="text-3xl font-bold text-gray-950">
                     Keranjang Belanja ({totalItems} item)
@@ -59,7 +59,7 @@ export default function MainCart() {
                         ) : (
                             cartItems.map((item) => (
                                 <div key={item.id} className="bg-white border border-gray-100 rounded-2xl p-6 flex gap-6 shadow-sm">
-                                    <div className="w-28 h-28 rounded-xl overflow-hidden bg-gray-50 flex-shrink-0">
+                                    <div className="w-28 h-28 rounded-xl overflow-hidden bg-gray-50">
                                         <img
                                             src={item.image || elektronikImg}
                                             alt={item.name}
@@ -137,7 +137,7 @@ export default function MainCart() {
 
                     </div>
 
-                    <div className="w-full lg:w-[380px] bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col gap-6 lg:sticky lg:top-10">
+                    <div className="w-full lg:w-95 bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col gap-6 lg:sticky lg:top-10">
                         <h2 className="text-xl font-bold text-gray-950">
                             Ringkasan Pesanan
                         </h2>

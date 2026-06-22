@@ -1,14 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FiShoppingBag, FiHeart, FiMapPin, FiCreditCard, FiSettings, FiLogOut } from 'react-icons/fi';
 import Card from '../componen/Card';
+import elektronikImg from '../assets/elektronik.png';
+
 
 export default function ProfileWishList() {
     const navigate = useNavigate();
 
     return (
-        <main className="max-w-[1200px] mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-start">
+        <main className="max-w-300 mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-start">
 
-            <section className="w-full md:w-[260px] flex flex-col gap-4 flex-shrink-0">
+            <section className="w-full md:w-65 flex flex-col gap-4">
 
                 <article className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center shadow-sm">
                     <div className="w-16 h-16 rounded-full bg-blue-100 text-[#1A73E8] flex items-center justify-center text-xl font-bold">
@@ -79,8 +81,8 @@ export default function ProfileWishList() {
                 </h1>
 
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-                    <Card />
-                    <Card />
+                    <Card id="p1" name="Headphone Wireless Premium" price={450000} image={elektronikImg} brand="SOUNDWAVE" discount="-31%" originalPrice={562500} rating="4.8" reviews="512" />
+                    <Card id="p1" name="Headphone Wireless Premium" price={450000} image={elektronikImg} brand="SOUNDWAVE" discount="-31%" originalPrice={562500} rating="4.8" reviews="512" />
                 </div>
 
             </section>
