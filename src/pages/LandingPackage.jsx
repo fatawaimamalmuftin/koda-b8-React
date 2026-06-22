@@ -137,7 +137,51 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        <Card /><Card /><Card /><Card />
+
+                        <Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        />
+                        <Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        />
+                        <Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        />
+                        <Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        />
                     </div>
                 </section>
 
@@ -180,30 +224,47 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        {[1, 2, 3, 4].map((item) => (
-                            <div key={item} className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-md transition flex flex-col">
-                                <div className="relative w-full pt-[100%] bg-gray-50">
-                                    <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
-                                        -31%
-                                    </div>
-                                    <img src={elektronikImg} className="absolute inset-0 w-full h-full object-cover" alt="produk" />
-                                </div>
-                                <div className="w-full p-3 flex flex-col justify-between grow gap-2">
-                                    <div>
-                                        <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider block">SoundWave</span>
-                                        <h3 className="text-xs font-semibold text-[#111827] line-clamp-2 mt-0.5 min-h-8">Headphone Wireless Premium Long Name</h3>
-                                        <div className="flex flex-wrap items-center gap-1 text-[#FFB200] text-[10px] mt-1">
-                                            <div className="flex"><span>★</span><span>★</span><span>★</span><span>★</span><span className="text-gray-200">★</span></div>
-                                            <span className="text-[#9CA3AF]">4.8 (512)</span>
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-wrap items-baseline gap-1">
-                                        <span className="text-xs font-bold text-[#1A73E8]">Rp 450.000</span>
-                                        <span className="text-[9px] text-[#9CA3AF] line-through">Rp 562.500</span>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                        <Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        /><Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        /><Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        /><Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        />
                     </div>
                 </section>
 
@@ -216,7 +277,47 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        <Card /><Card /><Card /><Card />
+                        <Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        /><Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        /><Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        /><Card
+                            id="p1"
+                            name="Headphone Wireless Premium"
+                            price={450000}
+                            image={elektronikImg}
+                            brand="SOUNDWAVE"
+                            discount="-31%"
+                            originalPrice={562500}
+                            rating="4.8"
+                            reviews="512"
+                        />
                     </div>
                 </section>
 

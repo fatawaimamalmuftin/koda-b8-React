@@ -1,5 +1,6 @@
 import { ChevronRight } from 'lucide-react'
 import Card from './../componen/Card';
+import elektronikImg from '../assets/elektronik.png';
 
 export default function MainBrowse() {
     return (
@@ -15,7 +16,6 @@ export default function MainBrowse() {
                 <h1 className="flex text-xl font-bold text-black-600">Semua Produk</h1>
                 <div className='grid grid-cols-[20%_75%] w-full gap-6'>
 
-                    {/* //bagian kiri */}
                     <div className='flex flex-col text-gray-500'>
                         <div className='flex flex-col gap-6'>
                             <h1>Harga</h1>
@@ -98,7 +98,6 @@ export default function MainBrowse() {
                         </div>
                     </div>
 
-                    {/* bagian kanan */}
                     <div className='flex flex-col gap-4'>
 
                         <div className='flex justify-between'>
@@ -113,18 +112,138 @@ export default function MainBrowse() {
                         </div>
 
                         <div className=' grid grid-cols-4 gap-2 '>
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
+                            <Card
+                                id="p1"
+                                name="Headphone Wireless Premium"
+                                price={450000}
+                                image={elektronikImg}
+                                brand="SOUNDWAVE"
+                                discount="-31%"
+                                originalPrice={562500}
+                                rating="4.8"
+                                reviews="512"
+                            />
                         </div>
                         <div className='px-56'>
                             <div className='flex justify-center items-center py-2 px-4 border-2 border-b-blue-500 text-indigo-500 rounded-3xl'>Muat Lebih Banyak (6 produk lagi)</div>

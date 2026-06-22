@@ -1,29 +1,64 @@
-import { Link } from 'react-router-dom';
-import elektronikImg from '../assets/elektronik.png';
+import { useNavigate } from 'react-router-dom';
 
-export default function Card() {
+export default function Card({ id, name, price, image, brand, discount, originalPrice, rating, reviews }) {
+    const navigate = useNavigate();
+
+    const handleDetailNavigation = () => {
+        const productData = { id, name, price, image, brand, discount, originalPrice, rating, reviews };
+        localStorage.setItem('selected_product', JSON.stringify(productData));
+        navigate('/maindetail');
+    };
+
     return (
-        <Link to="/maindetail" className="w-full border border-gray-100 rounded-xl overflow-hidden bg-white hover:shadow-sm transition">
-            <div className="relative w-full h-55 bg-gray-50 flex items-center justify-center">
-                <div className="absolute top-2 left-2 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
-                    -31%
-                </div>
-                <img src={elektronikImg} className="w-full h-full object-cover" />
+        <div onClick={handleDetailNavigation} className="w-full max-w-[280px] bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm flex flex-col cursor-pointer hover:shadow-md transition group">
+            <div className="w-full aspect-square relative bg-gray-50 p-4 flex items-center justify-center">
+                {discount && (
+                    <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-md z-10">
+                        {discount}
+                    </span>
+                )}
+                <img
+                    src={image}
+                    alt={name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                />
             </div>
-            <div className="w-full p-3 flex flex-col justify-between h-30">
-                <div>
-                    <span className="text-[9px] text-[#9CA3AF] font-bold uppercase tracking-wider">SoundWave</span>
-                    <h3 className="text-xs font-semibold text-[#111827] truncate mt-0.5">Headphone Wireless Premium</h3>
-                    <div className="flex items-center gap-0.5 text-[#FFB200] text-[10px] mt-1">
-                        <span>★</span><span>★</span><span>★</span><span>★</span><span className="text-gray-200">★</span>
-                        <span className="text-[#9CA3AF] ml-1">4.8 (512)</span>
-                    </div>
+
+            <div className="p-4 flex flex-col flex-1 gap-1.5">
+                <span className="text-[10px] font-bold text-gray-400 tracking-wider uppercase">
+                    {brand || "NO BRAND"}
+                </span>
+
+                <h4 className="text-xs font-bold text-gray-900 leading-relaxed min-h-[36px] line-clamp-2">
+                    {name}
+                </h4>
+
+                <div className="flex items-center gap-1 text-[10px] text-gray-400 font-medium">
+                    <span className="text-orange-400">★★★★★</span>
+                    <span>{rating || "0.0"} ({reviews || "0"})</span>
                 </div>
-                <div className="flex items-baseline gap-1.5 mt-2">
-                    <span className="text-xs font-bold text-[#1A73E8]">Rp 450.000</span>
-                    <span className="text-[10px] text-[#9CA3AF] line-through">Rp 562.500</span>
+
+                <div className="flex items-baseline gap-2 mt-1">
+                    <span className="text-sm font-extrabold text-[#1A73E8]">
+                        Rp {Number(price || 0).toLocaleString('id-ID')}
+                    </span>
+                    {originalPrice && (
+                        <span className="text-[10px] text-gray-400 line-through">
+                            Rp {Number(originalPrice).toLocaleString('id-ID')}
+                        </span>
+                    )}
                 </div>
+
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        handleDetailNavigation();
+                    }}
+                    className="w-full h-9 bg-[#F97316] hover:bg-orange-600 text-white rounded-xl text-xs font-bold transition mt-3 flex items-center justify-center gap-1"
+                >
+                    Tambah ke Keranjang
+                </button>
             </div>
-        </Link>
-    )
+        </div>
+    );
 }

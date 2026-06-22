@@ -1,13 +1,88 @@
+import { useState, useEffect } from "react";
 import { ChevronRight, ShoppingCart, Heart } from "lucide-react";
 import Card from "./../componen/Card";
 import elektronikImg from '../assets/elektronik.png';
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 export default function MainDetail() {
+    const navigate = useNavigate();
+
+    const [productInfo, setProductInfo] = useState({
+        id: "p1",
+        name: "Headphone Wireless Premium",
+        price: 450000,
+        brand: "SOUNDWAVE",
+        image: elektronikImg,
+        rating: "4.8",
+        reviews: "512"
+    });
+
+    const [selectedColor, setSelectedColor] = useState("Hitam");
+    const [quantity, setQuantity] = useState(1);
+    const stock = 45;
+
+    useEffect(() => {
+        const initialProduct = JSON.parse(localStorage.getItem('selected_product'));
+        if (initialProduct) {
+            setProductInfo(prev => ({
+                ...prev,
+                id: initialProduct.id || prev.id,
+                name: initialProduct.name || prev.name,
+                price: initialProduct.price || prev.price,
+                brand: initialProduct.brand || prev.brand,
+                image: initialProduct.image || prev.image,
+                rating: initialProduct.rating || prev.rating,
+                reviews: initialProduct.reviews || prev.reviews
+            }));
+        }
+    }, []);
+
+    const handleQuantity = (delta) => {
+        const newQty = quantity + delta;
+        if (newQty >= 1 && newQty <= stock) {
+            setQuantity(newQty);
+        }
+    };
+
+    const getCartItemData = () => {
+        return {
+            id: `${productInfo.id}-${selectedColor}`,
+            productId: productInfo.id,
+            name: `${productInfo.name} (${selectedColor})`,
+            price: Number(productInfo.price),
+            image: productInfo.image,
+            quantity: quantity,
+            color: selectedColor
+        };
+    };
+
+    const handleAddToCart = () => {
+        const currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+        const newItem = getCartItemData();
+
+        const existingIndex = currentCart.findIndex(item => item.id === newItem.id);
+
+        if (existingIndex > -1) {
+            currentCart[existingIndex].quantity += quantity;
+        } else {
+            currentCart.push(newItem);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(currentCart));
+        alert(`Berhasil menambahkan ${quantity} barang dengan warna ${selectedColor} ke keranjang!`);
+    };
+
+    const handleBuyNow = () => {
+        const singleItemCart = [getCartItemData()];
+
+        localStorage.setItem('cart', JSON.stringify(singleItemCart));
+
+        navigate('/checkout1');
+    };
+
     return (
         <>
-            <main className="flex flex-col w-full px-26 bg-[#F9FAFB] gap-6 pb-12">
+            <main className="flex flex-col w-full px-26 bg-[#F9FAFB] gap-6 pb-12 py-6">
                 <nav className="flex items-center gap-1 text-sm text-[#6B7280]">
                     <span>Beranda</span>
                     <ChevronRight size={14} className="text-[#9CA3AF]" />
@@ -15,7 +90,7 @@ export default function MainDetail() {
                     <ChevronRight size={14} className="text-[#9CA3AF]" />
                     <span>Electronics</span>
                     <ChevronRight size={14} className="text-[#9CA3AF]" />
-                    <span className="text-[#111827] font-medium">Headphone Wireless Premium</span>
+                    <span className="text-[#111827] font-medium">{productInfo.name}</span>
                 </nav>
 
                 <section className="w-full grid grid-cols-2 gap-8 bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
@@ -25,14 +100,14 @@ export default function MainDetail() {
                             <span className="absolute top-2.5 left-2.5 z-10 bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                 -31%
                             </span>
-                            <img src={elektronikImg} className="w-full h-full object-cover" />
+                            <img src={productInfo.image} className="w-full h-full object-cover" alt={productInfo.name} />
                         </div>
                         <div className="flex gap-2">
                             <div className="w-15 h-15 rounded-lg overflow-hidden border-2 border-[#1A73E8] cursor-pointer flex items-center justify-center bg-[#F9FAFB]">
-                                <img src={elektronikImg} className="w-full h-full object-cover" />
+                                <img src={productInfo.image} className="w-full h-full object-cover" />
                             </div>
                             <div className="w-15 h-15 rounded-lg overflow-hidden border-2 border-gray-200 hover:border-gray-300 cursor-pointer flex items-center justify-center bg-[#F9FAFB] transition">
-                                <img src={elektronikImg} className="w-full h-full object-cover" />
+                                <img src={productInfo.image} className="w-full h-full object-cover" />
                             </div>
                         </div>
                     </div>
@@ -40,19 +115,19 @@ export default function MainDetail() {
                     <div className="flex flex-col gap-4">
                         <div>
                             <span className="text-[10px] text-[#9CA3AF] font-bold uppercase tracking-wider">
-                                SoundWave · Audio
+                                {productInfo.brand} · Audio
                             </span>
                             <h1 className="text-2xl font-bold text-[#111827] leading-tight mt-1">
-                                Headphone Wireless Premium
+                                {productInfo.name}
                             </h1>
                         </div>
 
                         <div className="flex items-center gap-2">
                             <span className="text-[#FFB200] text-sm tracking-wide">★★★★★</span>
-                            <span className="text-xs font-bold text-[#111827]">4.8</span>
-                            <span className="text-xs text-[#6B7280]">(512 ulasan)</span>
+                            <span className="text-xs font-bold text-[#111827]">{productInfo.rating}</span>
+                            <span className="text-xs text-[#6B7280]">({productInfo.reviews} ulasan)</span>
                             <span className="text-[10px] font-semibold text-[#16A34A] bg-[#DCFCE7] px-2 py-0.5 rounded-full">
-                                ✓ Stok tersedia (45)
+                                ✓ Stok tersedia ({stock})
                             </span>
                         </div>
 
@@ -60,29 +135,39 @@ export default function MainDetail() {
 
                         <div className="bg-[#EFF6FF] rounded-xl p-4">
                             <div className="flex items-baseline gap-2 flex-wrap">
-                                <span className="text-2xl font-bold text-[#1A73E8]">Rp 450.000</span>
-                                <span className="text-sm text-[#9CA3AF] line-through">Rp 650.000</span>
+                                <span className="text-2xl font-bold text-[#1A73E8]">
+                                    Rp {Number(productInfo.price).toLocaleString('id-ID')}
+                                </span>
+                                <span className="text-sm text-[#9CA3AF] line-through">
+                                    Rp {(Number(productInfo.price) * 1.45).toLocaleString('id-ID')}
+                                </span>
                                 <span className="bg-[#DC2626] text-white text-[9px] font-bold px-1.5 py-0.5 rounded-md">
                                     Hemat 31%
                                 </span>
                             </div>
-                            <p className="text-xs text-emerald-500 mt-1">Kamu hemat Rp 200.000 </p>
+                            <p className="text-xs text-emerald-500 mt-1">
+                                Kamu hemat Rp {(Number(productInfo.price) * 0.45).toLocaleString('id-ID')}
+                            </p>
                         </div>
 
                         <div>
                             <span className="text-xs font-semibold text-[#374151]">
-                                Warna: <span className="text-[#1A73E8]">Hitam</span>
+                                Warna: <span className="text-[#1A73E8]">{selectedColor}</span>
                             </span>
                             <div className="flex gap-2 mt-2">
-                                <button className="px-3.5 py-1 rounded-lg text-xs font-semibold border-[1.5px] border-[#1A73E8] text-[#1A73E8] bg-[#EFF6FF]">
-                                    Hitam
-                                </button>
-                                <button className="px-3.5 py-1 rounded-lg text-xs font-semibold border-[1.5px] border-gray-200 text-[#374151] bg-white hover:border-gray-300 transition">
-                                    Putih
-                                </button>
-                                <button className="px-3.5 py-1 rounded-lg text-xs font-semibold border-[1.5px] border-gray-200 text-[#374151] bg-white hover:border-gray-300 transition">
-                                    Biru
-                                </button>
+                                {["Hitam", "Putih", "Biru"].map((color) => (
+                                    <button
+                                        key={color}
+                                        type="button"
+                                        onClick={() => setSelectedColor(color)}
+                                        className={`px-3.5 py-1 rounded-lg text-xs font-semibold border-[1.5px] transition ${selectedColor === color
+                                            ? "border-[#1A73E8] text-[#1A73E8] bg-[#EFF6FF]"
+                                            : "border-gray-200 text-[#374151] bg-white hover:border-gray-300"
+                                            }`}
+                                    >
+                                        {color}
+                                    </button>
+                                ))}
                             </div>
                         </div>
 
@@ -90,27 +175,45 @@ export default function MainDetail() {
                             <span className="text-xs font-semibold text-[#374151]">Jumlah</span>
                             <div className="flex items-center gap-3 mt-2">
                                 <div className="flex items-center border-[1.5px] border-gray-200 rounded-lg overflow-hidden">
-                                    <button className="w-8 h-8 flex items-center justify-center text-[#374151] font-bold bg-[#F9FAFB] hover:bg-gray-100 transition text-base">
+                                    <button
+                                        type="button"
+                                        onClick={() => handleQuantity(-1)}
+                                        className="w-8 h-8 flex items-center justify-center text-[#374151] font-bold bg-[#F9FAFB] hover:bg-gray-100 transition text-base"
+                                    >
                                         −
                                     </button>
-                                    <span className="w-9 text-center text-sm font-semibold">1</span>
-                                    <button className="w-8 h-8 flex items-center justify-center text-[#374151] font-bold bg-[#F9FAFB] hover:bg-gray-100 transition text-base">
+                                    <span className="w-9 text-center text-sm font-semibold">{quantity}</span>
+                                    <button
+                                        type="button"
+                                        onClick={() => handleQuantity(1)}
+                                        className="w-8 h-8 flex items-center justify-center text-[#374151] font-bold bg-[#F9FAFB] hover:bg-gray-100 transition text-base"
+                                    >
                                         +
                                     </button>
                                 </div>
-                                <span className="text-xs text-[#6B7280]">Stok: 45 pcs</span>
+                                <span className="text-xs text-[#6B7280]">Stok: {stock} pcs</span>
                             </div>
                         </div>
 
                         <div className="flex gap-2.5">
-                            <button className="flex-1 h-11 border-[1.5px] border-[#1A73E8] text-[#1A73E8] bg-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 hover:bg-[#EFF6FF] transition">
+                            <button
+                                type="button"
+                                onClick={handleAddToCart}
+                                className="flex-1 h-11 border-[1.5px] border-[#1A73E8] text-[#1A73E8] bg-white text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 hover:bg-[#EFF6FF] transition"
+                            >
                                 <ShoppingCart size={14} />
                                 Tambah ke Keranjang
                             </button>
-                            <Link to="/maincart" className="flex justify-center items-center px-25 h-11 bg-[#F97316] text-white text-xs font-bold rounded-xl hover:bg-[#EA6A0A] transition">
+
+                            <button
+                                type="button"
+                                onClick={handleBuyNow}
+                                className="flex justify-center items-center px-25 h-11 bg-[#F97316] text-white text-xs font-bold rounded-xl hover:bg-[#EA6A0A] transition"
+                            >
                                 Beli Sekarang
-                            </Link>
-                            <button className="w-11 h-11 border-[1.5px] border-gray-200 bg-white rounded-xl flex items-center justify-center hover:border-gray-300 transition">
+                            </button>
+
+                            <button type="button" className="w-11 h-11 border-[1.5px] border-gray-200 bg-white rounded-xl flex items-center justify-center hover:border-gray-300 transition">
                                 <Heart size={16} className="text-[#6B7280]" />
                             </button>
                         </div>
@@ -160,13 +263,12 @@ export default function MainDetail() {
                         </span>
                     </div>
                     <div className="w-full grid grid-cols-4 gap-4">
-                        <Card />
-                        <Card />
-                        <Card />
-                        <Card />
+                        <Card id="p1" name="Headphone Wireless Premium" price={450000} image={elektronikImg} brand="SOUNDWAVE" discount="-31%" originalPrice={562500} rating="4.8" reviews="512" />
+                        <Card id="p2" name="Headphone Wireless Premium" price={450000} image={elektronikImg} brand="SOUNDWAVE" discount="-31%" originalPrice={562500} rating="4.8" reviews="512" />
+                        <Card id="p3" name="Headphone Wireless Premium" price={450000} image={elektronikImg} brand="SOUNDWAVE" discount="-31%" originalPrice={562500} rating="4.8" reviews="512" />
+                        <Card id="p4" name="Headphone Wireless Premium" price={450000} image={elektronikImg} brand="SOUNDWAVE" discount="-31%" originalPrice={562500} rating="4.8" reviews="512" />
                     </div>
                 </section>
-
             </main>
         </>
     );

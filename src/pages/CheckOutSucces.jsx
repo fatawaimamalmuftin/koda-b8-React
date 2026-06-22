@@ -1,8 +1,69 @@
+import { useState, useEffect } from 'react';
 import { Check, Truck, MapPin, Package } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function CheckOutSuccess() {
+    const navigate = useNavigate();
+
+    const [cartItems, setCartItems] = useState([]);
+    const [shippingAddress, setShippingAddress] = useState(null);
+    const [shippingMethod, setShippingMethod] = useState('JNE Reguler');
+    const [orderNumber, setOrderNumber] = useState('');
+
+    useEffect(() => {
+        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
+        const savedShipping = localStorage.getItem('shippingMethod') || 'JNE Reguler';
+
+        setCartItems(savedCart);
+        setShippingAddress(savedAddress);
+        setShippingMethod(savedShipping);
+
+        let savedOrderNum = sessionStorage.getItem('currentOrderNumber');
+        if (!savedOrderNum) {
+            savedOrderNum = `BM${Math.floor(10000000 + Math.random() * 90000000)}`;
+            sessionStorage.setItem('currentOrderNumber', savedOrderNum);
+
+            if (savedCart.length > 0) {
+                const totalPayment = savedCart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+                const newOrder = {
+                    date: new Date().toLocaleDateString('id-ID', {
+                        day: 'numeric',
+                        month: 'long',
+                        year: 'numeric'
+                    }),
+                    status: 'Pesanan Diterima',
+                    total: totalPayment,
+                    items: savedCart.map(item => ({
+                        name: item.name ? item.name.split(' (')[0] : 'Produk',
+                        quantity: item.quantity,
+                        price: item.price,
+                    }))
+                };
+
+                const existingOrders = JSON.parse(localStorage.getItem('my_orders')) || [];
+                const updatedOrders = [newOrder, ...existingOrders];
+
+                localStorage.setItem('my_orders', JSON.stringify(updatedOrders));
+            }
+        }
+        setOrderNumber(`#${savedOrderNum}`);
+    }, []);
+
+    const totalPayment = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+    const handleContinueShopping = () => {
+        localStorage.removeItem('cart');
+        localStorage.removeItem('shippingAddress');
+        localStorage.removeItem('shippingMethod');
+        localStorage.removeItem('paymentMethod');
+        sessionStorage.removeItem('currentOrderNumber');
+        navigate('/');
+    };
+
     return (
-        <main className="w-full bg-[#FAFAFA] min-h-screen flex justify-center items-start">
+        <main className="w-full bg-[#FAFAFA] min-h-screen flex justify-center items-start py-10">
             <div className="w-full max-w-[640px] px-4 flex flex-col items-center">
 
                 <div className="w-20 h-20 rounded-full bg-[#E6F9ED] flex items-center justify-center mb-6">
@@ -22,11 +83,13 @@ export default function CheckOutSuccess() {
                     <div className="flex justify-between items-start border-b border-gray-100 pb-4 text-xs">
                         <div className="flex flex-col gap-1">
                             <span className="text-gray-400 font-medium">Nomor Pesanan</span>
-                            <span className="text-sm font-bold text-[#1A73E8]">#BM28371132</span>
+                            <span className="text-sm font-bold text-[#1A73E8]">{orderNumber || '#BM00000000'}</span>
                         </div>
                         <div className="flex flex-col items-end gap-1">
                             <span className="text-gray-400 font-medium">Total Pembayaran</span>
-                            <span className="text-sm font-extrabold text-gray-950">Rp 450.000</span>
+                            <span className="text-sm font-extrabold text-gray-950">
+                                Rp {totalPayment.toLocaleString('id-ID')}
+                            </span>
                         </div>
                     </div>
 
@@ -36,8 +99,8 @@ export default function CheckOutSuccess() {
                                 <Truck size={16} />
                             </div>
                             <div className="flex flex-col gap-0.5 mt-0.5">
-                                <span className="font-bold text-gray-900">JNE Reguler</span>
-                                <span className="text-gray-400 font-medium">Estimasi tiba: 2-3 Juni 2026</span>
+                                <span className="font-bold text-gray-900">{shippingMethod}</span>
+                                <span className="text-gray-400 font-medium">Estimasi tiba: 2-3 hari kerja</span>
                             </div>
                         </div>
 
@@ -48,7 +111,11 @@ export default function CheckOutSuccess() {
                             <div className="flex flex-col gap-0.5 mt-0.5">
                                 <span className="font-bold text-gray-900">Alamat Pengiriman</span>
                                 <span className="text-gray-400 font-medium leading-relaxed">
-                                    Jl. Kebon Jeruk No. 15, Jakarta Barat, DKI Jakarta 11530
+                                    {shippingAddress ? (
+                                        `${shippingAddress.namaPenerima} | ${shippingAddress.alamatLengkap}, ${shippingAddress.kota}, ${shippingAddress.provinsi} ${shippingAddress.kodePos}`
+                                    ) : (
+                                        'Detail alamat tidak ditemukan'
+                                    )}
                                 </span>
                             </div>
                         </div>
@@ -90,7 +157,7 @@ export default function CheckOutSuccess() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-xs font-semibold text-gray-500">Dalam Pengiriman</span>
-                                <span className="text-[11px] text-gray-400 mt-0.5">3-5 hari kerja</span>
+                                <span className="text-[11px] text-gray-400 mt-0.5">Sesuai paket kurir</span>
                             </div>
                         </div>
 
@@ -100,20 +167,20 @@ export default function CheckOutSuccess() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-xs font-semibold text-gray-500">Terkirim</span>
-                                <span className="text-[11px] text-gray-400 mt-0.5">2-3 Juni 2026</span>
+                                <span className="text-[11px] text-gray-400 mt-0.5">Selesai</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-                    <button className="w-full sm:w-auto px-6 h-11 bg-[#1A73E8] hover:bg-blue-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm shadow-blue-100">
+                    <button onClick={() => alert('Fitur tracking dalam pengembangan')} className="w-full sm:w-auto px-6 h-11 bg-[#1A73E8] hover:bg-blue-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm shadow-blue-100">
                         <MapPin size={14} /> Lacak Pesanan
                     </button>
-                    <button className="w-full sm:w-auto px-6 h-11 bg-white border border-gray-200 hover:bg-gray-50 text-gray-600 font-bold rounded-xl text-xs flex items-center justify-center transition">
+                    <button onClick={() => navigate('/profilemyorder')} className="w-full sm:w-auto px-6 h-11 bg-white border border-gray-200 hover:bg-gray-50 text-gray-600 font-bold rounded-xl text-xs flex items-center justify-center transition">
                         Lihat Riwayat Pesanan
                     </button>
-                    <button className="w-full sm:w-auto px-4 h-11 text-[#1A73E8] hover:text-blue-700 font-bold text-xs flex items-center justify-center gap-1 transition">
+                    <button onClick={handleContinueShopping} className="w-full sm:w-auto px-4 h-11 text-[#1A73E8] hover:text-blue-700 font-bold text-xs flex items-center justify-center gap-1 transition">
                         Lanjut Belanja <span className="text-sm font-normal">&rarr;</span>
                     </button>
                 </div>
