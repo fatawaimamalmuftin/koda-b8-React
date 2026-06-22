@@ -255,7 +255,7 @@ export default function CheckOut1() {
                         <div className="flex flex-col gap-3 max-h-60 overflow-y-auto pr-1">
                             {cartItems.map((item) => (
                                 <div key={item.id} className="flex items-center gap-3 bg-gray-50 p-3 rounded-xl border border-gray-100">
-                                    <div className="w-12 h-12 rounded-lg bg-white overflow-hidden border border-gray-200 p-1 flex-shrink-0">
+                                    <div className="w-12 h-12 rounded-lg bg-white overflow-hidden border border-gray-200 p-1">
                                         <img src={item.image || headphoneImg} alt={item.name} className="w-full h-full object-contain" />
                                     </div>
                                     <div className="flex-1 flex justify-between items-center text-xs gap-2">
@@ -265,7 +265,7 @@ export default function CheckOut1() {
                                             </span>
                                             <span className="text-[10px] text-gray-400">Rp {item.price?.toLocaleString('id-ID')}</span>
                                         </div>
-                                        <span className="text-gray-500 font-medium flex-shrink-0">x{item.quantity}</span>
+                                        <span className="text-gray-500 font-medium">x{item.quantity}</span>
                                     </div>
                                 </div>
                             ))}
