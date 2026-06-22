@@ -4,13 +4,13 @@ export default function Card({ id, name, price, image, brand, discount, original
     const navigate = useNavigate();
 
     const handleDetailNavigation = () => {
-        const productData = { id, name, price, image, brand, discount, originalPrice, rating, reviews };
-        localStorage.setItem('selected_product', JSON.stringify(productData));
+        // const productData = { id, name, price, image, brand, discount, originalPrice, rating, reviews };
+        // localStorage.setItem('selected_product', JSON.stringify(productData));
         navigate('/maindetail');
     };
 
     return (
-        <div onClick={handleDetailNavigation} className="w-full max-w-[280px] bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm flex flex-col cursor-pointer hover:shadow-md transition group">
+        <div onClick={handleDetailNavigation} className="w-full max-w-70 bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm flex flex-col cursor-pointer hover:shadow-md transition group">
             <div className="w-full aspect-square relative bg-gray-50 p-4 flex items-center justify-center">
                 {discount && (
                     <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-md z-10">
@@ -29,7 +29,7 @@ export default function Card({ id, name, price, image, brand, discount, original
                     {brand || "NO BRAND"}
                 </span>
 
-                <h4 className="text-xs font-bold text-gray-900 leading-relaxed min-h-[36px] line-clamp-2">
+                <h4 className="text-xs font-bold text-gray-900 leading-relaxed min-h-9 line-clamp-2">
                     {name}
                 </h4>
 
