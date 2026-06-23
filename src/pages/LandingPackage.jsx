@@ -3,9 +3,30 @@ import orangOlahraga from '../assets/olahraga.png';
 import kopiBuku from '../assets/kopiBg.png';
 import { MessageCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 import Card from './../componen/Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LandingPackage() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        async function getlocal() {
+            const loginStatus = localStorage.getItem('isLoggedIn')
+            if (loginStatus === 'true') {
+                setIsLoggedIn(true)
+            }
+        }
+        getlocal();
+    }, [])
+
+    const handleLogout = () => {
+        localStorage.removeItem('isLoggedIn')
+        setIsLoggedIn(false)
+        alert('Berhasil keluar!!')
+        navigate('/login')
+    }
+
     const [geser, setGeser] = useState(0);
 
     function kiri() {
@@ -39,6 +60,26 @@ export default function LandingPackage() {
             warnaImages: "linear-gradient(to right, rgba(266,115,232,0.6), rgba(266,115,232,0.2))"
         },
     ];
+
+    const daftarKategori = [
+        { nama: 'Elektronik', image: elektronikImg, totalProduk: 5 },
+        { nama: 'Fashion', image: orangOlahraga, totalProduk: 6 },
+        { nama: 'Rumah & Dapur', image: kopiBuku, totalProduk: 7 },
+        { nama: 'Kecantikan', image: elektronikImg, totalProduk: 8 },
+        { nama: 'Olahraga', image: orangOlahraga, totalProduk: 9 },
+        { nama: 'Buku & Tulis', image: kopiBuku, totalProduk: 10 },
+    ];
+
+    const mockData = Array(4).fill({
+        name: "Headphone Wireless Premium",
+        price: 450000,
+        image: elektronikImg,
+        brand: "SOUNDWAVE",
+        discount: "-31%",
+        originalPrice: 562500,
+        rating: "4.8",
+        reviews: "512"
+    }).map((item, index) => ({ ...item, id: `fd-${index + 1}` }));
 
     return (
         <>
@@ -111,11 +152,11 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-                        {['Elektronik', 'Fashion', 'Rumah & Dapur', 'Kecantikan', 'Olahraga', 'Buku & Tulis'].map((kat, i) => (
-                            <div key={i} className="w-full border border-gray-100 rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition cursor-pointer">
-                                <img src={elektronikImg} alt={kat} className="w-10 h-10 sm:w-12 sm:h-12 object-contain mb-2" />
-                                <span className="block text-xs font-bold text-[#111827] line-clamp-1">{kat}</span>
-                                <span className="block text-[10px] text-[#6B7280] mt-0.5">{5 + i} Produk</span>
+                        {daftarKategori.map((kat) => (
+                            <div key={kat} className='w-full border border-gray-100 rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition cursor-pointer"'>
+                                <img src={kat.image} alt={kat.nama} className="w-10 h-10 sm:w-12 sm:h-12 object-contain mb-2" />
+                                <span className="block text-xs font-bold text-[#111827] line-clamp-1">{kat.nama}</span>
+                                <span className="block text-[10px] text-[#6B7280] mt-0.5">{kat.totalProduk} Produk</span>
                             </div>
                         ))}
                     </div>
@@ -137,51 +178,9 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-
-                        <Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        />
-                        <Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        />
-                        <Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        />
-                        <Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        />
+                        {mockData.map((item) => (
+                            <Card key={item} {...item} />
+                        ))}
                     </div>
                 </section>
 
@@ -224,47 +223,9 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        <Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        /><Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        /><Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        /><Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        />
+                        {mockData.map((item) => (
+                            <Card key={item} {...item} />
+                        ))}
                     </div>
                 </section>
 
@@ -277,47 +238,9 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        <Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        /><Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        /><Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        /><Card
-                            id="p1"
-                            name="Headphone Wireless Premium"
-                            price={450000}
-                            image={elektronikImg}
-                            brand="SOUNDWAVE"
-                            discount="-31%"
-                            originalPrice={562500}
-                            rating="4.8"
-                            reviews="512"
-                        />
+                        {mockData.map((item) => (
+                            <Card key={item} {...item} />
+                        ))}
                     </div>
                 </section>
 
