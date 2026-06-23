@@ -29,7 +29,7 @@ export default function Regis() {
         }
 
         const userData = { nama, email, pass };
-        localStorage.setItem(email, JSON.stringify(userData));
+        localStorage.setItem("user", JSON.stringify(userData));
 
         alert('Registrasi Berhasil!! Silahkan Login.');
 

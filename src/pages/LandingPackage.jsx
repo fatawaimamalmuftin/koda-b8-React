@@ -3,30 +3,9 @@ import orangOlahraga from '../assets/olahraga.png';
 import kopiBuku from '../assets/kopiBg.png';
 import { MessageCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 import Card from './../componen/Card';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function LandingPackage() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        async function getlocal() {
-            const loginStatus = localStorage.getItem('isLoggedIn')
-            if (loginStatus === 'true') {
-                setIsLoggedIn(true)
-            }
-        }
-        getlocal();
-    }, [])
-
-    const handleLogout = () => {
-        localStorage.removeItem('isLoggedIn')
-        setIsLoggedIn(false)
-        alert('Berhasil keluar!!')
-        navigate('/login')
-    }
-
     const [geser, setGeser] = useState(0);
 
     function kiri() {

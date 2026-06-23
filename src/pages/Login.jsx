@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link dan useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import BgLogin from '../assets/ceweBgLogin.jpg';
 
 export default function Login() {
@@ -16,7 +16,7 @@ export default function Login() {
             return;
         }
 
-        const savedUserData = localStorage.getItem(email);
+        const savedUserData = localStorage.getItem('user');
 
         if (!savedUserData) {
             alert('Email tidak terdaftar! Silakan registrasi terlebih dahulu.');

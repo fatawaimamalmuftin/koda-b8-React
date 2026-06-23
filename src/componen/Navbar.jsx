@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     MapPin,
     Search,
@@ -20,6 +20,30 @@ export default function Navbar() {
         if (pathTujuan) {
             nafigasi(pathTujuan);
         }
+    }
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const navigate = useNavigate();
+    const [user, setUser] = useState([])
+
+    useEffect(() => {
+        async function getlocal() {
+            const loginStatus = localStorage.getItem('isLoggedIn')
+            const userData = localStorage.getItem('user')
+            setUser(JSON.parse(userData))
+
+            if (loginStatus === 'true') {
+                setIsLoggedIn(true)
+            }
+        }
+        getlocal();
+    }, [])
+
+    const handleLogout = () => {
+        localStorage.removeItem('isLoggedIn')
+        setIsLoggedIn(false)
+        alert('Berhasil keluar!!')
+        navigate('/login')
     }
 
     return (
@@ -86,7 +110,36 @@ export default function Navbar() {
                         </Link>
 
                         <div className="hidden md:block px-1 font-medium text-sm text-[#374151]">
-                            <span>Budi</span>
+                            <span>{isLoggedIn ? (<div className="flex items-center gap-4">
+                                <span className="text-sm text-slate-700 font-medium">
+                                    {user.nama}
+                                </span>
+                                <div>
+                                    <button
+                                        onClick={handleLogout}
+                                        className=" px-2 py-1 bg-red-500 hover:bg-red-600 text-white font-normal rounded-xl text-sm transition"
+                                    >
+                                        Keluar
+                                    </button>
+                                </div>
+                            </div>
+                            ) : (
+                                <div className="flex gap-3">
+                                    <button
+                                        onClick={() => navigate('/login')}
+                                        className="px-4 h-10 border border-slate-300 hover:bg-slate-50 text-slate-700 font-medium rounded-xl text-sm transition"
+                                    >
+                                        Masuk
+                                    </button>
+                                    <button
+                                        onClick={() => navigate('/registrasi')}
+                                        className="px-4 h-10 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl text-sm transition"
+                                    >
+                                        Daftar
+                                    </button>
+                                </div>
+                            )}
+                            </span>
                         </div>
 
                         <Link to="/profilewishlist" className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
