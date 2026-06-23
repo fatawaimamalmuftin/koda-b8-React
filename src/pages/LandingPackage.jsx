@@ -157,8 +157,8 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        {mockData.map((item) => (
-                            <Card key={item} {...item} />
+                        {mockData.map((item, index) => (
+                            <Card key={index} {...item} />
                         ))}
                     </div>
                 </section>
@@ -202,8 +202,8 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        {mockData.map((item) => (
-                            <Card key={item} {...item} />
+                        {mockData.map((item, index) => (
+                            <Card key={index} {...item} />
                         ))}
                     </div>
                 </section>
@@ -217,8 +217,8 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        {mockData.map((item) => (
-                            <Card key={item} {...item} />
+                        {mockData.map((item, index) => (
+                            <Card key={index} {...item} />
                         ))}
                     </div>
                 </section>
