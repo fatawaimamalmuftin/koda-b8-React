@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import BgLogin from '../assets/ceweBgLogin.jpg';
+import Swal from 'sweetalert2';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -12,26 +13,64 @@ export default function Login() {
         e.preventDefault();
 
         if (!email || !password) {
-            alert('Email dan Kata Sandi wajib diisi!');
+            Swal.fire({
+                title: 'Gagal Masuk',
+                text: 'Email dan Kata Sandi wajib diisi!',
+                icon: 'warning',
+                confirmButtonText: 'Mengerti',
+                confirmButtonColor: '#1A73E8'
+            });
             return;
         }
 
         const savedUserData = localStorage.getItem('user');
 
         if (!savedUserData) {
-            alert('Email tidak terdaftar! Silakan registrasi terlebih dahulu.');
+            Swal.fire({
+                title: 'Akun Tidak Ditemukan',
+                text: 'Email tidak terdaftar! Silakan registrasi terlebih dahulu.',
+                icon: 'error',
+                confirmButtonText: 'Daftar Sekarang',
+                confirmButtonColor: '#1A73E8'
+            }).then(() => {
+                navigate('/registrasi');
+            });
             return;
         }
 
         const user = JSON.parse(savedUserData);
 
+        if (user.email !== email) {
+            Swal.fire({
+                title: 'Akun Tidak Ditemukan',
+                text: 'Email yang Anda masukkan tidak sesuai dengan data terdaftar.',
+                icon: 'error',
+                confirmButtonText: 'Coba Lagi',
+                confirmButtonColor: '#1A73E8'
+            });
+            return;
+        }
+
         if (user.pass === password) {
-            alert('Login Berhasil! Selamat datang.');
             localStorage.setItem('isLoggedIn', 'true');
 
-            navigate('/');
+            Swal.fire({
+                title: 'Login Berhasil!',
+                text: 'Selamat datang kembali di BeliMudah.',
+                icon: 'success',
+                confirmButtonText: 'Masuk Beranda',
+                confirmButtonColor: '#1A73E8'
+            }).then(() => {
+                navigate('/');
+            });
         } else {
-            alert('Kata sandi salah! Silakan coba lagi.');
+            Swal.fire({
+                title: 'Kata Sandi Salah',
+                text: 'Silakan periksa kembali kata sandi kamu.',
+                icon: 'error',
+                confirmButtonText: 'Coba Lagi',
+                confirmButtonColor: '#1A73E8'
+            });
         }
     };
 

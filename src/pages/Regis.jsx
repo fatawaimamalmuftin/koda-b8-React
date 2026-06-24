@@ -2,6 +2,7 @@ import { CircleCheckBig, User, Mail, Lock, EyeOff, ArrowLeft } from 'lucide-reac
 import TasBgRegis from '../assets/tasBgRegis.jpg';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function Regis() {
     const [nama, setNama] = useState('');
@@ -13,27 +14,52 @@ export default function Regis() {
 
     function handleRegis(e) {
         e.preventDefault();
+
         if (!nama || !email || !pass || !confirmPass) {
-            alert('Semua data wajib diisi');
+            Swal.fire({
+                title: 'Data Belum Lengkap',
+                text: 'Semua data wajib diisi!',
+                icon: 'warning',
+                confirmButtonText: 'Lengkapi',
+                confirmButtonColor: '#1A73E8'
+            });
             return;
         }
 
         if (pass !== confirmPass) {
-            alert('Kata sandi dan Konfirmasi Kata sandi tidak cocok!!');
+            Swal.fire({
+                title: 'Kata Sandi Tidak Cocok',
+                text: 'Kata sandi dan Konfirmasi Kata sandi tidak cocok!!',
+                icon: 'error',
+                confirmButtonText: 'Perbaiki',
+                confirmButtonColor: '#1A73E8'
+            });
             return;
         }
 
         if (pass.length < 6) {
-            alert('Kata Sandi Minimal 6 karakter');
+            Swal.fire({
+                title: 'Kata Sandi Terlalu Pendek',
+                text: 'Kata Sandi Minimal harus 6 karakter!',
+                icon: 'warning',
+                confirmButtonText: 'Perbaiki',
+                confirmButtonColor: '#1A73E8'
+            });
             return;
         }
 
         const userData = { nama, email, pass };
         localStorage.setItem("user", JSON.stringify(userData));
 
-        alert('Registrasi Berhasil!! Silahkan Login.');
-
-        navigate('/login');
+        Swal.fire({
+            title: 'Registrasi Berhasil!',
+            text: 'Silahkan masuk menggunakan akun baru Anda.',
+            icon: 'success',
+            confirmButtonText: 'Login Sekarang',
+            confirmButtonColor: '#E056FD'
+        }).then(() => {
+            navigate('/login');
+        });
     }
 
     return (
@@ -99,7 +125,6 @@ export default function Regis() {
 
             <section className="w-1/2 flex justify-center items-center bg-white h-screen overflow-y-auto pt-20 px-2">
                 <article className="w-full max-w-112.5 flex flex-col gap-6 px-4">
-
 
                     <div className="flex flex-col gap-2">
                         <h2 className="text-3xl font-bold text-slate-900">

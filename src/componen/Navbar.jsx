@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
     MapPin,
     Search,
@@ -10,41 +10,37 @@ import {
     Menu,
     X
 } from 'lucide-react';
+import Swal from 'sweetalert2';
+import useGetLoginStatus from '../hook/useGetLoginStatus';
+import useGetDataLocal from '../hook/useGetDataLocal';
 
 export default function Navbar() {
-    const nafigasi = useNavigate();
+    const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const isLoggedIn = useGetLoginStatus();
+    const user = useGetDataLocal('user');
+
     const handleNavigasi = (event) => {
-        const pathTujuan = event.target.value
+        const pathTujuan = event.target.value;
         if (pathTujuan) {
-            nafigasi(pathTujuan);
+            navigate(pathTujuan);
         }
-    }
-
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const navigate = useNavigate();
-    const [user, setUser] = useState([])
-
-    useEffect(() => {
-        async function getlocal() {
-            const loginStatus = localStorage.getItem('isLoggedIn')
-            const userData = localStorage.getItem('user')
-            setUser(JSON.parse(userData))
-
-            if (loginStatus === 'true') {
-                setIsLoggedIn(true)
-            }
-        }
-        getlocal();
-    }, [])
+    };
 
     const handleLogout = () => {
-        localStorage.removeItem('isLoggedIn')
-        setIsLoggedIn(false)
-        alert('Berhasil keluar!!')
-        navigate('/login')
-    }
+        localStorage.removeItem('isLoggedIn');
+
+        Swal.fire({
+            title: 'Berhasil Keluar!',
+            text: 'Sampai jumpa kembali di BeliMudah 👋',
+            icon: 'success',
+            confirmButtonText: 'Oke',
+            confirmButtonColor: '#1A73E8',
+        }).then(() => {
+            window.location.href = '/login';
+        });
+    };
 
     return (
         <>
@@ -110,19 +106,20 @@ export default function Navbar() {
                         </Link>
 
                         <div className="hidden md:block px-1 font-medium text-sm text-[#374151]">
-                            <span>{isLoggedIn ? (<div className="flex items-center gap-4">
-                                <span className="text-sm text-slate-700 font-medium">
-                                    {user.nama}
-                                </span>
-                                <div>
-                                    <button
-                                        onClick={handleLogout}
-                                        className=" px-2 py-1 bg-red-500 hover:bg-red-600 text-white font-normal rounded-xl text-sm transition"
-                                    >
-                                        Keluar
-                                    </button>
+                            {isLoggedIn ? (
+                                <div className="flex items-center gap-4">
+                                    <span className="text-sm text-slate-700 font-medium">
+                                        {user?.nama || user?.name || 'Pengguna'}
+                                    </span>
+                                    <div>
+                                        <button
+                                            onClick={handleLogout}
+                                            className="px-2 py-1 bg-red-500 hover:bg-red-600 text-white font-normal rounded-xl text-sm transition"
+                                        >
+                                            Keluar
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
                             ) : (
                                 <div className="flex gap-3">
                                     <button
@@ -139,7 +136,6 @@ export default function Navbar() {
                                     </button>
                                 </div>
                             )}
-                            </span>
                         </div>
 
                         <Link to="/profilewishlist" className="w-9 h-9 flex justify-center items-center cursor-pointer hover:bg-gray-100 rounded-full transition text-[#374151]">
@@ -176,12 +172,8 @@ export default function Navbar() {
                         </select>
                     </div>
 
-                    <Link to="/home" className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] transition font-medium">
-                        💻 Elektronik
-                    </Link>
-                    <Link to="/about" className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] transition font-medium">
-                        👗 Fashion
-                    </Link>
+                    <Link to="/home" className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] transition font-medium">💻 Elektronik</Link>
+                    <Link to="/about" className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] transition font-medium">👗 Fashion</Link>
                     <div className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] cursor-pointer transition font-medium">🏠 Rumah & Dapur</div>
                     <div className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] cursor-pointer transition font-medium">💄 Kecantikan</div>
                     <div className="px-3 py-1.5 text-xs text-gray-600 hover:text-[#1A73E8] cursor-pointer transition font-medium">⚽ Olahraga</div>
@@ -225,12 +217,8 @@ export default function Navbar() {
                         </div>
 
                         <span className="text-[11px] font-bold text-gray-400 uppercase px-2 mt-1">Kategori Produk</span>
-                        <Link to="/home" onClick={() => setIsMenuOpen(false)} className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition font-medium">
-                            💻 Elektronik
-                        </Link>
-                        <Link to="/about" onClick={() => setIsMenuOpen(false)} className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition font-medium">
-                            👗 Fashion
-                        </Link>
+                        <Link to="/home" onClick={() => setIsMenuOpen(false)} className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition font-medium">💻 Elektronik</Link>
+                        <Link to="/about" onClick={() => setIsMenuOpen(false)} className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition font-medium">👗 Fashion</Link>
                         <div className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg cursor-pointer transition font-medium">🏠 Rumah & Dapur</div>
                         <div className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg cursor-pointer transition font-medium">💄 Kecantikan</div>
                         <div className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg cursor-pointer transition font-medium">⚽ Olahraga</div>
