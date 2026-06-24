@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     MapPin,
     Search,
@@ -11,15 +11,35 @@ import {
     X
 } from 'lucide-react';
 import Swal from 'sweetalert2';
-import useGetLoginStatus from '../hook/useGetLoginStatus';
-import useGetDataLocal from '../hook/useGetDataLocal';
 
 export default function Navbar() {
     const navigate = useNavigate();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const isLoggedIn = useGetLoginStatus();
-    const user = useGetDataLocal('user');
+
+    const [userList, setUserList] = useState([]);
+
+
+    useEffect(() => {
+        async function getData() {
+            const savedData = localStorage.getItem('user');
+            if (savedData) {
+                try {
+                    const parsedData = JSON.parse(savedData);
+                    if (Array.isArray(parsedData)) {
+                        setUserList(parsedData);
+                    }
+                } catch (error) {
+                    console.error("Gagal membaca data user dari localStorage:", error);
+                }
+            }
+        }
+        getData()
+    }, []);
+
+
+    const activeUser = userList.find(u => u.isLoggedIn === true);
+    const isLoggedIn = !!activeUser;
 
     const handleNavigasi = (event) => {
         const pathTujuan = event.target.value;
@@ -28,17 +48,39 @@ export default function Navbar() {
         }
     };
 
-    const handleLogout = () => {
-        localStorage.removeItem('isLoggedIn');
 
+    const handleLogout = () => {
         Swal.fire({
-            title: 'Berhasil Keluar!',
-            text: 'Sampai jumpa kembali di BeliMudah 👋',
-            icon: 'success',
-            confirmButtonText: 'Oke',
-            confirmButtonColor: '#1A73E8',
-        }).then(() => {
-            window.location.href = '/login';
+            title: "Apakah kamu yakin?",
+            text: "Kamu akan keluar dari akun saat ini!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#1A73E8",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, Keluar!",
+            cancelButtonText: "Batal"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                const updatedUserList = userList.map(user => {
+                    if (user.isLoggedIn === true) {
+                        return { ...user, isLoggedIn: false };
+                    }
+                    return user;
+                });
+
+                setUserList(updatedUserList);
+                localStorage.setItem('user', JSON.stringify(updatedUserList));
+
+                Swal.fire({
+                    title: "Berhasil!",
+                    text: "Kamu telah keluar dari akun 👋",
+                    icon: "success",
+                    confirmButtonColor: "#1A73E8"
+                }).then(() => {
+                    navigate('/');
+                });
+            }
         });
     };
 
@@ -109,7 +151,7 @@ export default function Navbar() {
                             {isLoggedIn ? (
                                 <div className="flex items-center gap-4">
                                     <span className="text-sm text-slate-700 font-medium">
-                                        {user?.nama || user?.name || 'Pengguna'}
+                                        {activeUser?.nama || activeUser?.name || 'Pengguna'}
                                     </span>
                                     <div>
                                         <button
@@ -182,40 +224,7 @@ export default function Navbar() {
                 </div>
 
                 {isMenuOpen && (
-                    <div className="lg:hidden absolute left-0 right-0 top-full bg-white border-b border-gray-200 shadow-xl px-4 py-4 flex flex-col gap-3 z-50 animate-in fade-in slide-in-from-top-5 duration-200">
-                        <div className="flex items-center gap-2 p-2 bg-gray-50 rounded-xl">
-                            <MapPin className="text-[#4F39F6]" size={16} />
-                            <span className="text-xs text-gray-600">Kirim ke: Jakarta Selatan</span>
-                        </div>
-
-                        <div className="flex flex-col gap-1 border-b border-gray-100 pb-2">
-                            <label htmlFor="halaman-mobile" className="text-[11px] font-bold text-gray-400 uppercase px-2 mb-1">Navigasi Halaman</label>
-                            <select
-                                id="halaman-mobile"
-                                onChange={(e) => { handleNavigasi(e); setIsMenuOpen(false); }}
-                                defaultValue=""
-                                className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-700 outline-none"
-                            >
-                                <option value="" disabled>Pilih Halaman Cepat</option>
-                                <option value="/mainbrows">Main Brows</option>
-                                <option value="/maindetail">Main Detail</option>
-                                <option value="/maincart">Main Chart</option>
-                                <option value="/checkout1">CheckOut step-1</option>
-                                <option value="/checkout2">CheckOut step-2</option>
-                                <option value="/checkout3">CheckOut step-3</option>
-                                <option value="/checkoutsucces">CheckOut Finish</option>
-                                <option value="/profilemyorder">Profile My Order</option>
-                                <option value="/profilewishlist">Profile Wishlist</option>
-                                <option value="/profilealamat">Profile Alamat</option>
-                                <option value="/profileedit">Profile Edit</option>
-                                <option value="/login">Login</option>
-                                <option value="/registrasi">Registrasi</option>
-                                <option value="/forgotpass">Forgot Password</option>
-                                <option value="/dashboard">Dashboard</option>
-                                <option value="/manajement">Manajement</option>
-                            </select>
-                        </div>
-
+                    <div className="lg:hidden absolute left-0 right-0 top-full bg-white border-b border-gray-200 shadow-xl px-4 py-4 flex flex-col gap-3 z-50">
                         <span className="text-[11px] font-bold text-gray-400 uppercase px-2 mt-1">Kategori Produk</span>
                         <Link to="/home" onClick={() => setIsMenuOpen(false)} className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition font-medium">💻 Elektronik</Link>
                         <Link to="/about" onClick={() => setIsMenuOpen(false)} className="p-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition font-medium">👗 Fashion</Link>

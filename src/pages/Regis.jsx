@@ -48,8 +48,24 @@ export default function Regis() {
             return;
         }
 
-        const userData = { nama, email, pass };
-        localStorage.setItem("user", JSON.stringify(userData));
+        const dataLocal = localStorage.getItem("user");
+        const userList = dataLocal ? JSON.parse(dataLocal) : [];
+
+        const isEmailExist = userList.some(user => user.email === email);
+        if (isEmailExist) {
+            Swal.fire({
+                title: 'Email Sudah Terdaftar',
+                text: 'Silakan gunakan email lain atau langsung masuk.',
+                icon: 'error',
+                confirmButtonText: 'Perbaiki',
+                confirmButtonColor: '#1A73E8'
+            });
+            return;
+        }
+
+        const newUser = { nama, email, pass };
+        userList.push(newUser);
+        localStorage.setItem("user", JSON.stringify(userList));
 
         Swal.fire({
             title: 'Registrasi Berhasil!',
