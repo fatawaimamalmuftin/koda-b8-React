@@ -21,6 +21,8 @@ import Regis from "./pages/Regis.jsx";
 import ForgotPass from "./pages/ForgotPass.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import AdminManajemenProduk from "./pages/AdminManajement.jsx";
+import { useState } from "react";
+import AuthContext from "./componen/AuthContex.jsx";
 
 
 const router = createBrowserRouter([
@@ -170,7 +172,11 @@ const router = createBrowserRouter([
 ])
 
 export default function App() {
+  const [auth, setAuth] = useState([])
+
   return (
-    <RouterProvider router={router} />
+    <AuthContext value={[auth, setAuth]}>
+      <RouterProvider router={router} />
+    </AuthContext>
   )
 }
