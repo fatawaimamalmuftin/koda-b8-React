@@ -8,8 +8,11 @@ export default function MainCart() {
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        setCartItems(savedCart);
+        async function getLocal() {
+            const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            setCartItems(savedCart);
+        }
+        getLocal()
     }, []);
 
     const updateQuantity = (id, delta) => {
