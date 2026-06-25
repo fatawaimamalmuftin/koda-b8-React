@@ -14,9 +14,9 @@ export default function ProfileMyOrder() {
     const navigate = useNavigate();
 
     return (
-        <main className="max-w-[1200px] mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-start">
+        <main className="max-w-300 mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-start">
 
-            <section className="w-full md:w-[260px] flex flex-col gap-4">
+            <section className="w-full md:w-65 flex flex-col gap-4">
 
                 <article className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center shadow-sm">
                     <div className="w-16 h-16 rounded-full bg-blue-100 text-[#1A73E8] flex items-center justify-center text-xl font-bold">
