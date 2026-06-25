@@ -38,21 +38,24 @@ export default function LandingPackage() {
             description: "Laptop, smartphone, headphone, dan masih banyak lagi dengan diskon hingga 40%",
             image: elektronikImg,
             bgColor: "bg-[#4F39F6]",
-            warnaImages: "linear-gradient(to right, rgba(130,0,219,0.6), rgba(130,0,219,0.2))"
+            warnaImages: "linear-gradient(to right, rgba(130,0,219,0.6), rgba(130,0,219,0.2))",
+            id: 1,
         },
         {
             title: "Gaya Hidup Sehat, Harga Spesial",
             description: "Laptop, smartphone, headphone, dan masih banyak lagi dengan diskon hingga 50%",
             image: orangOlahraga,
             bgColor: "bg-[#111820]",
-            warnaImages: "linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.2))"
+            warnaImages: "linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.2))",
+            id: 2,
         },
         {
             title: "Enjoy The Live, Harga Spesial",
             description: "Laptop, smartphone, headphone, dan masih banyak lagi dengan diskon hingga 60%",
             image: kopiBuku,
             bgColor: "bg-[#1A73A0]",
-            warnaImages: "linear-gradient(to right, rgba(266,115,232,0.6), rgba(266,115,232,0.2))"
+            warnaImages: "linear-gradient(to right, rgba(266,115,232,0.6), rgba(266,115,232,0.2))",
+            id: 3,
         },
     ];
 
@@ -313,8 +316,8 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-                        {daftarKategori.map((kat) => (
-                            <div key={kat} className='w-full border border-gray-100 rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition cursor-pointer"'>
+                        {daftarKategori.map((kat, index) => (
+                            <div key={index} className='w-full border border-gray-100 rounded-xl p-3 sm:p-4 flex flex-col items-center justify-center text-center hover:shadow-md transition cursor-pointer"'>
                                 <img src={kat.image} alt={kat.nama} className="w-10 h-10 sm:w-12 sm:h-12 object-contain mb-2" />
                                 <span className="block text-xs font-bold text-[#111827] line-clamp-1">{kat.nama}</span>
                                 <span className="block text-[10px] text-[#6B7280] mt-0.5">{kat.totalProduk} Produk</span>
@@ -414,8 +417,8 @@ export default function LandingPackage() {
                             { icon: "🛡️", title: "Pembayaran Aman", desc: "Menyediakan berbagai opsi metode transaksi yang terverifikasi." },
                             { icon: "🔄", title: "Retur Mudah", desc: "Proses klaim pengembalian barang mudah dan cepat tanpa ribet." },
                             { icon: "💬", title: "CS 24/7", desc: "Tim support kami siap membantu menjawab kendala belanja kamu." }
-                        ].map((feat, idx) => (
-                            <div key={idx} className="flex flex-col items-center p-2">
+                        ].map((feat, index) => (
+                            <div key={index} className="flex flex-col items-center p-2">
                                 <span className="text-2xl sm:text-3xl mb-1.5 block">{feat.icon}</span>
                                 <h3 className="text-xs font-bold text-[#111827] mb-1">{feat.title}</h3>
                                 <p className="text-[10px] text-[#6B7280] leading-relaxed text-center max-w-45">{feat.desc}</p>
