@@ -29,7 +29,7 @@ export default function Card({ id, name, price, image, brand, discount, original
                     {brand || "NO BRAND"}
                 </span>
 
-                <h4 className="text-xs font-bold text-gray-900 leading-relaxed min-h-9 line-clamp-2">
+                <h4 className="font-bold text-gray-900 leading-relaxed">
                     {name}
                 </h4>
 
@@ -38,26 +38,16 @@ export default function Card({ id, name, price, image, brand, discount, original
                     <span>{rating || "0.0"} ({reviews || "0"})</span>
                 </div>
 
-                <div className="flex items-baseline gap-2 mt-1">
+                <div className="flex items-baseline gap-2">
                     <span className="text-sm font-extrabold text-[#1A73E8]">
                         Rp {Number(price || 0).toLocaleString('id-ID')}
                     </span>
                     {originalPrice && (
-                        <span className="text-[10px] text-gray-400 line-through">
+                        <span className="text-gray-400 line-through">
                             Rp {Number(originalPrice).toLocaleString('id-ID')}
                         </span>
                     )}
                 </div>
-
-                <button
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        handleDetailNavigation();
-                    }}
-                    className="w-full h-9 bg-[#F97316] hover:bg-orange-600 text-white rounded-xl text-xs font-bold transition mt-3 flex items-center justify-center gap-1"
-                >
-                    Tambah ke Keranjang
-                </button>
             </div>
         </div>
     );
