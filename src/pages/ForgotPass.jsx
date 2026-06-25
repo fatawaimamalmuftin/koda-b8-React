@@ -1,5 +1,6 @@
 import { Send } from 'lucide-react';
 import TabLayarMerah from '../assets/tabLayarMerah.png';
+import { Link } from 'react-router-dom';
 
 export default function ForgotPass() {
     return (
@@ -56,9 +57,9 @@ export default function ForgotPass() {
             <section className="w-full md:w-1/2 flex justify-center items-center bg-white h-screen p-6">
                 <article className="w-full max-w-112.5 flex flex-col gap-6">
 
-                    <a href="/login.htm" className="text-sm text-slate-500 hover:text-blue-600 transition font-medium inline-flex items-center gap-1">
+                    <Link to='/login' className="text-sm text-slate-500 hover:text-blue-600 transition font-medium inline-flex items-center gap-1">
                         ← Kembali ke Login
-                    </a>
+                    </Link>
 
                     <div className="flex flex-col gap-3">
                         <h2 className="text-3xl font-bold text-slate-900">
