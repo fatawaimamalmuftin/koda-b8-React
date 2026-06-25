@@ -5,15 +5,37 @@ import Card from '../componen/Card';
 import { Link } from 'react-router-dom';
 
 export default function MainCart() {
+    const [allUsers, setAllUsers] = useState([]);
     const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
-        async function getLocal() {
-            const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-            setCartItems(savedCart);
+        function getLocalCart() {
+            const storedUsers = JSON.parse(localStorage.getItem('user')) || [];
+            setAllUsers(storedUsers);
+
+            const activeUser = storedUsers.find(user => user.isLoggedIn === true);
+
+            if (activeUser && activeUser.cart) {
+                setCartItems(activeUser.cart);
+            } else {
+                setCartItems([]);
+            }
         }
-        getLocal()
+        getLocalCart();
     }, []);
+
+    const updateLocalStorageUsers = (updatedCart) => {
+        const updatedUsers = allUsers.map(user => {
+            if (user.isLoggedIn === true) {
+                return { ...user, cart: updatedCart };
+            }
+            return user;
+        });
+
+        setAllUsers(updatedUsers);
+        setCartItems(updatedCart);
+        localStorage.setItem('user', JSON.stringify(updatedUsers));
+    };
 
     const updateQuantity = (id, delta) => {
         const updatedCart = cartItems.map(item => {
@@ -23,14 +45,12 @@ export default function MainCart() {
             }
             return item;
         });
-        setCartItems(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        updateLocalStorageUsers(updatedCart);
     };
 
     const removeItem = (id) => {
         const updatedCart = cartItems.filter(item => item.id !== id);
-        setCartItems(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        updateLocalStorageUsers(updatedCart);
     };
 
     const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
@@ -62,7 +82,7 @@ export default function MainCart() {
                         ) : (
                             cartItems.map((item) => (
                                 <div key={item.id} className="bg-white border border-gray-100 rounded-2xl p-6 flex gap-6 shadow-sm">
-                                    <div className="w-28 h-28 rounded-xl overflow-hidden bg-gray-50">
+                                    <div className="w-28 h-28 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center p-2">
                                         <img
                                             src={item.image || elektronikImg}
                                             alt={item.name}
@@ -74,6 +94,7 @@ export default function MainCart() {
                                         <div className="flex justify-between items-start">
                                             <div>
                                                 <h3 className="text-base font-semibold text-gray-950">
+                                                    {item.name}
                                                 </h3>
                                                 <p className="text-sm text-gray-500 mt-1">Warna: {item.color || "Default"}</p>
                                             </div>
