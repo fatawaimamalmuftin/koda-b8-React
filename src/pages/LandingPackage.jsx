@@ -1,6 +1,22 @@
 import elektronikImg from '../assets/elektronik.png';
 import orangOlahraga from '../assets/olahraga.png';
 import kopiBuku from '../assets/kopiBg.png';
+import headSetBgKuning from '../assets/heatsetBgKuning.png';
+import phone from '../assets/hape.png';
+import sepatuMerah from '../assets/sepatuMerah.png';
+import jam from '../assets/jam.png';
+import tas from '../assets/tasBiru.png';
+import masinElektronik from '../assets/elektronikMesin.png';
+import tablet from '../assets/tabLayarMerah.png';
+import woman from '../assets/orangCewe.png';
+import botolCoklat from '../assets/botolCoklat.png';
+import gambarKopi from '../assets/gambarKopi.png';
+import fasion from '../assets/fasion.png';
+import dapur from '../assets/dapur.png';
+import kecantikan from '../assets/kecantikan.png';
+import perpus from '../assets/BukuTulis.png';
+
+
 import { MessageCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 import Card from './../componen/Card';
 import { useState } from 'react';
@@ -41,24 +57,190 @@ export default function LandingPackage() {
     ];
 
     const daftarKategori = [
-        { nama: 'Elektronik', image: elektronikImg, totalProduk: 5 },
-        { nama: 'Fashion', image: orangOlahraga, totalProduk: 6 },
-        { nama: 'Rumah & Dapur', image: kopiBuku, totalProduk: 7 },
-        { nama: 'Kecantikan', image: elektronikImg, totalProduk: 8 },
-        { nama: 'Olahraga', image: orangOlahraga, totalProduk: 9 },
-        { nama: 'Buku & Tulis', image: kopiBuku, totalProduk: 10 },
+        { nama: 'Elektronik', image: elektronikImg, totalProduk: 7 },
+        { nama: 'Fashion', image: fasion, totalProduk: 5 },
+        { nama: 'Rumah & Dapur', image: dapur, totalProduk: 4 },
+        { nama: 'Kecantikan', image: kecantikan, totalProduk: 2 },
+        { nama: 'Olahraga', image: orangOlahraga, totalProduk: 3 },
+        { nama: 'Buku & Tulis', image: perpus, totalProduk: 2 },
     ];
 
-    const mockData = Array(4).fill({
-        name: "Headphone Wireless Premium",
-        price: 450000,
-        image: elektronikImg,
-        brand: "SOUNDWAVE",
-        discount: "-31%",
-        originalPrice: 562500,
-        rating: "4.8",
-        reviews: "512"
-    }).map((item, index) => ({ ...item, id: `fd-${index + 1}` }));
+    const flashDeal = [
+        {
+            discount: "-31%",
+            brand: "SoundWave",
+            name: "Headphone Wireless Premium",
+            image: headSetBgKuning,
+            rating: "4.8",
+            reviews: "512",
+            price: 450000,
+            originalPrice: 650000,
+        },
+        {
+            discount: "-16%",
+            brand: "PhoneX",
+            name: "Smartphone 5G Ultra",
+            image: phone,
+            rating: "4.6",
+            reviews: "890",
+            price: 4200000,
+            originalPrice: 5000000,
+        },
+        {
+            discount: "-20%",
+            brand: "WristTech",
+            name: "Smartwatch Series 5",
+            image: jam,
+            rating: "4.4",
+            reviews: "324",
+            price: 2800000,
+            originalPrice: 3500000,
+        },
+        {
+            discount: "-27%",
+            brand: "SportPro",
+            name: "Sneakers Sport Runfast",
+            image: sepatuMerah,
+            rating: "4.6",
+            reviews: "445",
+            price: 550000,
+            originalPrice: 750000,
+        }
+    ]
+
+    const produkTerbaru = [
+        {
+            discount: "-31%",
+            brand: "SoundWave",
+            name: "Headphone Wireless Premium",
+            image: headSetBgKuning,
+            rating: "4.8",
+            reviews: "512",
+            price: 450000,
+            originalPrice: 650000,
+        },
+        {
+            discount: "-16%",
+            brand: "PhoneX",
+            name: "Smartphone 5G Ultra",
+            image: phone,
+            rating: "4.6",
+            reviews: "890",
+            price: 4200000,
+            originalPrice: 5000000,
+        },
+        {
+            discount: "Baru",
+            brand: "UrbanBag",
+            name: "Tas Ransel Laptop Waterproof",
+            image: tas,
+            rating: "4.5",
+            reviews: "234",
+            price: 350000,
+        },
+        {
+            discount: "Baru",
+            brand: "BlendPro",
+            name: "Blender Portable Mini",
+            image: masinElektronik,
+            rating: "4.2",
+            reviews: "567",
+            price: 189000,
+        },
+        {
+            discount: "-20%",
+            brand: "TabTech",
+            name: "Tablet 10.5 Wifi +5G",
+            image: tablet,
+            rating: "4.5",
+            reviews: "345",
+            price: 3200000,
+            originalPrice: 4000000,
+        },
+        {
+            discount: "-25%",
+            brand: "FashionID",
+            name: "Dress Floral Midi",
+            image: woman,
+            rating: "4.5",
+            reviews: "312",
+            price: 295000,
+            originalPrice: 395000,
+        },
+        {
+            discount: "Baru",
+            brand: "AromaWell",
+            name: "Minyak Esensial Lavender Set",
+            image: botolCoklat,
+            rating: "4.8",
+            reviews: "456",
+            price: 145000,
+        },
+    ]
+
+    const produkUnggulan = [
+        {
+            discount: "-31%",
+            brand: "SoundWave",
+            name: "Headphone Wireless Premium",
+            image: headSetBgKuning,
+            rating: "4.8",
+            reviews: "512",
+            price: 450000,
+            originalPrice: 650000,
+        },
+        {
+            discount: "-16%",
+            brand: "PhoneX",
+            name: "Smartphone 5G Ultra",
+            image: phone,
+            rating: "4.6",
+            reviews: "890",
+            price: 4200000,
+            originalPrice: 5000000,
+        },
+        {
+            discount: "-20%",
+            brand: "WristTech",
+            name: "Smartwatch Series 5",
+            image: jam,
+            rating: "4.4",
+            reviews: "324",
+            price: 2800000,
+            originalPrice: 3500000,
+        },
+        {
+            discount: "-27%",
+            brand: "SportPro",
+            name: "Sneakers Sport Runfast",
+            image: sepatuMerah,
+            rating: "4.6",
+            reviews: "445",
+            price: 550000,
+            originalPrice: 750000,
+        },
+        {
+            discount: "-27%",
+            brand: "BrewMaster",
+            name: "Coffee Maker Otomatis",
+            image: gambarKopi,
+            rating: "4.4",
+            reviews: "189",
+            price: 875000,
+            originalPrice: 1200000,
+        },
+        {
+            discount: "-25%",
+            brand: "FashionID",
+            name: "Dress Floral Midi",
+            image: woman,
+            rating: "4.5",
+            reviews: "312",
+            price: 295000,
+            originalPrice: 395000,
+        },
+    ]
+
 
     return (
         <>
@@ -157,7 +339,7 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        {mockData.map((item, index) => (
+                        {flashDeal.map((item, index) => (
                             <Card key={index} {...item} />
                         ))}
                     </div>
@@ -202,7 +384,7 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        {mockData.map((item, index) => (
+                        {produkTerbaru.map((item, index) => (
                             <Card key={index} {...item} />
                         ))}
                     </div>
@@ -217,7 +399,7 @@ export default function LandingPackage() {
                     </div>
 
                     <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-                        {mockData.map((item, index) => (
+                        {produkUnggulan.map((item, index) => (
                             <Card key={index} {...item} />
                         ))}
                     </div>

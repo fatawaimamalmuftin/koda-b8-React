@@ -2,6 +2,9 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Card({ id, name, price, image, brand, discount, originalPrice, rating, reviews }) {
     const navigate = useNavigate();
+    // if(discount === "Baru"){
+
+    // }
 
     const handleDetailNavigation = () => {
         const productData = { id, name, price, image, brand, discount, originalPrice, rating, reviews };
@@ -12,7 +15,11 @@ export default function Card({ id, name, price, image, brand, discount, original
     return (
         <div onClick={handleDetailNavigation} className="w-full max-w-70 bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm flex flex-col cursor-pointer hover:shadow-md transition group">
             <div className="w-full aspect-square relative bg-gray-50 p-4 flex items-center justify-center">
-                {discount && (
+                {discount === "Baru" ? (
+                    <span className="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-md z-10">
+                        {discount}
+                    </span>
+                ) : (
                     <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-extrabold px-1.5 py-0.5 rounded-md z-10">
                         {discount}
                     </span>
@@ -20,7 +27,7 @@ export default function Card({ id, name, price, image, brand, discount, original
                 <img
                     src={image}
                     alt={name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition duration-300 rounded-t-2xl"
                 />
             </div>
 
