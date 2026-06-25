@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
-import HeadsetKuning from '../assets/heatsetBgKuning.png'
+import HeadsetKuning from '../assets/heatsetBgKuning.png';
 import { FiShoppingBag, FiHeart, FiMapPin, FiCreditCard, FiSettings, FiLogOut, FiCheckCircle, FiTruck, FiStar } from 'react-icons/fi';
+import { useEffect, useState } from 'react';
 
 function ProfileCard({ children }) {
     return (
@@ -13,18 +14,54 @@ function ProfileCard({ children }) {
 export default function ProfileMyOrder() {
     const navigate = useNavigate();
 
+    const [currentUser, setCurrentUser] = useState(null);
+
+    useEffect(() => {
+        async function getLocal() {
+            const storedUsers = localStorage.getItem('user');
+
+            if (storedUsers) {
+                try {
+                    const usersArray = JSON.parse(storedUsers);
+
+                    if (Array.isArray(usersArray)) {
+                        const loggedInUser = usersArray.find(user => user.isLoggedIn === true);
+                        if (loggedInUser) {
+                            setCurrentUser(loggedInUser);
+                        }
+                    }
+                } catch (error) {
+                    console.error("Gagal membaca data user dari localStorage:", error);
+                }
+            }
+        }
+        getLocal()
+    }, []);
+
+    const getInitialName = () => {
+        if (currentUser && currentUser.nama) {
+            return currentUser.nama.charAt(0).toUpperCase();
+        }
+        return "?";
+    };
+
     return (
         <main className="max-w-300 mx-auto px-4 py-8 flex flex-col md:flex-row gap-6 items-start">
 
             <section className="w-full md:w-65 flex flex-col gap-4">
 
                 <article className="bg-white border border-gray-200 rounded-2xl p-6 flex flex-col items-center shadow-sm">
-                    <div className="w-16 h-16 rounded-full bg-blue-100 text-[#1A73E8] flex items-center justify-center text-xl font-bold">
-                        B
+                    <div className="w-16 h-16 rounded-full bg-blue-100 text-[#1A73E8] flex items-center justify-center text-xl font-bold uppercase">
+                        {getInitialName()}
                     </div>
 
-                    <h2 className="text-base font-bold text-gray-900 mt-3">Budi Santoso</h2>
-                    <p className="text-xs text-gray-400 mt-0.5">budi@email.com</p>
+                    <h2 className="text-base font-bold text-gray-900 mt-3 capitalize">
+                        {currentUser ? currentUser.nama : "Memuat nama..."}
+                    </h2>
+
+                    <p className="text-xs text-gray-400 mt-0.5">
+                        {currentUser ? currentUser.email : "memuat email..."}
+                    </p>
 
                     <div className="w-full h-px bg-gray-100 my-4" />
 
@@ -50,25 +87,21 @@ export default function ProfileMyOrder() {
                     <Link to="/profilewishlist" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
                         <FiHeart className="w-4 h-4 text-gray-400" />
                         <span className="text-xs flex-1">Wishlist</span>
-                        <span className="text-xs text-gray-300">&rsaquo;</span>
                     </Link>
 
                     <Link to="/profilealamat" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
                         <FiMapPin className="w-4 h-4 text-gray-400" />
                         <span className="text-xs flex-1">Alamat Saya</span>
-                        <span className="text-xs text-gray-300">&rsaquo;</span>
                     </Link>
 
                     <Link to="/checkout2" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
                         <FiCreditCard className="w-4 h-4 text-gray-400" />
                         <span className="text-xs flex-1">Metode Pembayaran</span>
-                        <span className="text-xs text-gray-300">&rsaquo;</span>
                     </Link>
 
                     <Link to="/profileedit" className="flex items-center gap-3 p-3 rounded-xl text-gray-500 hover:bg-gray-50 transition" style={{ textDecoration: 'none' }}>
                         <FiSettings className="w-4 h-4 text-gray-400" />
                         <span className="text-xs flex-1">Pengaturan Profil</span>
-                        <span className="text-xs text-gray-300">&rsaquo;</span>
                     </Link>
 
                     <div className="w-full h-px bg-gray-100 my-1" />
@@ -81,13 +114,11 @@ export default function ProfileMyOrder() {
             </section>
 
             <section className="flex-1 w-full flex flex-col gap-4">
-
                 <h1 className="text-xl font-bold text-gray-900 mb-2">
                     Pesanan Saya
                 </h1>
 
                 <div className="flex flex-col gap-4 w-full">
-
                     <ProfileCard>
                         <div className="flex justify-between items-start">
                             <div>
@@ -101,7 +132,7 @@ export default function ProfileMyOrder() {
                         </div>
 
                         <div className="flex items-center gap-3 py-2">
-                            <div className="w-14 h-14 border-transparent p-1 overflow-hidden  flex items-center justify-center">
+                            <div className="w-14 h-14 border-transparent p-1 overflow-hidden flex items-center justify-center">
                                 <img src={HeadsetKuning} alt="Headphone" className="w-12 h-12 object-contain rounded-lg" />
                             </div>
                             <div className="flex flex-col">
@@ -146,7 +177,7 @@ export default function ProfileMyOrder() {
 
                         <div className="flex flex-col gap-3 py-1">
                             <div className="flex items-center gap-3">
-                                <div className="w-12 h-12  bg-gray-50 border border-gray-100 p-1 flex items-center justify-center">
+                                <div className="w-12 h-12 bg-gray-50 border border-gray-100 p-1 flex items-center justify-center">
                                     <img src={HeadsetKuning} alt="bajuPutih" className="w-10 h-10 object-contain rounded-lg" />
                                 </div>
                                 <div className="flex flex-col">
@@ -184,9 +215,7 @@ export default function ProfileMyOrder() {
                             </div>
                         </div>
                     </ProfileCard>
-
                 </div>
-
             </section>
         </main>
     );
