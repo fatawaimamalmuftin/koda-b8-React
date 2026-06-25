@@ -36,16 +36,16 @@ export default function Card({ id, name, price, image, brand, discount, original
                     {brand || "NO BRAND"}
                 </span>
 
-                <h4 className="font-bold text-gray-900 leading-relaxed">
+                <h6 className="font-bold font-sm leading-relaxed">
                     {name}
-                </h4>
+                </h6>
 
                 <div className="flex items-center gap-1 text-[10px] text-gray-400 font-medium">
                     <span className="text-orange-400">★★★★★</span>
                     <span>{rating || "0.0"} ({reviews || "0"})</span>
                 </div>
 
-                <div className="flex items-baseline gap-2">
+                <div className="flex text-sm items-baseline gap-2">
                     <span className="text-sm font-extrabold text-[#1A73E8]">
                         Rp {Number(price || 0).toLocaleString('id-ID')}
                     </span>
