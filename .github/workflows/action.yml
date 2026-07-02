@@ -1,0 +1,71 @@
+name: "otomation tasks"
+on:
+  push:
+    tags:
+        -"v*"
+
+jobs:
+    check:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Ambil isi Repo
+              uses: action/checkout@v4
+
+            - name: setup node js
+              uses: action/setup-node@v4
+              with:
+                node-version: 24
+            - name: node module 
+              run: npm ci
+
+            - name: Lint
+              run: npm run lit
+
+            - name: build
+              run: npm run build
+            
+            - name: upload dist jadi artefact di git
+              uses: actions/upload-artifact@v4
+              with:
+                name: dist
+                path: dist/
+    build:
+        name: bikin images docker
+        needs: check
+
+        runs-on: ubuntu-latest
+
+        permissions:
+            contents: read
+            packages: write
+
+        steps:
+            - name: checkout repo
+              uses: action/checkout@v4
+            
+            - name: login ghcr
+              uses: docker/login-action@v3
+              with:
+                registry: ghcr.io
+                username: ${{github.action}}
+                password: ${{secrets.GITHUB_TOKEN}}
+                
+            - name: bikin tag
+              id: meta
+              uses: docker/metadata-action@v5
+              with:
+                images: ghcr.io/${{github.repository}}
+                tags: |
+                  type=semver,pattern={{version}}
+                  type=semver,pattern={{major}}.{{minor}}
+                  type=semver,pattern={{major}}
+            
+            - name: build & push images
+              uses: docker/build-push-action@v6
+              with:
+                context: .
+                push: true
+                tags: ${{steps.meta.outputs.tags}}
+                label: ${{steps.meta.outputs.latest}}
+            
