@@ -1,107 +1,108 @@
-name: otomation tasks
+name: Automation Tasks
+
 on:
   push:
     tags:
-        - v*
+      - v*
 
 jobs:
-    check:
-        runs-on: ubuntu-latest
+  check:
+    name: Check
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Ambil isi Repo
-              uses: actions/checkout@v4
+    concurrency:
+      group: ${{ github.ref }}
 
-            - name: setup node js
-              uses: actions/setup-node@v4
-              with:
-                node-version: 24
-            - name: node module 
-              run: npm ci
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-            # - name: Lint
-            #   run: npm run lint
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
 
-            - name: build
-              run: npm run build
-            
-            - name: upload dist jadi artefact di git
-              uses: actions/upload-artifact@v4
-              with:
-                name: dist
-                path: dist/
-    build:
-        name: bikin images docker
-        needs: check
+      - name: Install Dependencies
+        run: npm ci
 
-        runs-on: ubuntu-latest
+      # - name: Lint
+      #   run: npm run lint
 
-        permissions:
-            contents: read
-            packages: write
+      - name: Build
+        run: npm run build
 
-        steps:
-            - name: checkout repo
-              uses: actions/checkout@v4
-            
-            - name: login ghcr
-              uses: docker/login-action@v3
-              with:
-                registry: ghcr.io
-                username: ${{github.action}}
-                password: ${{secrets.GITHUB_TOKEN}}
-                
-            - name: bikin tag
-              id: meta
-              uses: docker/metadata-action@v5
-              with:
-                images: ghcr.io/${{github.repository}}
-                tags: |
-                  type=semver,pattern={{version}}
-                  type=semver,pattern={{major}}.{{minor}}
-                  type=semver,pattern={{major}}
-            
-            - name: build & push images
-              uses: docker/build-push-action@v6
-              with:
-                context: .
-                push: true
-                tags: ${{steps.meta.outputs.tags}}
-                label: ${{steps.meta.outputs.latest}}
-    release:
-        name: Release Github
-        needs: build
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          if-no-files-found: error
 
-        runs-on: ubuntu-latest
+  release:
+    name: Release
+    needs: check
+    runs-on: ubuntu-latest
 
-        permissions:
-            contents: write
+    permissions:
+      contents: write
+      packages: write
 
-        steps:
-            - name: Create Release
-              uses: softprops/action-gh-release@v2
-              with:
-                generate_release_notes: true
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    deploy:
-        name: Deploy Server
-        needs: release
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
 
-        runs-on: ubuntu-latest
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
 
-        steps:
-            - name: Deploy to VPS
-              uses: appleboy/ssh-action@v1.2.0
-              with:
-                host: ${{ secrets.SERVER_HOST }}
-                username: ${{ secrets.SERVER_USERNAME }}
-                key: ${{ secrets.SERVER_SSH_KEY }}
-                script: |
-                  cd /path/ke/project
+      - name: Login to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-                  podman compose pull
+      - name: Generate Docker Metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=sha
+            type=semver,pattern={{major}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{version}}
 
-                  podman compose down
+      - name: Build & Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
 
-                  podman compose up -d
-            
+  deploy:
+    name: Deploy
+    needs: release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to VPS
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: ${{ secrets.SSH_PORT }}
+          username: github
+          key: ${{ secrets.SSH_KEY }}
+
+          script: |
+            docker pull ghcr.io/${{ github.repository }}:latest
+            docker container rm frontend --force || true
+            docker run -d -p 9802:80 --name frontend ghcr.io/${{ github.repository }}:latest
