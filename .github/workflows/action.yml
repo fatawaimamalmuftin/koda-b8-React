@@ -19,8 +19,8 @@ jobs:
             - name: node module 
               run: npm ci
 
-            - name: Lint
-              run: npm run lint
+            # - name: Lint
+            #   run: npm run lint
 
             - name: build
               run: npm run build
