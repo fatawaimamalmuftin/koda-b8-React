@@ -99,7 +99,7 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           port: ${{ secrets.SSH_PORT }}
-          username: github
+          username: fatawaimamalmuftin
           key: ${{ secrets.SSH_KEY }}
 
           script: |
