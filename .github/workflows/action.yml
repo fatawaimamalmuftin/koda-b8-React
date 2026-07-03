@@ -1,8 +1,8 @@
-name: "otomation tasks"
+name: otomation tasks
 on:
   push:
     tags:
-        -"v*"
+        - v*
 
 jobs:
     check:
