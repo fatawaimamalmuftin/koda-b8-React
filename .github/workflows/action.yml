@@ -10,10 +10,10 @@ jobs:
 
         steps:
             - name: Ambil isi Repo
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
 
             - name: setup node js
-              uses: action/setup-node@v4
+              uses: actions/setup-node@v4
               with:
                 node-version: 24
             - name: node module 
@@ -42,7 +42,7 @@ jobs:
 
         steps:
             - name: checkout repo
-              uses: action/checkout@v4
+              uses: actions/checkout@v4
             
             - name: login ghcr
               uses: docker/login-action@v3
