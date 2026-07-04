@@ -1,0 +1,10 @@
+<!-- server Caddy ref: https://caddyserver.com/docs/caddyfile-tutorial -->
+<!-- port yg akan di baca sama caddy, semua request akan masuk ke port ini ( 808 ) -->
+:808 {
+    <!-- ini perintah dari Caddy. jadi setiap ada request akan di arahkan ke mana carinya /var/www/html kondisinya html sekarang index.html ( karna react SPA, cuma ada index dan seluruh tampilannya di atur sama js ) -->
+    root * /var/www/html
+    <!-- ini yg membuat file ini menjadi file server caddy ( file_server ) untuk melayani semua request yg datang dari file root ( /var/www/html) sebelumnya -->
+    file_server
+    <!-- ini khusus untuk react karna react menggunakan SPA, jadi foldernya cuma ada index.html, jadi ketika ada reques path /login akan di kembalikan ke request itu ke index.html yg di dalam nya udah di atur oleh js ( hasil dari build /dist ) atau lebih tepat nya di arahkan langsung oleh react router. jadi permintaan itu tidak di balikan eror karna memang file /login.html itu ga ada jadi harus di berikan react oleh react router untuk di kembalikan ke caddynya -->
+    try_files {path} /index.html
+}

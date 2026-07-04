@@ -6,6 +6,7 @@ on:
       - v*
 
 jobs:
+  # Quality Gate bertugas mengecek apakah project ini benar2 bisa di build
   check:
     name: Check
     runs-on: ubuntu-latest
@@ -15,23 +16,28 @@ jobs:
 
     steps:
       - name: Checkout Repository
+      ## Mengambil source code repository ke GitHub Runner (sama dengan git clone), cuma ini di lakukan oleh github runner
         uses: actions/checkout@v4
 
       - name: Setup Node.js
+      # menginstall env Node.js versi 24 pada GitHub Runner.
         uses: actions/setup-node@v4
         with:
           node-version: 24
 
-      - name: Install Dependencies
+      - name: Install Dependencies ( Node_modules )
+      # pakai ci karna CI/CD, dan ini lebih bast practice, ringan juga jadi Lebih cepat dan konsisten karena menggunakan package-lock.json
         run: npm ci
 
       # - name: Lint
       #   run: npm run lint
 
       - name: Build
+      # bikin /dist. sama kaya Dockerfile, bedanya docker membuat di container sedangkan github membuat di runner
         run: npm run build
 
       - name: Upload Artifact
+      # bikin artifact sementara ( sama kaya zip ) sementara, kalo docker bikin images github bikin artifact sementara sementara yg di simpan di github  biar job selanjutnya ga perlu build lagi
         uses: actions/upload-artifact@v4
         with:
           name: dist
@@ -52,17 +58,20 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download Artifact
+      # download artifact yg sebelumnya dari github dan menghasilkan /dist
         uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist/
 
       - name: Create GitHub Release
+      # job ini membuat GitHub Release berdasarkan tag yang sudah di-push, Release note dibuat otomatis
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
 
       - name: Login to GHCR
+      # login ke github container, agar docker images bisa di push
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -70,6 +79,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Docker Metadata
+      # ini job menghasilkan metadata Docker seperti tag dan label secara otomatis.
         id: meta
         uses: docker/metadata-action@v5
         with:
@@ -81,6 +91,7 @@ jobs:
             type=semver,pattern={{version}}
 
       - name: Build & Push Docker Image
+      # Build Docker Image berdasarkan Dockerfile, kemudian push image ke GitHub Container Registry.
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -102,6 +113,9 @@ jobs:
           username: ${{secrets.SSH_USERNAME}}
           key: ${{ secrets.SSH_KEY }}
 
+          # mengambil Docker Image terbaru dari GHCR ke VPS
+          # menghapus container lama jika masih ada, || (OR) true agar workflow tidak gagal jika container ga ada
+          # menjalankan container baru, Port VPS 9802 dibuka / diteruskan port 80 di dalam container nginx
           script: |
             docker pull ghcr.io/${{ github.repository }}:latest
             docker container rm frontend --force || true
