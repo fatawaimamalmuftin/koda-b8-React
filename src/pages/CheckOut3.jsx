@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ShoppingBag, Check } from 'lucide-react';
 import headphoneImg from '../assets/elektronik.png';
 import { useNavigate } from 'react-router-dom';
@@ -6,22 +6,33 @@ import { useNavigate } from 'react-router-dom';
 export default function CheckOut3() {
     const navigate = useNavigate();
 
-    const [cartItems, setCartItems] = useState([]);
-    const [shippingAddress, setShippingAddress] = useState(null);
-    const [shippingMethod, setShippingMethod] = useState('');
-    const [paymentMethod, setPaymentMethod] = useState('');
+    const [cartItems] = useState(() => {
+        try {
+            const cart = JSON.parse(localStorage.getItem('cart'));
+            return Array.isArray(cart) ? cart : [];
+        } catch {
+            return [];
+        }
+    });
 
-    useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
-        const savedShipping = localStorage.getItem('shippingMethod') || 'JNE Reguler';
-        const savedPayment = localStorage.getItem('paymentMethod') || 'Virtual Account BCA';
+    const [shippingAddress] = useState(() => {
+        try {
+            const address = JSON.parse(localStorage.getItem('shippingAddress'));
+            return address && typeof address === 'object' && !Array.isArray(address)
+                ? address
+                : null;
+        } catch {
+            return null;
+        }
+    });
 
-        setCartItems(savedCart);
-        setShippingAddress(savedAddress);
-        setShippingMethod(savedShipping);
-        setPaymentMethod(savedPayment);
-    }, []);
+    const [shippingMethod] = useState(() => {
+        return localStorage.getItem('shippingMethod') || 'JNE Reguler';
+    });
+
+    const [paymentMethod] = useState(() => {
+        return localStorage.getItem('paymentMethod') || 'Virtual Account BCA';
+    });
 
     const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 

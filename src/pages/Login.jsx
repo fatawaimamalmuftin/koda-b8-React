@@ -79,7 +79,10 @@ export default function Login() {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        if (!email || !password) {
+        const emailValue = email.trim();
+        const passwordValue = password.trim();
+
+        if (!emailValue || !passwordValue) {
             Swal.fire({
                 title: 'Gagal Masuk',
                 text: 'Email dan Kata Sandi wajib diisi!',
@@ -105,9 +108,24 @@ export default function Login() {
             return;
         }
 
-        const userList = JSON.parse(savedUserData);
+        let userList;
 
-        const user = userList.find(u => u.email === email);
+        try {
+            userList = savedUserData ? JSON.parse(savedUserData) : [];
+        } catch (error) {
+            console.error('Failed to parse saved user data:', error);
+
+            Swal.fire({
+                title: 'Terjadi Kesalahan',
+                text: 'Data pengguna rusak. Silakan registrasi ulang.',
+                icon: 'error',
+                confirmButtonColor: '#1A73E8'
+            });
+
+            return;
+        }
+
+        const user = userList.find((u) => u.email === emailValue);
 
         if (!user) {
             Swal.fire({
@@ -120,22 +138,7 @@ export default function Login() {
             return;
         }
 
-        if (user.pass === password) {
-
-            user.isLoggedIn = true;
-
-            localStorage.setItem('user', JSON.stringify(userList));
-
-            Swal.fire({
-                title: 'Login Berhasil!',
-                text: 'Selamat datang kembali di BeliMudah.',
-                icon: 'success',
-                confirmButtonText: 'Masuk Beranda',
-                confirmButtonColor: '#1A73E8'
-            }).then(() => {
-                navigate('/');
-            });
-        } else {
+        if (user.pass !== passwordValue) {
             Swal.fire({
                 title: 'Kata Sandi Salah',
                 text: 'Silakan periksa kembali kata sandi kamu.',
@@ -143,7 +146,38 @@ export default function Login() {
                 confirmButtonText: 'Coba Lagi',
                 confirmButtonColor: '#1A73E8'
             });
+            return;
         }
+
+        const updatedUsers = userList.map((u) => ({
+            ...u,
+            isLoggedIn: u.email === emailValue
+        }));
+
+        try {
+            localStorage.setItem('user', JSON.stringify(updatedUsers));
+        } catch (error) {
+            console.error('Failed to save user data:', error);
+
+            Swal.fire({
+                title: 'Gagal Menyimpan Data',
+                text: 'Silakan coba beberapa saat lagi.',
+                icon: 'error',
+                confirmButtonColor: '#1A73E8'
+            });
+
+            return;
+        }
+
+        Swal.fire({
+            title: 'Login Berhasil!',
+            text: 'Selamat datang kembali di BeliMudah.',
+            icon: 'success',
+            confirmButtonText: 'Masuk Beranda',
+            confirmButtonColor: '#1A73E8'
+        }).then(() => {
+            navigate('/');
+        });
     };
 
     return (

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { CreditCard, Check } from 'lucide-react';
 import headphoneImg from '../assets/elektronik.png';
 import { useNavigate } from 'react-router-dom';
@@ -6,23 +6,19 @@ import { useNavigate } from 'react-router-dom';
 export default function CheckOut2() {
     const navigate = useNavigate();
 
-    const [cartItems, setCartItems] = useState([]);
-    const [shippingAddress, setShippingAddress] = useState(null);
+    const [cartItems] = useState(() => {
+        if (typeof window === 'undefined') return [];
+        return JSON.parse(localStorage.getItem('cart')) || [];
+    });
+    const [shippingAddress] = useState(() => {
+        if (typeof window === 'undefined') return null;
+        return JSON.parse(localStorage.getItem('shippingAddress'));
+    });
 
-    const [paymentMethod, setPaymentMethod] = useState('Virtual Account BCA');
-
-    useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
-        const savedPayment = localStorage.getItem('paymentMethod');
-
-        setCartItems(savedCart);
-        setShippingAddress(savedAddress);
-
-        if (savedPayment) {
-            setPaymentMethod(savedPayment);
-        }
-    }, []);
+    const [paymentMethod, setPaymentMethod] = useState(() => {
+        if (typeof window === 'undefined') return 'Virtual Account BCA';
+        return localStorage.getItem('paymentMethod') || 'Virtual Account BCA';
+    });
 
     const subtotal = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 

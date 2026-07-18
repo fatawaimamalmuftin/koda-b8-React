@@ -21,18 +21,42 @@ export default function CheckOut1() {
     const [shippingMethod, setShippingMethod] = useState('JNE Reguler');
 
     useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-        async function setCart() {
-            setCartItems(savedCart);
+        const storageData = {
+            savedCart: [],
+            savedAddress: null,
+            savedMethod: null,
+        };
 
-            const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
-            if (savedAddress) setShippingAddress(savedAddress);
+        try {
+            const cart = JSON.parse(localStorage.getItem('cart'));
+            storageData.savedCart = Array.isArray(cart) ? cart : [];
 
-            const savedMethod = localStorage.getItem('shippingMethod');
-            if (savedMethod) setShippingMethod(savedMethod);
+            const address = JSON.parse(localStorage.getItem('shippingAddress'));
+            storageData.savedAddress =
+                address &&
+                    typeof address === 'object' &&
+                    !Array.isArray(address)
+                    ? address
+                    : null;
+
+            storageData.savedMethod = localStorage.getItem('shippingMethod');
+        } catch (error) {
+            console.error('Failed to load checkout data:', error);
         }
-        setCart()
 
+        async function setCart() {
+            setCartItems(storageData.savedCart);
+
+            if (storageData.savedAddress) {
+                setShippingAddress(storageData.savedAddress);
+            }
+
+            if (storageData.savedMethod) {
+                setShippingMethod(storageData.savedMethod);
+            }
+        }
+
+        setCart();
     }, []);
 
     const handleInputChange = (e) => {

@@ -10,17 +10,24 @@ export default function MainCart() {
 
     useEffect(() => {
         function getLocalCart() {
-            const storedUsers = JSON.parse(localStorage.getItem('user')) || [];
-            setAllUsers(storedUsers);
+            try {
+                const storedUsers = JSON.parse(localStorage.getItem("user")) || [];
 
-            const activeUser = storedUsers.find(user => user.isLoggedIn === true);
+                setAllUsers(storedUsers);
 
-            if (activeUser && activeUser.cart) {
-                setCartItems(activeUser.cart);
-            } else {
+                const activeUser = storedUsers.find(
+                    (user) => user.isLoggedIn
+                );
+
+                setCartItems(activeUser?.cart || []);
+            } catch (error) {
+                console.error("Failed to load cart from localStorage:", error);
+
+                setAllUsers([]);
                 setCartItems([]);
             }
         }
+
         getLocalCart();
     }, []);
 

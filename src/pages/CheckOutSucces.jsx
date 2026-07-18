@@ -12,48 +12,92 @@ export default function CheckOutSuccess() {
 
     useEffect(() => {
         async function setdata() {
-            const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
-            const savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
-            const savedShipping = localStorage.getItem('shippingMethod') || 'JNE Reguler';
+            let savedCart;
+            let savedAddress;
+            let existingOrders;
+
+            try {
+                savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+                savedAddress = JSON.parse(localStorage.getItem('shippingAddress'));
+                existingOrders = JSON.parse(localStorage.getItem('my_orders')) || [];
+            } catch (error) {
+                console.error('Failed to load data from storage:', error);
+
+                savedCart = [];
+                savedAddress = null;
+                existingOrders = [];
+            }
+
+            const savedShipping =
+                localStorage.getItem('shippingMethod') || 'JNE Reguler';
 
             setCartItems(savedCart);
             setShippingAddress(savedAddress);
             setShippingMethod(savedShipping);
 
             let savedOrderNum = sessionStorage.getItem('currentOrderNumber');
+
             if (!savedOrderNum) {
-                savedOrderNum = `BM${Math.floor(10000000 + Math.random() * 90000000)}`;
-                sessionStorage.setItem('currentOrderNumber', savedOrderNum);
+                savedOrderNum = `BM${Math.floor(
+                    10000000 + Math.random() * 90000000
+                )}`;
+
+                try {
+                    sessionStorage.setItem(
+                        'currentOrderNumber',
+                        savedOrderNum
+                    );
+                } catch (error) {
+                    console.error(
+                        'Failed to save current order number:',
+                        error
+                    );
+                }
 
                 if (savedCart.length > 0) {
-                    const totalPayment = savedCart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+                    const totalPayment = savedCart.reduce(
+                        (acc, item) => acc + item.price * item.quantity,
+                        0
+                    );
 
                     const newOrder = {
                         date: new Date().toLocaleDateString('id-ID', {
                             day: 'numeric',
                             month: 'long',
-                            year: 'numeric'
+                            year: 'numeric',
                         }),
                         status: 'Pesanan Diterima',
                         total: totalPayment,
-                        items: savedCart.map(item => ({
-                            name: item.name ? item.name.split(' (')[0] : 'Produk',
+                        items: savedCart.map((item) => ({
+                            name: item.name
+                                ? item.name.split(' (')[0]
+                                : 'Produk',
                             quantity: item.quantity,
                             price: item.price,
-                        }))
+                        })),
                     };
 
-                    const existingOrders = JSON.parse(localStorage.getItem('my_orders')) || [];
                     const updatedOrders = [newOrder, ...existingOrders];
 
-                    localStorage.setItem('my_orders', JSON.stringify(updatedOrders));
+                    try {
+                        localStorage.setItem(
+                            'my_orders',
+                            JSON.stringify(updatedOrders)
+                        );
+                    } catch (error) {
+                        console.error(
+                            'Failed to save order history:',
+                            error
+                        );
+                    }
                 }
             }
+
             setOrderNumber(`#${savedOrderNum}`);
         }
-        setdata()
-    }, []);
 
+        setdata();
+    }, []);
     const totalPayment = cartItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
     const handleContinueShopping = () => {
