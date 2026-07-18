@@ -9,6 +9,7 @@ import {
     FiEdit3,
 } from 'react-icons/fi';
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 export default function ProfileEdit() {
@@ -30,9 +31,17 @@ export default function ProfileEdit() {
         }));
     };
 
+    // Masih dalam tahap pengembangan
     const handleSave = (e) => {
         e.preventDefault();
-        alert('Profil berhasil disimpan!');
+
+        Swal.fire({
+            title: 'Berhasil!',
+            text: 'Profil berhasil disimpan.',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#1A73E8',
+        });
     };
 
 

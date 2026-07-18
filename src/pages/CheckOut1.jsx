@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Truck } from 'lucide-react';
 import headphoneImg from '../assets/elektronik.png';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function CheckOut1() {
     const navigate = useNavigate();
@@ -59,8 +60,8 @@ export default function CheckOut1() {
         setCart();
     }, []);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
         setShippingAddress(prev => ({
             ...prev,
             [name]: value
@@ -72,14 +73,59 @@ export default function CheckOut1() {
     const handleNextStep = (e) => {
         e.preventDefault();
 
-        const { namaPenerima, nomorTelepon, email, alamatLengkap, kota, provinsi, kodePos } = shippingAddress;
-        if (!namaPenerima || !nomorTelepon || !email || !alamatLengkap || !kota || !provinsi || !kodePos) {
-            alert('Silakan lengkapi semua bidang alamat pengiriman yang wajib diisi (*).');
+        const {
+            namaPenerima,
+            nomorTelepon,
+            email,
+            alamatLengkap,
+            kota,
+            provinsi,
+            kodePos,
+        } = shippingAddress;
+
+        if (
+            !namaPenerima ||
+            !nomorTelepon ||
+            !email ||
+            !alamatLengkap ||
+            !kota ||
+            !provinsi ||
+            !kodePos
+        ) {
+            Swal.fire({
+                title: 'Data Belum Lengkap',
+                text: 'Silakan lengkapi semua bidang alamat pengiriman yang wajib diisi (*).',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#1A73E8',
+            });
+
             return;
         }
 
-        localStorage.setItem('shippingAddress', JSON.stringify(shippingAddress));
-        localStorage.setItem('shippingMethod', shippingMethod);
+        try {
+            localStorage.setItem(
+                'shippingAddress',
+                JSON.stringify(shippingAddress)
+            );
+
+            localStorage.setItem(
+                'shippingMethod',
+                shippingMethod
+            );
+        } catch (error) {
+            console.error('Failed to save shipping data:', error);
+
+            Swal.fire({
+                title: 'Terjadi Kesalahan',
+                text: 'Gagal menyimpan data pengiriman. Silakan coba lagi.',
+                icon: 'error',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#d33',
+            });
+
+            return;
+        }
 
         navigate('/checkout2');
     };

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ShoppingBag, Check } from 'lucide-react';
 import headphoneImg from '../assets/elektronik.png';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function CheckOut3() {
     const navigate = useNavigate();
@@ -38,9 +39,17 @@ export default function CheckOut3() {
 
     const handlePlaceOrder = () => {
         if (cartItems.length === 0) {
-            alert('Keranjang belanja Anda kosong.');
+            Swal.fire({
+                title: 'Keranjang Kosong',
+                text: 'Silakan tambahkan produk ke keranjang sebelum melanjutkan checkout.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#1A73E8',
+            });
+
             return;
         }
+
         navigate('/checkoutsucces');
     };
 

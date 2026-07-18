@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Check, Truck, MapPin, Package } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function CheckOutSuccess() {
     const navigate = useNavigate();
@@ -108,6 +109,16 @@ export default function CheckOutSuccess() {
         localStorage.removeItem('selected_product');
         sessionStorage.removeItem('currentOrderNumber');
         navigate('/');
+    };
+
+    const handleTrackOrder = () => {
+        Swal.fire({
+            title: 'Dalam Pengembangan',
+            text: 'fitur pelacakan pesanan sedang dalam pengembangan dan akan segera tersedia.',
+            icon: 'info',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#1A73E8',
+        });
     };
 
     return (
@@ -222,7 +233,10 @@ export default function CheckOutSuccess() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-                    <button onClick={() => alert('Fitur tracking dalam pengembangan')} className="w-full sm:w-auto px-6 h-11 bg-[#1A73E8] hover:bg-blue-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm shadow-blue-100">
+                    <button
+                        onClick={handleTrackOrder}
+                        className="w-full sm:w-auto px-6 h-11 bg-[#1A73E8] hover:bg-blue-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm shadow-blue-100"
+                    >
                         <MapPin size={14} /> Lacak Pesanan
                     </button>
                     <button onClick={() => navigate('/profilemyorder')} className="w-full sm:w-auto px-6 h-11 bg-white border border-gray-200 hover:bg-gray-50 text-gray-600 font-bold rounded-xl text-xs flex items-center justify-center transition">
