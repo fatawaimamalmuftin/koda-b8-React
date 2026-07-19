@@ -3,78 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import BgLogin from '../assets/ceweBgLogin.jpg';
 import Swal from 'sweetalert2';
 
+import { useDispatch } from 'react-redux';
+import { setUsers } from '../features/user/userSlice.js'
+
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const navigate = useNavigate();
-    //     e.preventDefault();
-
-    //     if (!email || !password) {
-    //         Swal.fire({
-    //             title: 'Gagal Masuk',
-    //             text: 'Email dan Kata Sandi wajib diisi!',
-    //             icon: 'warning',
-    //             confirmButtonText: 'Mengerti',
-    //             confirmButtonColor: '#1A73E8'
-    //         });
-    //         return;
-    //     }
-
-    //     const savedUserData = localStorage.getItem('user');
-
-    //     if (!savedUserData) {
-    //         Swal.fire({
-    //             title: 'Akun Tidak Ditemukan',
-    //             text: 'Email tidak terdaftar! Silakan registrasi terlebih dahulu.',
-    //             icon: 'error',
-    //             confirmButtonText: 'Daftar Sekarang',
-    //             confirmButtonColor: '#1A73E8'
-    //         }).then(() => {
-    //             navigate('/registrasi');
-    //         });
-    //         return;
-    //     }
-
-    //     const user = JSON.parse(savedUserData);
-
-    //     if (user.email !== email) {
-    //         Swal.fire({
-    //             title: 'Akun Tidak Ditemukan',
-    //             text: 'Email yang Anda masukkan tidak sesuai dengan data terdaftar.',
-    //             icon: 'error',
-    //             confirmButtonText: 'Coba Lagi',
-    //             confirmButtonColor: '#1A73E8'
-    //         });
-    //         return;
-    //     }
-
-    //     if (user.pass === password) {
-    //         const dataLocal = localStorage.getItem('user')
-    //         const arrayData = dataLocal ? JSON.parse(dataLocal) : []
-    //         const statusLogged = { isLoggedIn: true };
-    //         arrayData.push(statusLogged)
-    //         localStorage.setItem('user', JSON.stringify(arrayData))
-
-    //         Swal.fire({
-    //             title: 'Login Berhasil!',
-    //             text: 'Selamat datang kembali di BeliMudah.',
-    //             icon: 'success',
-    //             confirmButtonText: 'Masuk Beranda',
-    //             confirmButtonColor: '#1A73E8'
-    //         }).then(() => {
-    //             navigate('/');
-    //         });
-    //     } else {
-    //         Swal.fire({
-    //             title: 'Kata Sandi Salah',
-    //             text: 'Silakan periksa kembali kata sandi kamu.',
-    //             icon: 'error',
-    //             confirmButtonText: 'Coba Lagi',
-    //             confirmButtonColor: '#1A73E8'
-    //         });
-    //     }
-    // };
+    const dispatch = useDispatch();
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -156,6 +93,7 @@ export default function Login() {
 
         try {
             localStorage.setItem('user', JSON.stringify(updatedUsers));
+            dispatch(setUsers(updatedUsers))
         } catch (error) {
             console.error('Failed to save user data:', error);
 

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
     MapPin,
     Search,
@@ -12,28 +12,35 @@ import {
     ChevronDown
 } from 'lucide-react';
 import Swal from 'sweetalert2';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { setUsers } from '../features/user/userSlice.js'
 
 export default function Navbar() {
     const navigate = useNavigate();
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [userList, setUserList] = useState([]);
+    const dispatch = useDispatch();
 
-    useEffect(() => {
-        async function getData() {
-            const savedData = localStorage.getItem('user');
-            if (savedData) {
-                try {
-                    const parsedData = JSON.parse(savedData);
-                    if (Array.isArray(parsedData)) {
-                        setUserList(parsedData);
-                    }
-                } catch (error) {
-                    console.error("Gagal membaca data user dari localStorage:", error);
-                }
-            }
-        }
-        getData();
-    }, []);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    // const [userList, setUserList] = useState([]);
+
+    // useEffect(() => {
+    //     async function getData() {
+    //         const savedData = localStorage.getItem('user');
+    //         if (savedData) {
+    //             try {
+    //                 const parsedData = JSON.parse(savedData);
+    //                 if (Array.isArray(parsedData)) {
+    //                     setUserList(parsedData);
+    //                 }
+    //             } catch (error) {
+    //                 console.error("Gagal membaca data user dari localStorage:", error);
+    //             }
+    //         }
+    //     }
+    //     getData();
+    // }, []);
+
+    const userList = useSelector((state) => state.user.users)
 
     const activeUser = userList.find(u => u.isLoggedIn === true);
     const isLoggedIn = !!activeUser;
@@ -58,15 +65,31 @@ export default function Navbar() {
             cancelButtonText: "Batal"
         }).then((result) => {
             if (result.isConfirmed) {
-                const updatedUserList = userList.map(user => {
+                // const updatedUserList = userList.map(user => {
+                //     if (user.isLoggedIn === true) {
+                //         return { ...user, isLoggedIn: false };
+                //     }
+                //     return user;
+                // });
+
+                const updatedUserList = userList.map((user) => {
                     if (user.isLoggedIn === true) {
-                        return { ...user, isLoggedIn: false };
+                        return {
+                            ...user,
+                            isLoggedIn: false,
+                        };
                     }
+
                     return user;
                 });
 
-                setUserList(updatedUserList);
-                localStorage.setItem('user', JSON.stringify(updatedUserList));
+                // setUserList(updatedUserList);
+                localStorage.setItem(
+                    'user',
+                    JSON.stringify(updatedUserList)
+                );
+
+                dispatch(setUsers(updatedUserList));
 
                 Swal.fire({
                     title: "Berhasil!",
