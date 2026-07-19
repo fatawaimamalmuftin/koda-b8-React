@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Trash2, Minus, Plus, Heart, Tag, Shield, ShoppingBag } from 'lucide-react';
 import elektronikImg from '../assets/elektronik.png';
-import Card from '../componen/Card';
+import Card from '../componens/Card';
 import { Link } from 'react-router-dom';
 
 export default function MainCart() {

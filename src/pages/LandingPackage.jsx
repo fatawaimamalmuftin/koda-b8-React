@@ -18,7 +18,7 @@ import perpus from '../assets/BukuTulis.png';
 
 
 import { MessageCircle, ChevronRight, ChevronLeft } from 'lucide-react';
-import Card from './../componen/Card';
+import Card from '../componens/Card';
 import { useState } from 'react';
 
 export default function LandingPackage() {

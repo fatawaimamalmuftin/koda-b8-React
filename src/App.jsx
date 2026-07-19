@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //Komponen child
-import Navbar from "./componen/Navbar.jsx"
-import Footer from "./componen/Footer.jsx"
+import Navbar from "./componens/Navbar.jsx"
+import Footer from "./componens/Footer.jsx"
 
 //Komponen parent
 import LandingPackage from './pages/LandingPackage'
@@ -22,7 +22,7 @@ import ForgotPass from "./pages/ForgotPass.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import AdminManajemenProduk from "./pages/AdminManajement.jsx";
 import { useState } from "react";
-import AuthContext from "./componen/AuthContex.jsx";
+import AuthContext from "./componens/AuthContex.jsx";
 
 
 const router = createBrowserRouter([

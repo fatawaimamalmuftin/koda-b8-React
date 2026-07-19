@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react'
-import Card from './../componen/Card';
+import Card from '../componens/Card';
 import elektronikImg from '../assets/elektronik.png';
 
 export default function MainBrowse() {

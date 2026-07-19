@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronRight, ShoppingCart, Heart, Star, ShieldCheck, Truck, RotateCcw } from "lucide-react";
-import Card from "./../componen/Card";
+import Card from "../componens/Card";
 import elektronikImg from '../assets/elektronik.png';
 import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2';
