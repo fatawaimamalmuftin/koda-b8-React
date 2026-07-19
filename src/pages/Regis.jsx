@@ -63,7 +63,7 @@ export default function Regis() {
             return;
         }
 
-        const newUser = { nama, email, pass };
+        const newUser = { nama, email, pass: btoa(pass) };
         userList.push(newUser);
         localStorage.setItem("user", JSON.stringify(userList));
 

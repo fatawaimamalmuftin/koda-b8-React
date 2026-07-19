@@ -75,7 +75,9 @@ export default function Login() {
             return;
         }
 
-        if (user.pass !== passwordValue) {
+        const endcodepass = btoa(passwordValue)
+
+        if (user.pass !== endcodepass) {
             Swal.fire({
                 title: 'Kata Sandi Salah',
                 text: 'Silakan periksa kembali kata sandi kamu.',
