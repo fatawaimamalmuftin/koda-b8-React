@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FiShoppingBag, FiHeart, FiMapPin, FiCreditCard, FiSettings, FiLogOut } from 'react-icons/fi';
-import Card from '../componens/Card';
+import Card from '../components/Card';
 import elektronikImg from '../assets/elektronik.png';
 import { useEffect, useState } from 'react';
 

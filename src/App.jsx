@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //Komponen child
-import Navbar from "./componens/Navbar.jsx"
-import Footer from "./componens/Footer.jsx"
+import Navbar from "./components/Navbar.jsx"
+import Footer from "./components/Footer.jsx"
 
 //Komponen parent
 import LandingPackage from './pages/LandingPackage'
@@ -22,7 +22,7 @@ import ForgotPass from "./pages/ForgotPass.jsx";
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import AdminManajemenProduk from "./pages/AdminManajement.jsx";
 import { useState } from "react";
-import AuthContext from "./componens/AuthContex.jsx";
+import AuthContext from "./components/AuthContex.jsx";
 
 
 const router = createBrowserRouter([
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <>
-      <Navbar />,
+      <Navbar />
       <LandingPackage />
       <Footer />
     </>
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
   {
     path: "/mainbrows",
     element: <>
-      <Navbar />,
+      <Navbar />
       <MainBrowse />
       <Footer />
     </>
@@ -48,8 +48,8 @@ const router = createBrowserRouter([
   {
     path: "/maindetail",
     element: <>
-      <Navbar />,
-      <MainDetail />,
+      <Navbar />
+      <MainDetail />
       <Footer />
     </>
   },
@@ -57,8 +57,8 @@ const router = createBrowserRouter([
   {
     path: "/maincart",
     element: <>
-      <Navbar />,
-      <MainCart />,
+      <Navbar />
+      <MainCart />
       <Footer />
     </>
   },
@@ -66,8 +66,8 @@ const router = createBrowserRouter([
   {
     path: "/checkout1",
     element: <>
-      <Navbar />,
-      <CheckOut1 />,
+      <Navbar />
+      <CheckOut1 />
       <Footer />
     </>
   },
@@ -75,8 +75,8 @@ const router = createBrowserRouter([
   {
     path: "/checkout2",
     element: <>
-      <Navbar />,
-      <CheckOut2 />,
+      <Navbar />
+      <CheckOut2 />
       <Footer />
     </>
   },
@@ -84,8 +84,8 @@ const router = createBrowserRouter([
   {
     path: "/checkout3",
     element: <>
-      <Navbar />,
-      <CheckOut3 />,
+      <Navbar />
+      <CheckOut3 />
       <Footer />
     </>
   },
@@ -93,8 +93,8 @@ const router = createBrowserRouter([
   {
     path: "/checkoutsucces",
     element: <>
-      <Navbar />,
-      <CheckOutSucces />,
+      <Navbar />
+      <CheckOutSucces />
       <Footer />
     </>
   },
@@ -102,8 +102,8 @@ const router = createBrowserRouter([
   {
     path: "/profilemyorder",
     element: <>
-      <Navbar />,
-      <ProfileMyOrder />,
+      <Navbar />
+      <ProfileMyOrder />
       <Footer />
     </>
   },
@@ -111,8 +111,8 @@ const router = createBrowserRouter([
   {
     path: "/profilewishlist",
     element: <>
-      <Navbar />,
-      <ProfileWishList />,
+      <Navbar />
+      <ProfileWishList />
       <Footer />
     </>
   },
@@ -120,8 +120,8 @@ const router = createBrowserRouter([
   {
     path: "/profilealamat",
     element: <>
-      <Navbar />,
-      <ProfileAlamat />,
+      <Navbar />
+      <ProfileAlamat />
       <Footer />
     </>
   },
@@ -129,8 +129,8 @@ const router = createBrowserRouter([
   {
     path: "/profileedit",
     element: <>
-      <Navbar />,
-      <ProfileEdit />,
+      <Navbar />
+      <ProfileEdit />
       <Footer />
     </>
   },
